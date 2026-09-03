@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rrIconGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5D6"/>
+      <stop offset="30%" stop-color="#F2D272"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#7A560F"/>
+    </linearGradient>
+    <linearGradient id="rrIconRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAD6D6"/>
+      <stop offset="100%" stop-color="#B76E79"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Royal Arch -->
+  <path d="M50 6 C74 6, 90 20, 90 48 L90 82 L50 92 L10 82 L10 48 C10 20, 26 6, 50 6 Z" 
+        fill="none" stroke="url(#rrIconGold)" stroke-width="2" opacity="0.95"/>
+  <path d="M50 13 C68 13, 83 24, 83 48 L83 77 L50 85 L17 77 L17 48 C17 24, 32 13, 50 13 Z" 
+        fill="none" stroke="url(#rrIconGold)" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/>
+
+  <!-- Top Crown Jewel -->
+  <path d="M50 12 L54 19 L61 14 L58 23 L66 21 L59 28 L50 24 L41 28 L34 21 L42 23 L39 14 L46 19 Z" fill="url(#rrIconGold)"/>
+  <circle cx="50" cy="8" r="2.5" fill="#FFF9E6"/>
+
+  <!-- Interlocking RR -->
+  <path d="M30 72 L30 36 C30 36 44 34 44 45 C44 54 32 54 32 54 L44 72" fill="none" stroke="url(#rrIconGold)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 72 L70 36 C70 36 56 34 56 45 C56 54 68 54 68 54 L56 72" fill="none" stroke="url(#rrIconRose)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Center Kundan Gem -->
+  <polygon points="50,44 55,52 50,60 45,52" fill="url(#rrIconGold)"/>
+</svg>

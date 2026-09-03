@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 110" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rrGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5D6"/>
+      <stop offset="25%" stop-color="#F2D272"/>
+      <stop offset="60%" stop-color="#D4AF37"/>
+      <stop offset="85%" stop-color="#B38728"/>
+      <stop offset="100%" stop-color="#7A560F"/>
+    </linearGradient>
+    <linearGradient id="rrRoseGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAD6D6"/>
+      <stop offset="50%" stop-color="#E0A9AF"/>
+      <stop offset="100%" stop-color="#B76E79"/>
+    </linearGradient>
+    <filter id="rrGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Insignia / Monogram Section: Double 'R' Interlocked within Maharani Arch -->
+  <g transform="translate(14, 8)">
+    <!-- Outer Royal Arch with Lotus Motif -->
+    <path d="M46 4 C72 4, 90 20, 90 48 L90 84 L46 94 L2 84 L2 48 C2 20, 20 4, 46 4 Z" 
+          fill="none" stroke="url(#rrGoldGrad)" stroke-width="1.8" opacity="0.95"/>
+    
+    <!-- Inner Geometric Arch -->
+    <path d="M46 12 C67 12, 82 25, 82 48 L82 78 L46 86 L10 78 L10 48 C10 25, 25 12, 46 12 Z" 
+          fill="none" stroke="url(#rrGoldGrad)" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.5"/>
+
+    <!-- Royal Crown/Lotus Top -->
+    <path d="M46 12 L50 20 L58 14 L55 24 L64 22 L56 30 L46 26 L36 30 L28 22 L37 24 L34 14 L42 20 Z" fill="url(#rrGoldGrad)" opacity="0.9"/>
+    <circle cx="46" cy="8" r="2.5" fill="#FFF9E6"/>
+
+    <!-- Stylized Interlocking 'R' & 'R' Monogram -->
+    <!-- First 'R' -->
+    <path d="M26 74 L26 34 C26 34 40 32 40 44 C40 54 28 54 28 54 L42 74" fill="none" stroke="url(#rrGoldGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Second 'R' (Mirrored Interlock) -->
+    <path d="M66 74 L66 34 C66 34 52 32 52 44 C52 54 64 54 64 54 L50 74" fill="none" stroke="url(#rrRoseGoldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Central Kundan Gem -->
+    <polygon points="46,44 51,52 46,60 41,52" fill="url(#rrGoldGrad)"/>
+  </g>
+
+  <!-- Typography: RIWAAYAT ROYALE -->
+  <g transform="translate(118, 12)">
+    <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" letter-spacing="8" fill="#E6C687" opacity="0.95">
+      MAISON DE COUTURE
+    </text>
+    <text x="0" y="58" font-family="'Cinzel', 'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="6" fill="url(#rrGoldGrad)" filter="url(#rrGlow)">
+      RIWAAYAT
+    </text>
+    <text x="245" y="58" font-family="'Cinzel', 'Playfair Display', serif" font-size="32" font-weight="400" letter-spacing="6" fill="#FDFBF7">
+      ROYALE
+    </text>
+    
+    <!-- Tagline & Divider -->
+    <text x="2" y="84" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="500" letter-spacing="5.5" fill="#E0A9AF">
+      WHERE EVERY CELEBRATION BECOMES A STATEMENT
+    </text>
+    <line x1="380" y1="81" x2="480" y2="81" stroke="url(#rrGoldGrad)" stroke-width="0.8" opacity="0.6"/>
+  </g>
+</svg>

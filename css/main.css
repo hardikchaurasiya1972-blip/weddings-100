@@ -1,0 +1,358 @@
+/* ==========================================================================
+   RIWAAYAT ROYALE - MAIN STYLESHEET
+   Aesthetic: Luxury Indian Couture, Royal Palace Aesthetics, Futuristic 3D Tech
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Royal Couture Palette - Pure White Text on Deep Velvet */
+  --bg-deep-burgundy: #1A0512;    /* Deep Royal Velvet Canvas */
+  --bg-burgundy-card: #2D0A1E;    /* Royal Card Background */
+  --bg-wine: #4A0E2E;             /* Deep Wine Highlight */
+  --bg-plum: #1F0519;             /* Royal Dark Accent */
+  --bg-plum-dark: #12030E;        /* Deep Shadow Border */
+  
+  --color-ivory: #FFFFFF;        /* Pure White Primary Text & Headings */
+  --color-ivory-muted: #F3EBE1;  /* Luminous Ivory Body Text */
+  --color-beige: #FDE2E4;        /* Soft Blush Accent Text */
+
+  --gold-primary: #D4AF37;
+  --gold-light: #E6C687;
+  --gold-soft: #F0D7A2;
+  --gold-dark: #A88424;
+  --gold-grad: linear-gradient(135deg, #FFF5D6 0%, #F2D272 30%, #D4AF37 70%, #B38728 100%);
+  --rose-gold-grad: linear-gradient(135deg, #FAD6D6 0%, #E0A9AF 50%, #B76E79 100%);
+  --champagne-glow: rgba(212, 175, 55, 0.25);
+  
+  --rose-gold: #B76E79;
+  --rose-gold-light: #E0A9AF;
+
+  --glass-bg: rgba(45, 10, 30, 0.65);
+  --glass-border: rgba(230, 198, 135, 0.25);
+  --glass-border-hover: rgba(230, 198, 135, 0.6);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 12px 40px rgba(10, 2, 8, 0.7);
+
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+
+  --max-width: 1400px;
+  --header-height: 90px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  --transition-fast: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-normal: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+select, option {
+  font-family: var(--font-sans);
+  background-color: #2D0A1E !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+/* --- Theme Variations --- */
+[data-theme="baby-pink"] {
+  --bg-deep-burgundy: #FFF4F6;
+  --bg-burgundy-card: #FFFFFF;
+  --bg-wine: #FDE2E4;
+  --bg-plum: #FAD2E1;
+  --color-ivory: #4A1224;
+  --color-ivory-muted: #6E263C;
+  --glass-bg: rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="rose-crimson"] {
+  --bg-deep-burgundy: #1A0307;
+  --bg-burgundy-card: #2B060C;
+  --bg-wine: #420A13;
+  --bg-plum: #1E0308;
+  --bg-plum-dark: #0D0104;
+  --color-ivory: #FDFBF7;
+  --color-ivory-muted: #EAE4D9;
+  --gold-light: #E6C687;
+  --glass-bg: rgba(43, 6, 12, 0.65);
+}
+
+[data-theme="royal-obsidian"] {
+  --bg-deep-burgundy: #090A0F;
+  --bg-burgundy-card: #131622;
+  --bg-wine: #1D2336;
+  --bg-plum: #0F121C;
+  --bg-plum-dark: #05060A;
+  --glass-bg: rgba(19, 22, 34, 0.65);
+}
+
+[data-theme="maharani-emerald"] {
+  --bg-deep-burgundy: #04120C;
+  --bg-burgundy-card: #092116;
+  --bg-wine: #103625;
+  --bg-plum: #061B12;
+  --bg-plum-dark: #020A07;
+  --glass-bg: rgba(9, 33, 22, 0.65);
+}
+
+[data-theme="rose-crimson"] {
+  --bg-deep-burgundy: #1A0307;
+  --bg-burgundy-card: #2B060C;
+  --bg-wine: #420A13;
+  --bg-plum: #1E0308;
+  --bg-plum-dark: #0D0104;
+  --glass-bg: rgba(43, 6, 12, 0.65);
+}
+
+/* --- Global Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-deep-burgundy);
+  color: var(--color-ivory);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep-burgundy);
+  color: var(--color-ivory);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(74, 14, 46, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(31, 5, 25, 0.5) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: var(--font-sans);
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  color: inherit;
+}
+
+select, option {
+  font-family: var(--font-sans);
+  background-color: #FFFFFF !important;
+  color: #4A1224 !important;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-plum-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-wine);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Typography Utilities */
+.heading-serif {
+  font-family: var(--font-serif);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.gold-gradient-text {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rose-gold-text {
+  color: var(--rose-gold-light);
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section Header Shared Component */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-ivory);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 1.1rem;
+  background: rgba(250, 210, 225, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-ivory);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-ivory-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* Royal Buttons */
+.btn-royal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.2rem;
+  background: linear-gradient(135deg, #FAD2E1 0%, #E8AEB7 50%, #D85A75 100%);
+  color: #4A1224;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 25px rgba(216, 90, 117, 0.25);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-royal-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.8s ease;
+}
+
+.btn-royal-primary:hover::after {
+  transform: rotate(30deg) translateY(100%);
+}
+
+.btn-royal-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(216, 90, 117, 0.4);
+}
+
+.btn-royal-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.2rem;
+  background: #FFFFFF;
+  color: #4A1224;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  backdrop-filter: var(--glass-blur);
+  transition: all var(--transition-normal);
+}
+
+.btn-royal-outline:hover {
+  border-color: var(--gold-light);
+  background: rgba(250, 210, 225, 0.5);
+  color: #4A1224;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(216, 90, 117, 0.2);
+}
+
+/* Glassmorphism Card System */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 16px 45px rgba(10, 2, 8, 0.85), 0 0 20px var(--champagne-glow);
+}
+
+/* Badges */
+.badge-gold {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-rose {
+  background: rgba(183, 110, 121, 0.15);
+  color: var(--rose-gold-light);
+  border: 1px solid rgba(224, 169, 175, 0.35);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

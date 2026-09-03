@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwaayat Royale — Royal &amp; Futuristic Indian Occasion-Wear Maison</title>
+  <meta name="description" content="Discover luxury Indian women's occasion wear for Haldi, Mehendi, Sangeet, Wedding, and Reception. Custom bridal lehengas, sarees, Anarkalis &amp; designer suits." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       CINEMATIC SLOW-MOTION INTRO SPLASH SCREEN
+       ========================================== -->
+  <div id="introSplashScreen" class="intro-splash-screen">
+    <div class="intro-curtains-container">
+      <div class="curtain-panel left"></div>
+      <div class="curtain-panel right"></div>
+    </div>
+
+    <canvas id="introSlowmoCanvas" class="intro-slowmo-canvas"></canvas>
+    
+    <div class="intro-content">
+      <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale" class="intro-logo-img" />
+      <span class="intro-tagline">WHERE EVERY CELEBRATION BECOMES A STATEMENT</span>
+
+      <div class="intro-progress-wrapper">
+        <div class="intro-progress-bar" id="introProgressBar"></div>
+      </div>
+      <span class="intro-status-text" id="introStatusText">Entering Royal Atelier...</span>
+
+      <button class="btn-royal-primary intro-enter-btn" id="enterMaisonBtn">
+        Enter Maison De Couture ✨
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TOP NAVIGATION BAR
+       ========================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#heroSection" class="brand-logo-wrap">
+        <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale" class="brand-logo-img" />
+      </a>
+
+      <!-- Category Navigation Links -->
+      <ul class="nav-menu">
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Haldi'; appInstance.renderOccasions(); appInstance.renderProducts();}">🌸 Haldi</a></li>
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Mehendi'; appInstance.renderOccasions(); appInstance.renderProducts();}">🌿 Mehendi</a></li>
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Sangeet'; appInstance.renderOccasions(); appInstance.renderProducts();}">🎶 Sangeet</a></li>
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Wedding'; appInstance.renderOccasions(); appInstance.renderProducts();}">👰 Wedding</a></li>
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Reception'; appInstance.renderOccasions(); appInstance.renderProducts();}">💍 Reception</a></li>
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Anniversary'; appInstance.renderOccasions(); appInstance.renderProducts();}">❤️ Anniversary</a></li>
+        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Party & Festive'; appInstance.renderOccasions(); appInstance.renderProducts();}">✨ Party &amp; Festive</a></li>
+      </ul>
+
+      <!-- Nav Action Buttons -->
+      <div class="nav-actions">
+        <!-- Palette Theme Switcher -->
+        <select id="themeSelector" style="padding: 0.5rem 1rem; background: #FFFFFF; border: 1px solid var(--glass-border); border-radius: 999px; color: #4A1224; font-size: 0.85rem; font-weight: 700; outline: none; cursor: pointer; box-shadow: 0 4px 12px rgba(216,90,117,0.15);" title="Change Royal Background Palette">
+          <option value="baby-pink" selected>🌸 Baby Pink &amp; White</option>
+          <option value="rose-crimson">🌹 Rose Crimson Velvet</option>
+          <option value="royal-obsidian">👑 Royal Obsidian &amp; Gold</option>
+          <option value="midnight-plum">🌌 Midnight Plum</option>
+        </select>
+
+        <button class="nav-action-btn" id="adminNavBtn" title="Royal Admin Panel">⚙️</button>
+        <button class="nav-action-btn" id="wishlistNavBtn" title="Wishlist" onclick="document.getElementById('catalogSection').scrollIntoView({behavior:'smooth'})">
+          ❤️
+          <span class="action-badge" id="wishCountBadge">0</span>
+        </button>
+        <button class="nav-action-btn" id="cartNavBtn" title="Shopping Bag">
+          🛍️
+          <span class="action-badge" id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section class="hero-section" id="heroSection">
+    <div class="hero-canvas-container" id="heroCanvasContainer"></div>
+
+    <div class="hero-content-wrapper container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; z-index: 2; position: relative;">
+      <div class="hero-content" style="text-align: left; padding: 3rem 0;">
+        <div class="hero-badge">
+          <span>✨ HIGH-TECH ROYAL MAISON</span>
+        </div>
+
+        <h1 class="hero-title heading-serif">
+          Dress For The Moment That Becomes A Memory.
+        </h1>
+
+        <p class="hero-subheading" style="margin-left: 0;">
+          Curated Indian occasion wear designed for every celebration — from sunlit Haldi rituals to majestic Reception galas.
+        </p>
+
+        <div class="hero-cta-group" style="justify-content: flex-start;">
+          <a href="#catalogSection" class="btn-royal-primary">Explore Collection</a>
+          <a href="#occasionsSection" class="btn-royal-outline">Shop By Occasion</a>
+        </div>
+      </div>
+
+      <!-- Hero Real Photo Showcase Stack -->
+      <div class="hero-photo-stack" style="position: relative; height: 500px;">
+        <img src="indian wedding dresses for women photo - Google Search/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Bridal Couture" style="width: 78%; height: 82%; object-fit: cover; border-radius: 16px; border: 2px solid var(--glass-border); box-shadow: 0 20px 50px rgba(216,90,117,0.25);" />
+        <img src="new arrivals/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Pearl Couture" style="position: absolute; bottom: 0; right: 0; width: 62%; height: 68%; object-fit: cover; border-radius: 16px; border: 3px solid #FFFFFF; box-shadow: 0 25px 60px rgba(74,18,36,0.3);" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       LUXURY RUNNING MARQUEE TICKER
+       ========================================== -->
+  <div class="royal-marquee-wrap">
+    <div class="royal-marquee-track">
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> RIWAAYAT ROYALE MAISON DE COUTURE</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> FREE WORLDWIDE EXPRESS SHIPPING ON ALL ORDERS</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> CUSTOM FIT &amp; BRIDAL TAILORING GUARANTEE</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> THE ROYAL 3D ATELIER SHOWROOM EXPERIENCE</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> HANDCRAFTED HERITAGE SILKS &amp; ZARDOZI WEAVING</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> RIWAAYAT ROYALE MAISON DE COUTURE</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> FREE WORLDWIDE EXPRESS SHIPPING ON ALL ORDERS</span>
+      <span class="marquee-item"><span class="marquee-diamond">✦</span> CUSTOM FIT &amp; BRIDAL TAILORING GUARANTEE</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       "FIND YOUR OCCASION" SECTION
+       ========================================== -->
+  <section class="occasions-section" id="occasionsSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Occasion Discovery</span>
+        <h2 class="section-title heading-serif">What Are You Dressing Up For?</h2>
+        <p class="section-subtitle">Select your celebration to discover hand-curated royal ensembles crafted specifically for the occasion.</p>
+      </div>
+
+      <div class="occasions-grid" id="occasionsGrid">
+        <!-- Dynamic Occasion Cards rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       THE ROYAL 3D ATELIER SECTION
+       ========================================== -->
+  <section class="atelier-section" id="atelierSection">
+    <div class="container">
+      <div class="atelier-showcase">
+        <!-- 3D Canvas Interactive Room -->
+        <div class="atelier-canvas-wrapper">
+          <canvas id="atelier3dCanvas" class="atelier-3d-canvas"></canvas>
+          <div class="atelier-controls">
+            <button class="atelier-ctrl-btn active" onclick="if(atelierEngineInstance) atelierEngineInstance.mode='360';">🔄 360° Drag</button>
+            <button class="atelier-ctrl-btn" onclick="if(atelierEngineInstance) atelierEngineInstance.mode='aura';">✨ Kundan Glow</button>
+            <button class="atelier-ctrl-btn" onclick="if(atelierEngineInstance) atelierEngineInstance.mode='fabric';">🧵 Fabric Flow</button>
+          </div>
+        </div>
+
+        <!-- Atelier Description -->
+        <div class="atelier-info">
+          <span class="section-tag">Interactive Showroom</span>
+          <h2 class="section-title heading-serif" style="text-align: left;">THE ROYAL 3D ATELIER</h2>
+          <p style="color: var(--color-ivory-muted); margin-bottom: 1.5rem;">
+            Step into our digital couture laboratory. Inspect fine hand embroidery, zari motifs, and voluminous flare in a 360° interactive environment.
+          </p>
+
+          <ul class="atelier-feature-list">
+            <li class="atelier-feature-item">
+              <div class="atelier-feature-icon">✨</div>
+              <div>
+                <strong style="color: var(--gold-light);">360° Fabric Orbit Presentation</strong>
+                <p style="font-size: 0.88rem; color: var(--color-ivory-muted);">Drag horizontally across the display pedestal to inspect garments from every angle.</p>
+              </div>
+            </li>
+            <li class="atelier-feature-item">
+              <div class="atelier-feature-icon">👑</div>
+              <div>
+                <strong style="color: var(--gold-light);">Source-of-Truth Authenticity</strong>
+                <p style="font-size: 0.88rem; color: var(--color-ivory-muted);">Garments remain visually true to original craftsmanship, velvet hues, and zardozi detailing.</p>
+              </div>
+            </li>
+            <li class="atelier-feature-item">
+              <div class="atelier-feature-icon">💎</div>
+              <div>
+                <strong style="color: var(--gold-light);">Kundan &amp; Gold Particle Lighting</strong>
+                <p style="font-size: 0.88rem; color: var(--color-ivory-muted);">Real-time ambient light reflections simulate chandelier lighting in royal palaces.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#catalogSection" class="btn-royal-primary">Launch Catalog Viewer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PRODUCT CATALOG & FILTER GRID SECTION
+       ========================================== -->
+  <section class="catalog-section" id="catalogSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curated Collections</span>
+        <h2 class="section-title heading-serif">Explore Royal Occasion Wear</h2>
+        <p class="section-subtitle">Discover handcrafted Lehengas, Sarees, Anarkalis, Shararas &amp; Indo-Western couture.</p>
+      </div>
+
+      <!-- Header Tabs & Controls -->
+      <div class="catalog-header-bar">
+        <div class="occasion-tabs" id="occasionTabsContainer">
+          <!-- Dynamic Occasion Tabs -->
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <select id="sortSelect" style="padding: 0.6rem 1.4rem; background: #FFFFFF; border: 1px solid var(--glass-border); border-radius: 999px; color: #4A1224; font-size: 0.85rem; font-weight: 700; outline: none; cursor: pointer; box-shadow: 0 4px 12px rgba(216,90,117,0.12);">
+            <option value="featured">Sort By: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest Arrivals</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Catalog Main Layout (Filter Sidebar + Grid) -->
+      <div class="catalog-layout">
+        <!-- Sidebar Filters -->
+        <aside class="filter-sidebar glass-card">
+          <!-- Smart Search -->
+          <div class="filter-group">
+            <h4 class="filter-title">Search Outfits</h4>
+            <input type="text" id="filterSearch" class="filter-search-input" placeholder="Search silk, zari, velvet, lehenga..." />
+          </div>
+
+          <!-- Price Range -->
+          <div class="filter-group">
+            <h4 class="filter-title">Price Range</h4>
+            <input type="range" id="priceRange" class="price-range-slider" min="20000" max="200000" step="5000" value="200000" />
+            <div class="price-display">
+              <span>₹20,000</span>
+              <span id="priceRangeValue">₹2,00,000</span>
+            </div>
+          </div>
+
+          <!-- Outfit Categories -->
+          <div class="filter-group">
+            <h4 class="filter-title">Garment Category</h4>
+            <ul class="filter-list">
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="ALL" checked onclick="if(appInstance){appInstance.currentCategory='ALL'; appInstance.renderProducts();}" /> All Categories</label></li>
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Lehenga" onclick="if(appInstance){appInstance.currentCategory='Lehenga'; appInstance.renderProducts();}" /> Lehenga Choli</label></li>
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Anarkali" onclick="if(appInstance){appInstance.currentCategory='Anarkali'; appInstance.renderProducts();}" /> Anarkali Sets</label></li>
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Sharara" onclick="if(appInstance){appInstance.currentCategory='Sharara'; appInstance.renderProducts();}" /> Sharara &amp; Gharara</label></li>
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Designer Suit" onclick="if(appInstance){appInstance.currentCategory='Designer Suit'; appInstance.renderProducts();}" /> Designer Suits</label></li>
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Wedding Gown" onclick="if(appInstance){appInstance.currentCategory='Wedding Gown'; appInstance.renderProducts();}" /> Royal Gowns</label></li>
+              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Indo-Western" onclick="if(appInstance){appInstance.currentCategory='Indo-Western'; appInstance.renderProducts();}" /> Indo-Western</label></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Product Grid Container -->
+        <main class="products-grid" id="productsGrid">
+          <!-- Dynamic Products rendered via JS -->
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       "A CELEBRATION IN MOTION" 3D VIDEO SECTION
+       ========================================== -->
+  <section class="motion-section" id="motionSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Cinematic Runway</span>
+        <h2 class="section-title heading-serif">A CELEBRATION IN MOTION</h2>
+        <p class="section-subtitle">Experience our signature bridal campaign showcasing palace architecture, flowing fabrics, and champagne light.</p>
+      </div>
+
+      <div class="motion-video-container">
+        <canvas id="celebrationMotionCanvas" class="motion-canvas"></canvas>
+        <div class="motion-overlay-content">
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold-light);">AUTUMN BRIDAL CAMPAIGN</span>
+          <h3 class="heading-serif" style="font-size: 1.8rem; color: var(--color-ivory); margin: 0.5rem 0 1rem 0;">Echoes of Rajputana Royalty</h3>
+          <p style="font-size: 0.9rem; color: var(--color-ivory-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            Where heritage craftsmanship converges with digital couture. Watch pure silk organza and antique zari move under soft palace beams.
+          </p>
+          <a href="#catalogSection" class="btn-royal-primary">Shop The Campaign</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       BRAND STORY ("THE ART OF RIWAAYAT")
+       ========================================== -->
+  <section class="brand-story-section" id="storySection">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-card-stack">
+          <img src="indian wedding dresses for women photo - Google Search/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Riwaayat Heritage" class="story-img-main" />
+          <img src="new arrivals/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Riwaayat Detail" class="story-img-secondary" />
+        </div>
+
+        <div>
+          <span class="section-tag">Our Heritage</span>
+          <h2 class="section-title heading-serif" style="text-align: left;">THE ART OF RIWAAYAT</h2>
+          <p style="font-size: 1.05rem; color: var(--color-ivory-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+            Riwaayat Royale was founded on a singular vision: to honor centuries of Indian bridal mastery while reimagining the luxury fashion shopping experience for the modern world.
+          </p>
+          <p style="font-size: 0.95rem; color: rgba(253,251,247,0.7); margin-bottom: 2rem; line-height: 1.7;">
+            Every weave, zardozi motif, and pearl strand in our collection is crafted by master artisans across Jaipur, Lucknow, Varanasi, and Kolkata. Combined with our 3D Atelier tech, we bring authentic royal couture directly to your wardrobe.
+          </p>
+
+          <div style="display: flex; gap: 2rem;">
+            <div>
+              <h3 style="font-size: 2.2rem; font-weight: 700; color: var(--gold-light);">400+</h3>
+              <p style="font-size: 0.85rem; color: var(--color-ivory-muted);">Hours of Handcraft Per Piece</p>
+            </div>
+            <div>
+              <h3 style="font-size: 2.2rem; font-weight: 700; color: var(--gold-light);">100%</h3>
+              <p style="font-size: 0.85rem; color: var(--color-ivory-muted);">Authentic Pure Silks &amp; Zari</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- ==========================================
+       ROYAL LOOKBOOK & PHOTO GALLERY SECTION
+       ========================================== -->
+  <section class="lookbook-section" id="lookbookSection" style="padding: 6rem 0; background: #FFF4F6;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Editorial Gallery</span>
+        <h2 class="section-title heading-serif">ROYAL LOOKBOOK</h2>
+        <p class="section-subtitle">Explore high-fashion editorial imagery showcasing real wedding garments across all traditional ceremonies.</p>
+      </div>
+
+      <div class="lookbook-grid" id="lookbookGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- Injected dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MODALS & DRAWERS
+       ========================================== -->
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="productDetailModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeProductModalBtn">✕</button>
+      <div id="productDetailModalContent">
+        <!-- Dynamic content injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 class="heading-serif" style="font-size: 1.3rem; color: var(--gold-light);">Your Shopping Bag</h3>
+      <button style="color: var(--color-ivory); font-size: 1.4rem;" id="closeCartBtn">✕</button>
+    </div>
+    <div class="cart-body" id="cartItemsContainer">
+      <!-- Cart items injected via app.js -->
+    </div>
+    <div class="cart-footer">
+      <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem;">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal" style="color: var(--gold-light);">₹0</span>
+      </div>
+      <button class="btn-royal-primary" style="width: 100%;" onclick="alert('Proceeding to Royal Checkout...');">Proceed To Checkout</button>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modal -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card" style="max-width: 650px;">
+      <button class="modal-close-btn" id="closeAdminBtn">✕</button>
+      <h2 class="heading-serif" style="font-size: 1.8rem; color: var(--gold-light); margin-bottom: 1rem;">Royal Atelier Admin</h2>
+      <p style="font-size: 0.88rem; color: var(--color-ivory-muted); margin-bottom: 1.5rem;">Upload new fashion photographs and publish outfits to the live catalog.</p>
+
+      <form id="adminProductForm" style="display: grid; gap: 1rem;">
+        <div>
+          <label style="font-size: 0.85rem; color: var(--gold-soft);">Outfit Title</label>
+          <input type="text" id="adminProdName" required class="filter-search-input" placeholder="e.g. Maharani Crimson Zari Lehenga" />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Occasion</label>
+            <select id="adminProdOccasion" class="filter-search-input">
+              <option value="Haldi">Haldi</option>
+              <option value="Mehendi">Mehendi</option>
+              <option value="Sangeet">Sangeet</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Reception">Reception</option>
+              <option value="Anniversary">Anniversary</option>
+              <option value="Party & Festive">Party &amp; Festive</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Garment Category</label>
+            <select id="adminProdCat" class="filter-search-input">
+              <option value="Lehenga">Lehenga</option>
+              <option value="Anarkali">Anarkali</option>
+              <option value="Sharara">Sharara</option>
+              <option value="Designer Suit">Designer Suit</option>
+              <option value="Wedding Gown">Wedding Gown</option>
+              <option value="Indo-Western">Indo-Western</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Price (₹ INR)</label>
+            <input type="number" id="adminProdPrice" required class="filter-search-input" placeholder="75000" />
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Photo Path / Relative URL</label>
+            <input type="text" id="adminProdImage" class="filter-search-input" placeholder="haldi/imgi_140_yellow...jpg" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Fabric Specs</label>
+            <input type="text" id="adminProdFabric" class="filter-search-input" placeholder="Pure Raw Silk & Organza" />
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Embroidery / Work</label>
+            <input type="text" id="adminProdWork" class="filter-search-input" placeholder="Gold Zardozi & Moti" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-royal-primary" style="margin-top: 1rem;">Publish Outfit To Catalog</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title heading-serif">RIWAAYAT ROYALE</h3>
+          <p style="font-size: 0.88rem; color: var(--color-ivory-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            Where every celebration becomes a statement. Premium Indian occasion-wear fashion house powered by 3D digital atelier technology.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Shop Occasions</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#catalogSection" class="footer-nav-link">Haldi Outfits</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Mehendi Sets</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Sangeet Lehengas</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Bridal Wear</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Reception Gowns</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Categories</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#catalogSection" class="footer-nav-link">Designer Lehengas</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Anarkali Sets</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Shararas &amp; Suits</a></li>
+            <li><a href="#catalogSection" class="footer-nav-link">Indo-Western</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Customer Care</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Custom Stitching Guide</a></li>
+            <li><a href="#" class="footer-nav-link">Worldwide Express Delivery</a></li>
+            <li><a href="#" class="footer-nav-link">WhatsApp Bridal Styling</a></li>
+            <li><a href="#" class="footer-nav-link">Privacy &amp; Terms</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Royal Newsletter</h4>
+          <p style="font-size: 0.85rem; color: var(--color-ivory-muted);">Enter the world of Riwaayat Royale for private trunk show invitations.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Welcome to the world of Riwaayat Royale!');">
+            <input type="email" class="newsletter-input" placeholder="Your Email Address" required />
+            <button type="submit" class="btn-royal-primary" style="padding: 0.75rem 1.2rem;">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Riwaayat Royale Maison de Couture. All rights reserved. Source-of-truth product imagery preserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/three-slowmo.js"></script>
+  <script src="js/three-hero.js"></script>
+  <script src="js/three-atelier.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Floating Royal Bridal Stylist Concierge -->
+  <button class="royal-concierge-btn" id="royalConciergeBtn" onclick="alert('👑 Royal Bridal Concierge Connected!\n\nOur personal fashion advisor is available for live custom stitching assistance, outfit color matching &amp; express bridal delivery.\n\nContact Stylist Desk: +91 98765 43210 / concierge@riwaayatroyale.com');">
+    <span>💬 Talk To Royal Stylist</span>
+  </button>
+
+</body>
+</html>
