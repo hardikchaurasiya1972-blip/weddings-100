@@ -1,0 +1,20 @@
+{
+  "name": "Riwaayat Royale — Royal Occasion-Wear Maison",
+  "short_name": "Riwaayat Royale",
+  "description": "Luxury Indian women's occasion-wear and couture for Haldi, Mehendi, Sangeet, Wedding, and Reception.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#12030E",
+  "theme_color": "#12030E",
+  "categories": ["shopping", "lifestyle", "fashion"],
+  "icons": [
+    {
+      "src": "assets/branding/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

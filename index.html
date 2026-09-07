@@ -6,8 +6,14 @@
   <title>Riwaayat Royale — Royal &amp; Futuristic Indian Occasion-Wear Maison</title>
   <meta name="description" content="Discover luxury Indian women's occasion wear for Haldi, Mehendi, Sangeet, Wedding, and Reception. Custom bridal lehengas, sarees, Anarkalis &amp; designer suits." />
   
-  <!-- Favicon -->
+  <!-- Favicon & PWA App Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/branding/favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#12030E" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Riwaayat Royale" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css" />
@@ -91,8 +97,8 @@
   <section class="hero-section" id="heroSection">
     <div class="hero-canvas-container" id="heroCanvasContainer"></div>
 
-    <div class="hero-content-wrapper container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; z-index: 2; position: relative;">
-      <div class="hero-content" style="text-align: left; padding: 3rem 0;">
+    <div class="hero-content-wrapper container">
+      <div class="hero-content">
         <div class="hero-badge">
           <span>✨ HIGH-TECH ROYAL MAISON</span>
         </div>
@@ -101,20 +107,20 @@
           Dress For The Moment That Becomes A Memory.
         </h1>
 
-        <p class="hero-subheading" style="margin-left: 0;">
+        <p class="hero-subheading">
           Curated Indian occasion wear designed for every celebration — from sunlit Haldi rituals to majestic Reception galas.
         </p>
 
-        <div class="hero-cta-group" style="justify-content: flex-start;">
+        <div class="hero-cta-group">
           <a href="#catalogSection" class="btn-royal-primary">Explore Collection</a>
           <a href="#occasionsSection" class="btn-royal-outline">Shop By Occasion</a>
         </div>
       </div>
 
       <!-- Hero Real Photo Showcase Stack -->
-      <div class="hero-photo-stack" style="position: relative; height: 500px;">
-        <img src="indian wedding dresses for women photo - Google Search/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Bridal Couture" style="width: 78%; height: 82%; object-fit: cover; border-radius: 16px; border: 2px solid var(--glass-border); box-shadow: 0 20px 50px rgba(216,90,117,0.25);" />
-        <img src="new arrivals/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Pearl Couture" style="position: absolute; bottom: 0; right: 0; width: 62%; height: 68%; object-fit: cover; border-radius: 16px; border: 3px solid #FFFFFF; box-shadow: 0 25px 60px rgba(74,18,36,0.3);" />
+      <div class="hero-photo-stack">
+        <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Bridal Couture" class="hero-photo-main" />
+        <img src="assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Pearl Couture" class="hero-photo-secondary" />
       </div>
     </div>
   </section>
@@ -308,8 +314,8 @@
     <div class="container">
       <div class="story-grid">
         <div class="story-card-stack">
-          <img src="indian wedding dresses for women photo - Google Search/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Riwaayat Heritage" class="story-img-main" />
-          <img src="new arrivals/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Riwaayat Detail" class="story-img-secondary" />
+          <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Riwaayat Heritage" class="story-img-main" />
+          <img src="assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Riwaayat Detail" class="story-img-secondary" />
         </div>
 
         <div>
@@ -335,10 +341,12 @@
         </div>
       </div>
     </div>
+  </section>
+
   <!-- ==========================================
        ROYAL LOOKBOOK & PHOTO GALLERY SECTION
        ========================================== -->
-  <section class="lookbook-section" id="lookbookSection" style="padding: 6rem 0; background: #FFF4F6;">
+  <section class="lookbook-section" id="lookbookSection">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Editorial Gallery</span>
@@ -346,7 +354,7 @@
         <p class="section-subtitle">Explore high-fashion editorial imagery showcasing real wedding garments across all traditional ceremonies.</p>
       </div>
 
-      <div class="lookbook-grid" id="lookbookGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div class="lookbook-grid" id="lookbookGrid">
         <!-- Injected dynamically via app.js -->
       </div>
     </div>

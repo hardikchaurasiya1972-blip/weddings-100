@@ -26,17 +26,28 @@ class RiwaayatRoyaleApp {
     this.renderLookbook();
     this.updateBadges();
     this.setupNavbarScroll();
+    this.registerServiceWorker();
+  }
+
+  registerServiceWorker() {
+    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Riwaayat Royale PWA Service Worker Registered:', reg.scope))
+          .catch(err => console.warn('Service Worker registration skipped:', err));
+      });
+    }
   }
 
   renderLookbook() {
     const lookbookGrid = document.getElementById('lookbookGrid');
     if (!lookbookGrid || typeof LOOKBOOK_IMAGES === 'undefined') return;
 
-    lookbookGrid.innerHTML = LOOKBOOK_IMAGES.map(item => `
-      <div style="position: relative; height: 420px; border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 12px 30px rgba(216,90,117,0.18); cursor: pointer;" onclick="if(appInstance){appInstance.openProductModal(appInstance.products[0].id);}">
-        <img src="${item.src}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1.0)'" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(74,18,36,0.9) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.8rem;">
-          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #FDE2E4;">${item.tag}</span>
+    lookbookGrid.innerHTML = LOOKBOOK_IMAGES.map((item, idx) => `
+      <div class="lookbook-card" onclick="if(appInstance && appInstance.products.length > 0){appInstance.openProductModal(appInstance.products[${idx % 20}].id);}">
+        <img src="${item.src}" alt="${item.title}" class="lookbook-img" loading="lazy" onerror="this.src='assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg'" />
+        <div class="lookbook-card-overlay">
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #FDE2E4; font-weight: 700;">${item.tag}</span>
           <h3 class="heading-serif" style="font-size: 1.4rem; color: #FFFFFF; margin-top: 0.3rem;">${item.title}</h3>
         </div>
       </div>
@@ -227,15 +238,17 @@ class RiwaayatRoyaleApp {
 
     grid.innerHTML = filtered.map(p => {
       const isWishlisted = this.wishlist.includes(p.id);
+      const hasMultiplePhotos = p.images && p.images.length > 1;
       return `
         <div class="product-card glass-card" data-id="${p.id}">
-          <div class="product-image-container">
-            <img src="${p.images[0]}" alt="${p.name}" class="product-img main-img" />
-            <img src="${p.images[1] || p.images[0]}" alt="${p.name}" class="product-img hover-img" />
+          <div class="product-image-container" title="Tap to preview angle, click for details">
+            <img src="${p.images[0]}" alt="${p.name}" class="product-img main-img" loading="lazy" onerror="this.src='assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg'" />
+            <img src="${p.images[1] || p.images[0]}" alt="${p.name}" class="product-img hover-img" loading="lazy" onerror="this.src='${p.images[0]}'" />
             <div class="product-badge-stack">
               ${p.isNew ? `<span class="badge-gold">New Arrival</span>` : ''}
               ${p.isBestSeller ? `<span class="badge-rose">Best Seller</span>` : ''}
             </div>
+            ${hasMultiplePhotos ? `<div class="product-angle-badge"><span>📸</span> 2 Angles</div>` : ''}
             <button class="wishlist-card-btn ${isWishlisted ? 'active' : ''}" data-id="${p.id}" title="Add to Wishlist">
               ${isWishlisted ? '❤️' : '🤍'}
             </button>
@@ -259,8 +272,31 @@ class RiwaayatRoyaleApp {
       `;
     }).join('');
 
-    // Attach card event listeners
-    grid.querySelectorAll('.product-card-quickview, .product-img, .product-title').forEach(el => {
+    // Attach card event listeners with mobile touch-angle flip support
+    grid.querySelectorAll('.product-image-container').forEach(imgContainer => {
+      let lastTapTime = 0;
+      imgContainer.addEventListener('click', (e) => {
+        if (e.target.closest('.wishlist-card-btn') || e.target.closest('.product-card-quickview')) return;
+        const card = e.currentTarget.closest('.product-card');
+        if (!card) return;
+
+        // On touch/mobile devices, single tap flips to alternate angle preview; double-tap opens modal
+        if (window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window)) {
+          const currentTime = new Date().getTime();
+          const tapGap = currentTime - lastTapTime;
+          if (tapGap < 350 && tapGap > 0) {
+            this.openProductModal(card.dataset.id);
+          } else {
+            card.classList.toggle('touch-angle-flipped');
+          }
+          lastTapTime = currentTime;
+        } else {
+          this.openProductModal(card.dataset.id);
+        }
+      });
+    });
+
+    grid.querySelectorAll('.product-card-quickview, .product-title').forEach(el => {
       el.addEventListener('click', (e) => {
         const card = e.currentTarget.closest('.product-card');
         if (card) this.openProductModal(card.dataset.id);
@@ -382,44 +418,56 @@ class RiwaayatRoyaleApp {
     let selectedSize = 'M';
 
     modalContent.innerHTML = `
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;">
-        <div>
-          <img id="mainDetailImg" src="${product.images[0]}" alt="${product.name}" style="width: 100%; height: 480px; object-fit: cover; border-radius: 12px; border: 1px solid var(--glass-border);" />
-          <div style="display: flex; gap: 0.6rem; margin-top: 1rem;">
-            ${product.images.map(img => `
-              <img src="${img}" alt="Thumbnail" style="width: 70px; height: 90px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid var(--glass-border);" onclick="document.getElementById('mainDetailImg').src = '${img}'" />
+      <div class="modal-product-layout">
+        <div class="modal-gallery-col">
+          <div class="modal-main-img-wrap">
+            <img id="mainDetailImg" src="${product.images[0]}" alt="${product.name}" class="modal-main-img" onerror="this.src='assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg'" />
+          </div>
+          <div class="modal-thumbnails-track">
+            ${product.images.map((img, idx) => `
+              <button class="modal-thumb-btn ${idx === 0 ? 'active' : ''}" type="button" onclick="
+                const mainImg = document.getElementById('mainDetailImg');
+                if (mainImg) {
+                  mainImg.style.opacity = '0.3';
+                  setTimeout(() => { mainImg.src = '${img}'; mainImg.style.opacity = '1'; }, 150);
+                }
+                this.parentElement.querySelectorAll('.modal-thumb-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+              ">
+                <img src="${img}" alt="Thumbnail ${idx + 1}" onerror="this.src='assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg'" />
+              </button>
             `).join('')}
           </div>
         </div>
 
-        <div>
+        <div class="modal-info-col">
           <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-light); font-weight: 700;">${product.category} • ${product.occasion.join(', ')}</span>
-          <h2 class="heading-serif" style="font-size: 2rem; color: #FFFFFF; margin: 0.5rem 0 1rem 0;">${product.name}</h2>
+          <h2 class="heading-serif" style="font-size: 1.8rem; color: #FFFFFF; margin: 0.4rem 0 0.8rem 0; line-height: 1.2;">${product.name}</h2>
           
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <span style="font-size: 1.6rem; font-weight: 800; color: var(--gold-light);">₹${product.price.toLocaleString('en-IN')}</span>
-            ${product.originalPrice ? `<span style="text-decoration: line-through; color: rgba(255,255,255,0.4);">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <span style="font-size: 1.5rem; font-weight: 800; color: var(--gold-light);">₹${product.price.toLocaleString('en-IN')}</span>
+            ${product.originalPrice ? `<span style="text-decoration: line-through; color: rgba(255,255,255,0.4); font-size: 0.95rem;">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
           </div>
 
-          <p style="font-size: 0.95rem; color: var(--color-ivory-muted); line-height: 1.6; margin-bottom: 1.8rem;">${product.description}</p>
+          <p style="font-size: 0.92rem; color: var(--color-ivory-muted); line-height: 1.6; margin-bottom: 1.4rem;">${product.description}</p>
 
-          <div style="margin-bottom: 1.5rem;">
-            <div style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.6rem;">Select Size:</div>
-            <div style="display: flex; gap: 0.6rem;">
+          <div style="margin-bottom: 1.2rem;">
+            <div style="font-size: 0.82rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Select Size:</div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
               ${product.sizes.map(sz => `
-                <button class="size-btn ${sz === 'M' ? 'active' : ''}" style="padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--glass-border); background: rgba(45,10,30,0.6); color: #FFFFFF; font-size: 0.85rem; font-weight: 700;" onclick="selectedSize='${sz}'; this.parentElement.querySelectorAll('button').forEach(b=>{ b.style.background='rgba(45,10,30,0.6)'; b.style.color='#FFFFFF'; }); this.style.background='var(--gold-grad)'; this.style.color='#1A0512';">${sz}</button>
+                <button class="size-btn ${sz === 'M' ? 'active' : ''}" style="padding: 0.45rem 0.85rem; border-radius: 6px; border: 1px solid var(--glass-border); background: rgba(45,10,30,0.6); color: #FFFFFF; font-size: 0.82rem; font-weight: 700;" onclick="selectedSize='${sz}'; this.parentElement.querySelectorAll('button').forEach(b=>{ b.style.background='rgba(45,10,30,0.6)'; b.style.color='#FFFFFF'; }); this.style.background='var(--gold-grad)'; this.style.color='#1A0512';">${sz}</button>
               `).join('')}
             </div>
           </div>
 
-          <div style="padding: 1.2rem; background: rgba(18,3,14,0.6); border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 1.8rem; font-size: 0.88rem; color: #FFFFFF; display: grid; gap: 0.5rem;">
+          <div style="padding: 1rem; background: rgba(18,3,14,0.6); border-radius: 8px; border: 1px solid var(--glass-border); margin-bottom: 1.5rem; font-size: 0.85rem; color: #FFFFFF; display: grid; gap: 0.4rem;">
             <div><strong>Fabric:</strong> ${product.fabric}</div>
             <div><strong>Work & Details:</strong> ${product.work}</div>
           </div>
 
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button class="btn-royal-primary" style="flex-grow: 1;" onclick="appInstance.addToCart('${product.id}', selectedSize); document.getElementById('productDetailModal').classList.remove('active');">Add To Bag</button>
-            <button class="btn-royal-outline" onclick="if (atelierEngineInstance) { atelierEngineInstance.setProductImage('${product.images[0]}'); } document.getElementById('productDetailModal').classList.remove('active'); document.getElementById('atelierSection').scrollIntoView({behavior:'smooth'});">View In 3D Atelier ✨</button>
+          <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+            <button class="btn-royal-primary" style="flex: 1 1 180px;" onclick="appInstance.addToCart('${product.id}', selectedSize); document.getElementById('productDetailModal').classList.remove('active');">Add To Bag</button>
+            <button class="btn-royal-outline" style="flex: 1 1 180px;" onclick="if (atelierEngineInstance) { atelierEngineInstance.setProductImage('${product.images[0]}'); } document.getElementById('productDetailModal').classList.remove('active'); document.getElementById('atelierSection').scrollIntoView({behavior:'smooth'});">View In 3D Atelier ✨</button>
           </div>
         </div>
       </div>
@@ -437,7 +485,7 @@ class RiwaayatRoyaleApp {
     const category = document.getElementById('adminProdCat').value;
     const occasion = document.getElementById('adminProdOccasion').value;
     const price = parseInt(document.getElementById('adminProdPrice').value, 10);
-    const image = document.getElementById('adminProdImage').value || "haldi/imgi_140_yellow-organza-silk-embroidered-gorgeous-indowestern-skirt-set-iwsuscc48265562-u.jpg";
+    const image = document.getElementById('adminProdImage').value || "assets/images/haldi/imgi_140_yellow-organza-silk-embroidered-gorgeous-indowestern-skirt-set-iwsuscc48265562-u.jpg";
     const fabric = document.getElementById('adminProdFabric').value;
     const work = document.getElementById('adminProdWork').value;
 

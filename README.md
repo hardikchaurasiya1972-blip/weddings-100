@@ -61,10 +61,16 @@ Riwaayat Royale is a luxury Indian women's occasion-wear fashion platform design
 ```
 weddings/
 ├── assets/
-│   └── branding/         # SVG logos, monograms & favicon
+│   ├── branding/         # SVG logos, monograms & favicon
+│   └── images/           # Centralized occasion photo collections
+│       ├── haldi/        # Haldi ceremony outfits (112 photos)
+│       ├── sangeet/      # Sangeet & Mehendi outfits (98 photos)
+│       ├── wedding/      # Bridal couture outfits (133 photos)
+│       ├── reception/    # Reception & Anniversary couture (113 photos)
+│       └── festive/      # Festive wear & Indo-Western (121 photos)
 ├── css/
 │   ├── main.css          # Design system tokens, root color variables & themes
-│   └── components.css    # Navbar, hero, Atelier, catalog cards, modals & drawers
+│   └── components.css    # Responsive cards, modals, hero & lookbook styles
 ├── js/
 │   ├── data.js           # Divided 100+ product dataset & occasion metadata
 │   ├── three-slowmo.js   # Slow-motion opening video & silk curtain splash engine
@@ -72,12 +78,9 @@ weddings/
 │   ├── three-atelier.js  # 360° interactive Atelier canvas engine
 │   ├── three-motion.js   # Campaign runway 3D corridor canvas
 │   └── app.js            # Main e-commerce application engine
-├── haldi/                # Source photo assets for Haldi
-├── sangeet/              # Source photo assets for Sangeet & Mehendi
-├── new arrivals/         # Source photo assets for Reception & Anniversary
-├── all/                  # Source photo assets for Festive Wear
-├── indian wedding dresses for women photo - Google Search/ # Bridal photographs
 ├── index.html            # Main single-page web application
+├── manifest.json         # Progressive Web App (PWA) manifest
+├── sw.js                 # PWA service worker & offline asset caching
 ├── .gitignore            # Git ignore rules
 └── README.md             # Project documentation
 ```
