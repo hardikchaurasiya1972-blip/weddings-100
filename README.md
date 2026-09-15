@@ -125,8 +125,8 @@ weddings/
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/hardikchaurasiya1972-blip/wedding.git
-   cd wedding
+   git clone https://github.com/hardikchaurasiya1972-blip/wedding1.git
+   cd wedding1
    ```
 
 2. **Run Locally**:
