@@ -3,452 +3,568 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riwaayat Royale — Royal &amp; Futuristic Indian Occasion-Wear Maison</title>
-  <meta name="description" content="Discover luxury Indian women's occasion wear for Haldi, Mehendi, Sangeet, Wedding, and Reception. Custom bridal lehengas, sarees, Anarkalis &amp; designer suits." />
-  
+  <title>Riwaayat Royale — India's Premier Luxury Wedding Couture Store</title>
+  <meta name="description" content="Shop handcrafted Indian wedding lehengas, bridal couture, evening reception gowns, and festive shararas like Amazon with express delivery." />
+
   <!-- Favicon & PWA App Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/branding/favicon.svg" />
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#12030E" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Riwaayat Royale" />
+  <meta name="theme-color" content="#131921" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/amazon.css" />
 </head>
-<body>
+<body class="amazon-theme">
 
-  <!-- ==========================================
-       CINEMATIC SLOW-MOTION INTRO SPLASH SCREEN
-       ========================================== -->
-  <div id="introSplashScreen" class="intro-splash-screen">
-    <div class="intro-curtains-container">
-      <div class="curtain-panel left"></div>
-      <div class="curtain-panel right"></div>
-    </div>
+  <!-- ==========================================================================
+       1. AMAZON TOP HEADER & GLOBAL SEARCH BAR
+       ========================================================================== -->
+  <header class="amazon-top-header">
+    <!-- Brand Logo -->
+    <a href="index.html" class="amazon-logo-wrap" title="Riwaayat Royale Home">
+      <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale" class="amazon-logo-img" />
+    </a>
 
-    <canvas id="introSlowmoCanvas" class="intro-slowmo-canvas"></canvas>
-    
-    <div class="intro-content">
-      <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale" class="intro-logo-img" />
-      <span class="intro-tagline">WHERE EVERY CELEBRATION BECOMES A STATEMENT</span>
-
-      <div class="intro-progress-wrapper">
-        <div class="intro-progress-bar" id="introProgressBar"></div>
+    <!-- Delivery Location Pin -->
+    <button class="amazon-location-btn" onclick="alert('Deliver to: Mumbai, Maharashtra 400001\n(Express 48-Hour Wedding Courier Available)');">
+      <span class="amazon-loc-pin">📍</span>
+      <div>
+        <span class="amazon-loc-text">Deliver to</span>
+        <span class="amazon-loc-city">Mumbai 400001</span>
       </div>
-      <span class="intro-status-text" id="introStatusText">Entering Royal Atelier...</span>
+    </button>
 
-      <button class="btn-royal-primary intro-enter-btn" id="enterMaisonBtn">
-        Enter Maison De Couture ✨
+    <!-- Amazon Search Bar (Central Core) -->
+    <form class="amazon-search-container" id="amazonSearchForm">
+      <select class="amazon-search-category" id="amazonSearchCategory" title="Select Category">
+        <option value="all">All Departments</option>
+        <option value="Lehenga">👑 Royal Lehengas</option>
+        <option value="Gown">💍 Evening Gowns</option>
+        <option value="Sharara">🌿 Shararas &amp; Suits</option>
+        <option value="Indo-Western">✨ Indo-Western Sets</option>
+        <option value="Haldi">🌸 Haldi Outfits</option>
+        <option value="Mehendi">🌿 Mehendi Sets</option>
+        <option value="Sangeet">🎶 Sangeet Gala</option>
+        <option value="Wedding">👰 Bridal Wedding</option>
+        <option value="Reception">💍 Grand Reception</option>
+      </select>
+
+      <input 
+        type="text" 
+        class="amazon-search-input" 
+        id="amazonSearchInput" 
+        placeholder="Search Riwaayat Royale Indian wedding couture, lehengas, gowns..." 
+        autocomplete="off" 
+      />
+
+      <button type="submit" class="amazon-search-submit" title="Search Couture">
+        🔍
       </button>
-    </div>
-  </div>
+    </form>
 
-  <!-- ==========================================
-       TOP NAVIGATION BAR
-       ========================================== -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <!-- Brand Logo -->
-      <a href="#heroSection" class="brand-logo-wrap">
-        <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale" class="brand-logo-img" />
-      </a>
+    <!-- Right Header Navigation -->
+    <div class="amazon-header-nav">
+      <!-- Language / Region -->
+      <div class="amazon-nav-item hide-mobile" title="Language: English (India)">
+        <span class="line-1">Language</span>
+        <span class="line-2">🇮🇳 EN</span>
+      </div>
 
-      <!-- Category Navigation Links -->
-      <ul class="nav-menu">
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Haldi'; appInstance.renderOccasions(); appInstance.renderProducts();}">🌸 Haldi</a></li>
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Mehendi'; appInstance.renderOccasions(); appInstance.renderProducts();}">🌿 Mehendi</a></li>
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Sangeet'; appInstance.renderOccasions(); appInstance.renderProducts();}">🎶 Sangeet</a></li>
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Wedding'; appInstance.renderOccasions(); appInstance.renderProducts();}">👰 Wedding</a></li>
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Reception'; appInstance.renderOccasions(); appInstance.renderProducts();}">💍 Reception</a></li>
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Anniversary'; appInstance.renderOccasions(); appInstance.renderProducts();}">❤️ Anniversary</a></li>
-        <li><a href="#catalogSection" class="nav-link" onclick="if(appInstance){appInstance.currentOccasion='Party & Festive'; appInstance.renderOccasions(); appInstance.renderProducts();}">✨ Party &amp; Festive</a></li>
-      </ul>
+      <!-- Account / Sign In -->
+      <div class="amazon-nav-item hide-mobile" onclick="alert('Royal Couture Concierge Account Desk\nVIP Member: Her Royal Highness');">
+        <span class="line-1">Hello, Sign In</span>
+        <span class="line-2">Account &amp; Lists ▾</span>
+      </div>
 
-      <!-- Nav Action Buttons -->
-      <div class="nav-actions">
-        <!-- Palette Theme Switcher -->
-        <select id="themeSelector" style="padding: 0.5rem 1rem; background: #FFFFFF; border: 1px solid var(--glass-border); border-radius: 999px; color: #4A1224; font-size: 0.85rem; font-weight: 700; outline: none; cursor: pointer; box-shadow: 0 4px 12px rgba(216,90,117,0.15);" title="Change Royal Background Palette">
-          <option value="baby-pink" selected>🌸 Baby Pink &amp; White</option>
-          <option value="rose-crimson">🌹 Rose Crimson Velvet</option>
-          <option value="royal-obsidian">👑 Royal Obsidian &amp; Gold</option>
-          <option value="midnight-plum">🌌 Midnight Plum</option>
-        </select>
+      <!-- Returns & Orders -->
+      <div class="amazon-nav-item hide-mobile" onclick="alert('Order Tracking Desk:\nYour bridal orders are handcrafted & tracked with 256-bit courier security.');">
+        <span class="line-1">Returns</span>
+        <span class="line-2">&amp; Orders</span>
+      </div>
 
-        <button class="nav-action-btn" id="adminNavBtn" title="Royal Admin Panel">⚙️</button>
-        <button class="nav-action-btn" id="wishlistNavBtn" title="Wishlist" onclick="document.getElementById('catalogSection').scrollIntoView({behavior:'smooth'})">
-          ❤️
-          <span class="action-badge" id="wishCountBadge">0</span>
-        </button>
-        <button class="nav-action-btn" id="cartNavBtn" title="Shopping Bag">
-          🛍️
-          <span class="action-badge" id="cartCountBadge">0</span>
-        </button>
+      <!-- Admin Panel Button -->
+      <div class="amazon-nav-item" id="adminNavBtn" title="Atelier Admin Master" style="cursor:pointer;">
+        <span class="line-1">Atelier</span>
+        <span class="line-2">⚙️ Admin</span>
+      </div>
+
+      <!-- Amazon Cart Button -->
+      <div class="amazon-cart-btn" id="cartNavBtn" title="Shopping Cart">
+        <div class="amazon-cart-icon-wrap">
+          🛒
+          <span class="amazon-cart-count" id="amazonCartCount">0</span>
+        </div>
+        <span class="amazon-cart-label">Cart</span>
       </div>
     </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. AMAZON SUB-NAVIGATION BAR (DEPARTMENTS & DEALS)
+       ========================================================================== -->
+  <nav class="amazon-subnav">
+    <a href="index.html" class="amazon-subnav-link active">☰ All</a>
+    <a href="lehengas.html" class="amazon-subnav-link">👑 Royal Lehengas</a>
+    <a href="gowns.html" class="amazon-subnav-link">💍 Evening Gowns</a>
+    <a href="shararas.html" class="amazon-subnav-link">🌿 Shararas &amp; Suits</a>
+    <a href="indowestern.html" class="amazon-subnav-link">✨ Indo-Western</a>
+    <a href="haldi.html" class="amazon-subnav-link">🌸 Haldi</a>
+    <a href="mehendi.html" class="amazon-subnav-link">🌿 Mehendi</a>
+    <a href="sangeet.html" class="amazon-subnav-link">🎶 Sangeet</a>
+    <a href="wedding.html" class="amazon-subnav-link">👰 Bridal Wedding</a>
+    <a href="reception.html" class="amazon-subnav-link">💍 Reception</a>
+    <a href="anniversary.html" class="amazon-subnav-link">❤️ Anniversary</a>
+    <a href="festive.html" class="amazon-subnav-link">✨ Festive</a>
+    <a href="#dealsSection" class="amazon-subnav-link" style="color: var(--amazon-gold); font-weight:700;">⚡ Today's Royal Deals</a>
+    <a href="javascript:void(0);" onclick="alert('👑 24/7 Royal Bridal Concierge Desk:\nPhone: +91 98765 43210\nWhatsApp: Available worldwide');" class="amazon-subnav-link">Customer Service</a>
   </nav>
 
-  <!-- ==========================================
-       HERO SECTION
-       ========================================== -->
-  <section class="hero-section" id="heroSection">
-    <div class="hero-canvas-container" id="heroCanvasContainer"></div>
-
-    <div class="hero-content-wrapper container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span>✨ HIGH-TECH ROYAL MAISON</span>
-        </div>
-
-        <h1 class="hero-title heading-serif">
-          Dress For The Moment That Becomes A Memory.
-        </h1>
-
-        <p class="hero-subheading">
-          Curated Indian occasion wear designed for every celebration — from sunlit Haldi rituals to majestic Reception galas.
-        </p>
-
-        <div class="hero-cta-group">
-          <a href="#catalogSection" class="btn-royal-primary">Explore Collection</a>
-          <a href="#occasionsSection" class="btn-royal-outline">Shop By Occasion</a>
-        </div>
-      </div>
-
-      <!-- Hero Real Photo Showcase Stack -->
-      <div class="hero-photo-stack">
-        <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Bridal Couture" class="hero-photo-main" />
-        <img src="assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Pearl Couture" class="hero-photo-secondary" />
-      </div>
+  <!-- ==========================================================================
+       3. AMAZON HERO PROMOTIONAL BANNER SLIDER
+       ========================================================================== -->
+  <div class="amazon-hero-carousel">
+    <!-- Slide 1 -->
+    <div class="amazon-hero-slide active">
+      <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Grand Rajputana Bridal Collection" class="amazon-hero-bg" />
     </div>
-  </section>
+    <!-- Slide 2 -->
+    <div class="amazon-hero-slide">
+      <img src="assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg" alt="Rose Gold Tissue Reception Gala" class="amazon-hero-bg" />
+    </div>
+    <!-- Slide 3 -->
+    <div class="amazon-hero-slide">
+      <img src="assets/images/haldi/imgi_140_yellow-organza-silk-embroidered-gorgeous-indowestern-skirt-set-iwsuscc48265562-u.jpg" alt="Surya Organza Haldi Rituals" class="amazon-hero-bg" />
+    </div>
+    <!-- Slide 4 -->
+    <div class="amazon-hero-slide">
+      <img src="assets/images/sangeet/imgi_131_purple-georgette-embroidered-sequins-lehenga-ghsads271-u.jpg" alt="Purple Sequin Sangeet Gala" class="amazon-hero-bg" />
+    </div>
 
-  <!-- ==========================================
-       LUXURY RUNNING MARQUEE TICKER
-       ========================================== -->
-  <div class="royal-marquee-wrap">
-    <div class="royal-marquee-track">
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> RIWAAYAT ROYALE MAISON DE COUTURE</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> FREE WORLDWIDE EXPRESS SHIPPING ON ALL ORDERS</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> CUSTOM FIT &amp; BRIDAL TAILORING GUARANTEE</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> THE ROYAL 3D ATELIER SHOWROOM EXPERIENCE</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> HANDCRAFTED HERITAGE SILKS &amp; ZARDOZI WEAVING</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> RIWAAYAT ROYALE MAISON DE COUTURE</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> FREE WORLDWIDE EXPRESS SHIPPING ON ALL ORDERS</span>
-      <span class="marquee-item"><span class="marquee-diamond">✦</span> CUSTOM FIT &amp; BRIDAL TAILORING GUARANTEE</span>
+    <!-- Gradient fade to page background -->
+    <div class="amazon-hero-gradient-fade"></div>
+
+    <!-- Arrow Controls -->
+    <div class="amazon-hero-controls">
+      <button class="amazon-hero-arrow" id="heroPrevBtn" title="Previous Banner">‹</button>
+      <button class="amazon-hero-arrow" id="heroNextBtn" title="Next Banner">›</button>
     </div>
   </div>
 
-  <!-- ==========================================
-       "FIND YOUR OCCASION" SECTION
-       ========================================== -->
-  <section class="occasions-section" id="occasionsSection">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Occasion Discovery</span>
-        <h2 class="section-title heading-serif">What Are You Dressing Up For?</h2>
-        <p class="section-subtitle">Select your celebration to discover hand-curated royal ensembles crafted specifically for the occasion.</p>
-      </div>
+  <!-- ==========================================================================
+       4. AMAZON MAIN CONTENT CONTAINER
+       (Includes the famous 4-Item Quadrant Cards requested by user)
+       ========================================================================== -->
+  <main class="amazon-content-container">
 
-      <div class="occasions-grid" id="occasionsGrid">
-        <!-- Dynamic Occasion Cards rendered via JS -->
-      </div>
-    </div>
-  </section>
+    <!-- ROW 1: 4 QUADRANT CARDS (DIVIDED INTO 4, EACH OPENS IN A NEW TAB) -->
+    <div class="amazon-quad-row">
 
-  <!-- ==========================================
-       THE ROYAL 3D ATELIER SECTION
-       ========================================== -->
-  <section class="atelier-section" id="atelierSection">
-    <div class="container">
-      <div class="atelier-showcase">
-        <!-- 3D Canvas Interactive Room -->
-        <div class="atelier-canvas-wrapper">
-          <canvas id="atelier3dCanvas" class="atelier-3d-canvas"></canvas>
-          <div class="atelier-controls">
-            <button class="atelier-ctrl-btn active" onclick="if(atelierEngineInstance) atelierEngineInstance.mode='360';">🔄 360° Drag</button>
-            <button class="atelier-ctrl-btn" onclick="if(atelierEngineInstance) atelierEngineInstance.mode='aura';">✨ Kundan Glow</button>
-            <button class="atelier-ctrl-btn" onclick="if(atelierEngineInstance) atelierEngineInstance.mode='fabric';">🧵 Fabric Flow</button>
-          </div>
-        </div>
-
-        <!-- Atelier Description -->
-        <div class="atelier-info">
-          <span class="section-tag">Interactive Showroom</span>
-          <h2 class="section-title heading-serif" style="text-align: left;">THE ROYAL 3D ATELIER</h2>
-          <p style="color: var(--color-ivory-muted); margin-bottom: 1.5rem;">
-            Step into our digital couture laboratory. Inspect fine hand embroidery, zari motifs, and voluminous flare in a 360° interactive environment.
-          </p>
-
-          <ul class="atelier-feature-list">
-            <li class="atelier-feature-item">
-              <div class="atelier-feature-icon">✨</div>
-              <div>
-                <strong style="color: var(--gold-light);">360° Fabric Orbit Presentation</strong>
-                <p style="font-size: 0.88rem; color: var(--color-ivory-muted);">Drag horizontally across the display pedestal to inspect garments from every angle.</p>
-              </div>
-            </li>
-            <li class="atelier-feature-item">
-              <div class="atelier-feature-icon">👑</div>
-              <div>
-                <strong style="color: var(--gold-light);">Source-of-Truth Authenticity</strong>
-                <p style="font-size: 0.88rem; color: var(--color-ivory-muted);">Garments remain visually true to original craftsmanship, velvet hues, and zardozi detailing.</p>
-              </div>
-            </li>
-            <li class="atelier-feature-item">
-              <div class="atelier-feature-icon">💎</div>
-              <div>
-                <strong style="color: var(--gold-light);">Kundan &amp; Gold Particle Lighting</strong>
-                <p style="font-size: 0.88rem; color: var(--color-ivory-muted);">Real-time ambient light reflections simulate chandelier lighting in royal palaces.</p>
-              </div>
-            </li>
-          </ul>
-
-          <a href="#catalogSection" class="btn-royal-primary">Launch Catalog Viewer</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       PRODUCT CATALOG & FILTER GRID SECTION
-       ========================================== -->
-  <section class="catalog-section" id="catalogSection">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Curated Collections</span>
-        <h2 class="section-title heading-serif">Explore Royal Occasion Wear</h2>
-        <p class="section-subtitle">Discover handcrafted Lehengas, Sarees, Anarkalis, Shararas &amp; Indo-Western couture.</p>
-      </div>
-
-      <!-- Header Tabs & Controls -->
-      <div class="catalog-header-bar">
-        <div class="occasion-tabs" id="occasionTabsContainer">
-          <!-- Dynamic Occasion Tabs -->
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 1rem;">
-          <select id="sortSelect" style="padding: 0.6rem 1.4rem; background: #FFFFFF; border: 1px solid var(--glass-border); border-radius: 999px; color: #4A1224; font-size: 0.85rem; font-weight: 700; outline: none; cursor: pointer; box-shadow: 0 4px 12px rgba(216,90,117,0.12);">
-            <option value="featured">Sort By: Featured</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="newest">Newest Arrivals</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Catalog Main Layout (Filter Sidebar + Grid) -->
-      <div class="catalog-layout">
-        <!-- Sidebar Filters -->
-        <aside class="filter-sidebar glass-card">
-          <!-- Smart Search -->
-          <div class="filter-group">
-            <h4 class="filter-title">Search Outfits</h4>
-            <input type="text" id="filterSearch" class="filter-search-input" placeholder="Search silk, zari, velvet, lehenga..." />
-          </div>
-
-          <!-- Price Range -->
-          <div class="filter-group">
-            <h4 class="filter-title">Price Range</h4>
-            <input type="range" id="priceRange" class="price-range-slider" min="20000" max="200000" step="5000" value="200000" />
-            <div class="price-display">
-              <span>₹20,000</span>
-              <span id="priceRangeValue">₹2,00,000</span>
+      <!-- QUAD CARD 1: SHOP BY OCCASION (4 TILES) -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Shop by Wedding Occasion</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="haldi.html" target="_blank" class="amazon-quad-tile" title="Open Haldi Collection in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/haldi/imgi_140_yellow-organza-silk-embroidered-gorgeous-indowestern-skirt-set-iwsuscc48265562-u.jpg" alt="Haldi" class="amazon-tile-img" />
             </div>
-          </div>
+            <span class="amazon-tile-label">🌸 Haldi Morning</span>
+          </a>
 
-          <!-- Outfit Categories -->
-          <div class="filter-group">
-            <h4 class="filter-title">Garment Category</h4>
-            <ul class="filter-list">
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="ALL" checked onclick="if(appInstance){appInstance.currentCategory='ALL'; appInstance.renderProducts();}" /> All Categories</label></li>
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Lehenga" onclick="if(appInstance){appInstance.currentCategory='Lehenga'; appInstance.renderProducts();}" /> Lehenga Choli</label></li>
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Anarkali" onclick="if(appInstance){appInstance.currentCategory='Anarkali'; appInstance.renderProducts();}" /> Anarkali Sets</label></li>
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Sharara" onclick="if(appInstance){appInstance.currentCategory='Sharara'; appInstance.renderProducts();}" /> Sharara &amp; Gharara</label></li>
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Designer Suit" onclick="if(appInstance){appInstance.currentCategory='Designer Suit'; appInstance.renderProducts();}" /> Designer Suits</label></li>
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Wedding Gown" onclick="if(appInstance){appInstance.currentCategory='Wedding Gown'; appInstance.renderProducts();}" /> Royal Gowns</label></li>
-              <li><label class="filter-checkbox-label"><input type="radio" name="catFilter" value="Indo-Western" onclick="if(appInstance){appInstance.currentCategory='Indo-Western'; appInstance.renderProducts();}" /> Indo-Western</label></li>
-            </ul>
-          </div>
-        </aside>
-
-        <!-- Product Grid Container -->
-        <main class="products-grid" id="productsGrid">
-          <!-- Dynamic Products rendered via JS -->
-        </main>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       "A CELEBRATION IN MOTION" 3D VIDEO SECTION
-       ========================================== -->
-  <section class="motion-section" id="motionSection">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Cinematic Runway</span>
-        <h2 class="section-title heading-serif">A CELEBRATION IN MOTION</h2>
-        <p class="section-subtitle">Experience our signature bridal campaign showcasing palace architecture, flowing fabrics, and champagne light.</p>
-      </div>
-
-      <div class="motion-video-container">
-        <canvas id="celebrationMotionCanvas" class="motion-canvas"></canvas>
-        <div class="motion-overlay-content">
-          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold-light);">AUTUMN BRIDAL CAMPAIGN</span>
-          <h3 class="heading-serif" style="font-size: 1.8rem; color: var(--color-ivory); margin: 0.5rem 0 1rem 0;">Echoes of Rajputana Royalty</h3>
-          <p style="font-size: 0.9rem; color: var(--color-ivory-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-            Where heritage craftsmanship converges with digital couture. Watch pure silk organza and antique zari move under soft palace beams.
-          </p>
-          <a href="#catalogSection" class="btn-royal-primary">Shop The Campaign</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       BRAND STORY ("THE ART OF RIWAAYAT")
-       ========================================== -->
-  <section class="brand-story-section" id="storySection">
-    <div class="container">
-      <div class="story-grid">
-        <div class="story-card-stack">
-          <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Riwaayat Heritage" class="story-img-main" />
-          <img src="assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Riwaayat Detail" class="story-img-secondary" />
-        </div>
-
-        <div>
-          <span class="section-tag">Our Heritage</span>
-          <h2 class="section-title heading-serif" style="text-align: left;">THE ART OF RIWAAYAT</h2>
-          <p style="font-size: 1.05rem; color: var(--color-ivory-muted); margin-bottom: 1.5rem; line-height: 1.8;">
-            Riwaayat Royale was founded on a singular vision: to honor centuries of Indian bridal mastery while reimagining the luxury fashion shopping experience for the modern world.
-          </p>
-          <p style="font-size: 0.95rem; color: rgba(253,251,247,0.7); margin-bottom: 2rem; line-height: 1.7;">
-            Every weave, zardozi motif, and pearl strand in our collection is crafted by master artisans across Jaipur, Lucknow, Varanasi, and Kolkata. Combined with our 3D Atelier tech, we bring authentic royal couture directly to your wardrobe.
-          </p>
-
-          <div style="display: flex; gap: 2rem;">
-            <div>
-              <h3 style="font-size: 2.2rem; font-weight: 700; color: var(--gold-light);">400+</h3>
-              <p style="font-size: 0.85rem; color: var(--color-ivory-muted);">Hours of Handcraft Per Piece</p>
+          <a href="mehendi.html" target="_blank" class="amazon-quad-tile" title="Open Mehendi Collection in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_109_teal-green-chiffon-trouser-suit-with-zari-work-for-mehndi-lstv141798-1.jpg" alt="Mehendi" class="amazon-tile-img" />
             </div>
-            <div>
-              <h3 style="font-size: 2.2rem; font-weight: 700; color: var(--gold-light);">100%</h3>
-              <p style="font-size: 0.85rem; color: var(--color-ivory-muted);">Authentic Pure Silks &amp; Zari</p>
+            <span class="amazon-tile-label">🌿 Mehendi Henna</span>
+          </a>
+
+          <a href="sangeet.html" target="_blank" class="amazon-quad-tile" title="Open Sangeet Collection in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_131_purple-georgette-embroidered-sequins-lehenga-ghsads271-u.jpg" alt="Sangeet" class="amazon-tile-img" />
             </div>
+            <span class="amazon-tile-label">🎶 Sangeet Music</span>
+          </a>
+
+          <a href="wedding.html" target="_blank" class="amazon-quad-tile" title="Open Wedding Collection in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Bridal Wedding" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">👰 Bridal Wedding</span>
+          </a>
+        </div>
+        <a href="wedding.html" target="_blank" class="amazon-quad-footer-link">See all 7 celebrations →</a>
+      </div>
+
+      <!-- QUAD CARD 2: SHOP BY SILHOUETTE DIVISION (4 TILES) -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Shop by Silhouette Division</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="lehengas.html" target="_blank" class="amazon-quad-tile" title="Open Royal Lehengas in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Lehengas" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">👑 Royal Lehengas</span>
+          </a>
+
+          <a href="gowns.html" target="_blank" class="amazon-quad-tile" title="Open Evening Gowns in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg" alt="Gowns" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">💍 Evening Gowns</span>
+          </a>
+
+          <a href="shararas.html" target="_blank" class="amazon-quad-tile" title="Open Shararas in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_109_teal-green-chiffon-trouser-suit-with-zari-work-for-mehndi-lstv141798-1.jpg" alt="Shararas" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">🌿 Shararas &amp; Suits</span>
+          </a>
+
+          <a href="indowestern.html" target="_blank" class="amazon-quad-tile" title="Open Indo-Western in new tab">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_165_indowestern-sets-for-women-in-purple-georgette-embroidered-sequins-iwsuscc47757096-u.jpg" alt="Indo-Western" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">✨ Indo-Western Sets</span>
+          </a>
+        </div>
+        <a href="lehengas.html" target="_blank" class="amazon-quad-footer-link">Explore all 4 silhouettes →</a>
+      </div>
+
+      <!-- QUAD CARD 3: GRAND RECEPTION & BANQUETS (4 TILES) -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Grand Reception &amp; Banquets</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="product.html?id=rr-recp-1" target="_blank" class="amazon-quad-tile" title="Rose Gold Tissue">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg" alt="Rose Gold" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Rose Gold Tissue</span>
+          </a>
+
+          <a href="product.html?id=rr-recp-2" target="_blank" class="amazon-quad-tile" title="Violet Evening Gown">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_183_ExclusiveDressDesignerNetGownForWomenFloralBrideGownIndianWeddingReceptionGownIndianSuitFloralAnarkaliVioletGown_1.jpg" alt="Violet Gown" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Violet Gala Gowns</span>
+          </a>
+
+          <a href="product.html?id=rr-recp-3" target="_blank" class="amazon-quad-tile" title="Wine Velvet Slit">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_159_wine-embroidered-front-slit-palazzo-outfit-palkhi-fashion-6215482.jpg" alt="Wine Velvet" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Wine Velvet Tunics</span>
+          </a>
+
+          <a href="product.html?id=rr-recp-4" target="_blank" class="amazon-quad-tile" title="Kashmir Pearl Dupion">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Pearl Dupion" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Kashmir Pearl Ivory</span>
+          </a>
+        </div>
+        <a href="reception.html" target="_blank" class="amazon-quad-footer-link">See more reception wear →</a>
+      </div>
+
+      <!-- QUAD CARD 4: ROYAL TROUSSEAU ESSENTIALS (4 TILES) -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Royal Trousseau Essentials</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="wedding.html" target="_blank" class="amazon-quad-tile" title="Kundan Jewelry">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Kundan" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Kundan Chokers</span>
+          </a>
+
+          <a href="reception.html" target="_blank" class="amazon-quad-tile" title="Silk Potlis">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg" alt="Potlis" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Zari Potli Bags</span>
+          </a>
+
+          <a href="haldi.html" target="_blank" class="amazon-quad-tile" title="Organza Dupattas">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/haldi/imgi_140_yellow-organza-silk-embroidered-gorgeous-indowestern-skirt-set-iwsuscc48265562-u.jpg" alt="Dupattas" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Organza Dupattas</span>
+          </a>
+
+          <a href="sangeet.html" target="_blank" class="amazon-quad-tile" title="Bridal Juttis">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_131_purple-georgette-embroidered-sequins-lehenga-ghsads271-u.jpg" alt="Juttis" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Embroidered Juttis</span>
+          </a>
+        </div>
+        <a href="wedding.html" target="_blank" class="amazon-quad-footer-link">Complete your trousseau →</a>
+      </div>
+
+    </div>
+
+    <!-- ==========================================================================
+         HORIZONTAL CAROUSEL 1: TODAY'S ROYAL DEALS
+         ========================================================================== -->
+    <section class="amazon-carousel-card" id="dealsSection">
+      <div class="amazon-carousel-header">
+        <h2 class="amazon-carousel-title">Today's Royal Deals — Up to 25% Off Handcrafted Couture</h2>
+        <a href="lehengas.html" target="_blank" class="amazon-quad-footer-link">See all deals →</a>
+      </div>
+
+      <div class="amazon-carousel-track-wrapper">
+        <button class="amazon-carousel-nav-btn prev" data-track="dealsCarouselTrack" title="Previous">‹</button>
+        <div class="amazon-carousel-track" id="dealsCarouselTrack">
+          <!-- Injected dynamically by amazon-home.js -->
+        </div>
+        <button class="amazon-carousel-nav-btn next" data-track="dealsCarouselTrack" title="Next">›</button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HORIZONTAL CAROUSEL 2: BEST SELLERS IN WEDDING COUTURE
+         ========================================================================== -->
+    <section class="amazon-carousel-card">
+      <div class="amazon-carousel-header">
+        <h2 class="amazon-carousel-title">Best Sellers in Indian Wedding Couture</h2>
+        <a href="wedding.html" target="_blank" class="amazon-quad-footer-link">See more best sellers →</a>
+      </div>
+
+      <div class="amazon-carousel-track-wrapper">
+        <button class="amazon-carousel-nav-btn prev" data-track="bestSellersCarouselTrack" title="Previous">‹</button>
+        <div class="amazon-carousel-track" id="bestSellersCarouselTrack">
+          <!-- Injected dynamically by amazon-home.js -->
+        </div>
+        <button class="amazon-carousel-nav-btn next" data-track="bestSellersCarouselTrack" title="Next">›</button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ROW 2: SECOND BATCH OF 4 QUADRANT CARDS
+         ========================================================================== -->
+    <div class="amazon-quad-row">
+
+      <!-- QUAD CARD 5: PRE-WEDDING FESTIVITIES -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Pre-Wedding Festivities</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="haldi.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/haldi/imgi_135_0T3A6883_df8ca5db-2969-4c62-b3c7-61905d69d7ff_400x.jpg" alt="Haldi Dori" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Surya Haldi Dori</span>
+          </a>
+          <a href="mehendi.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_109_teal-green-chiffon-trouser-suit-with-zari-work-for-mehndi-lstv141798-1.jpg" alt="Teal Henna" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Teal Henna Suit</span>
+          </a>
+          <a href="sangeet.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_131_purple-georgette-embroidered-sequins-lehenga-ghsads271-u.jpg" alt="Purple Sangeet" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Purple Georgette</span>
+          </a>
+          <a href="festive.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_165_indowestern-sets-for-women-in-purple-georgette-embroidered-sequins-iwsuscc47757096-u.jpg" alt="Festive" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Festive Indo-Western</span>
+          </a>
+        </div>
+        <a href="festive.html" target="_blank" class="amazon-quad-footer-link">Shop all pre-wedding →</a>
+      </div>
+
+      <!-- QUAD CARD 6: HAUTE BRIDAL MASTERWORKS -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Haute Bridal Masterworks</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="wedding.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Rajputana" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Rajputana Crimson</span>
+          </a>
+          <a href="reception.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_145_off-white-dupion-silk-lehenga-with-pearl-hand-embroidery-for-wedding-wear-llcv125036-1_1.jpg" alt="Pearl Ivory" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Kashmir Pearl Ivory</span>
+          </a>
+          <a href="reception.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg" alt="Tissue Gold" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Rose Gold Tissue</span>
+          </a>
+          <a href="anniversary.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_159_wine-embroidered-front-slit-palazzo-outfit-palkhi-fashion-6215482.jpg" alt="Wine Velvet" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Wine Velvet Slit</span>
+          </a>
+        </div>
+        <a href="wedding.html" target="_blank" class="amazon-quad-footer-link">Explore bridal masterworks →</a>
+      </div>
+
+      <!-- QUAD CARD 7: ATELIER BESPOKE SERVICES -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Atelier Bespoke Guarantees</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <div class="amazon-quad-tile" onclick="alert('✂️ 4-Inch Custom Alteration Margin:\nEvery garment includes extra pure silk margins inside seams for custom fitting adjustments.');">
+            <div class="amazon-tile-img-wrap" style="display:flex; align-items:center; justify-content:center; font-size:2.5rem; background:#FFF8E7;">
+              ✂️
+            </div>
+            <span class="amazon-tile-label">4-Inch Margin Built In</span>
+          </div>
+          <div class="amazon-quad-tile" onclick="alert('📦 48-Hour Dispatch Guarantee:\nIn-stock bridal collections ship inside tamper-proof wardrobe courier trunks.');">
+            <div class="amazon-tile-img-wrap" style="display:flex; align-items:center; justify-content:center; font-size:2.5rem; background:#E8F5E9;">
+              📦
+            </div>
+            <span class="amazon-tile-label">48-Hr Express Dispatch</span>
+          </div>
+          <div class="amazon-quad-tile" onclick="alert('👑 100% Pure Handloom Certification:\nHandcrafted by master generational couturiers in Jaipur & Varanasi.');">
+            <div class="amazon-tile-img-wrap" style="display:flex; align-items:center; justify-content:center; font-size:2.5rem; background:#F3E5F5;">
+              👑
+            </div>
+            <span class="amazon-tile-label">100% Pure Weaves</span>
+          </div>
+          <div class="amazon-quad-tile" onclick="alert('💬 WhatsApp Bridal Video Styling:\nSchedule a 1-on-1 private fitting call with our senior couturiers.');">
+            <div class="amazon-tile-img-wrap" style="display:flex; align-items:center; justify-content:center; font-size:2.5rem; background:#E0F7FA;">
+              💬
+            </div>
+            <span class="amazon-tile-label">Live Video Styling</span>
           </div>
         </div>
+        <a href="javascript:void(0);" onclick="alert('Riwaayat Royale Master Atelier Assurance: Guaranteed royal satisfaction with complimentary alteration courier support.');" class="amazon-quad-footer-link">Learn about atelier services →</a>
       </div>
+
+      <!-- QUAD CARD 8: MILESTONE ANNIVERSARIES -->
+      <div class="amazon-quad-card">
+        <h2 class="amazon-quad-title">Milestone Celebrations</h2>
+        <div class="amazon-quad-tiles-2x2">
+          <a href="anniversary.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_159_wine-embroidered-front-slit-palazzo-outfit-palkhi-fashion-6215482.jpg" alt="Wine Tunics" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Wine Velvet Tunics</span>
+          </a>
+          <a href="festive.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_165_indowestern-sets-for-women-in-purple-georgette-embroidered-sequins-iwsuscc47757096-u.jpg" alt="Indo-Western" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Fusion Crop Sets</span>
+          </a>
+          <a href="gowns.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/reception/imgi_183_ExclusiveDressDesignerNetGownForWomenFloralBrideGownIndianWeddingReceptionGownIndianSuitFloralAnarkaliVioletGown_1.jpg" alt="Violet Gala" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Violet Gala Gowns</span>
+          </a>
+          <a href="shararas.html" target="_blank" class="amazon-quad-tile">
+            <div class="amazon-tile-img-wrap">
+              <img src="assets/images/sangeet/imgi_109_teal-green-chiffon-trouser-suit-with-zari-work-for-mehndi-lstv141798-1.jpg" alt="Shararas" class="amazon-tile-img" />
+            </div>
+            <span class="amazon-tile-label">Teal Silk Shararas</span>
+          </a>
+        </div>
+        <a href="anniversary.html" target="_blank" class="amazon-quad-footer-link">See all milestone pieces →</a>
+      </div>
+
     </div>
-  </section>
 
-  <!-- ==========================================
-       ROYAL LOOKBOOK & PHOTO GALLERY SECTION
-       ========================================== -->
-  <section class="lookbook-section" id="lookbookSection">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Editorial Gallery</span>
-        <h2 class="section-title heading-serif">ROYAL LOOKBOOK</h2>
-        <p class="section-subtitle">Explore high-fashion editorial imagery showcasing real wedding garments across all traditional ceremonies.</p>
+    <!-- ==========================================================================
+         HORIZONTAL CAROUSEL 3: TRENDING RECEPTION GOWNS & INDO-WESTERN
+         ========================================================================== -->
+    <section class="amazon-carousel-card">
+      <div class="amazon-carousel-header">
+        <h2 class="amazon-carousel-title">Trending Reception Gowns &amp; Indo-Western Sets</h2>
+        <a href="gowns.html" target="_blank" class="amazon-quad-footer-link">Explore all gowns →</a>
       </div>
 
-      <div class="lookbook-grid" id="lookbookGrid">
-        <!-- Injected dynamically via app.js -->
+      <div class="amazon-carousel-track-wrapper">
+        <button class="amazon-carousel-nav-btn prev" data-track="trendingCarouselTrack" title="Previous">‹</button>
+        <div class="amazon-carousel-track" id="trendingCarouselTrack">
+          <!-- Injected dynamically by amazon-home.js -->
+        </div>
+        <button class="amazon-carousel-nav-btn next" data-track="trendingCarouselTrack" title="Next">›</button>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==========================================
-       MODALS & DRAWERS
-       ========================================== -->
-  <!-- Product Detail Modal -->
-  <div class="modal-overlay" id="productDetailModal">
-    <div class="modal-card">
-      <button class="modal-close-btn" id="closeProductModalBtn">✕</button>
-      <div id="productDetailModalContent">
-        <!-- Dynamic content injected via app.js -->
-      </div>
-    </div>
-  </div>
+  </main>
 
-  <!-- Slide-out Cart Drawer -->
+  <!-- ==========================================================================
+       CART DRAWER MODAL
+       ========================================================================== -->
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
-      <h3 class="heading-serif" style="font-size: 1.3rem; color: var(--gold-light);">Your Shopping Bag</h3>
+      <h3 class="heading-serif" style="font-size: 1.3rem; color: var(--gold-light);">Your Shopping Cart</h3>
       <button style="color: var(--color-ivory); font-size: 1.4rem;" id="closeCartBtn">✕</button>
     </div>
-    <div class="cart-body" id="cartItemsContainer">
-      <!-- Cart items injected via app.js -->
-    </div>
+    <div class="cart-body" id="cartItemsContainer"></div>
     <div class="cart-footer">
       <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem;">
         <span>Subtotal:</span>
         <span id="cartSubtotal" style="color: var(--gold-light);">₹0</span>
       </div>
-      <button class="btn-royal-primary" style="width: 100%;" onclick="alert('Proceeding to Royal Checkout...');">Proceed To Checkout</button>
+      <button class="btn-royal-primary" style="width: 100%;" onclick="alert('Proceeding to 1-Click Amazon Checkout...');">Proceed To Checkout</button>
     </div>
   </div>
 
-  <!-- Admin Panel Modal -->
+  <!-- Admin Modal -->
   <div class="modal-overlay" id="adminModal">
-    <div class="modal-card" style="max-width: 650px;">
-      <button class="modal-close-btn" id="closeAdminBtn">✕</button>
-      <h2 class="heading-serif" style="font-size: 1.8rem; color: var(--gold-light); margin-bottom: 1rem;">Royal Atelier Admin</h2>
-      <p style="font-size: 0.88rem; color: var(--color-ivory-muted); margin-bottom: 1.5rem;">Upload new fashion photographs and publish outfits to the live catalog.</p>
-
-      <form id="adminProductForm" style="display: grid; gap: 1rem;">
-        <div>
-          <label style="font-size: 0.85rem; color: var(--gold-soft);">Outfit Title</label>
-          <input type="text" id="adminProdName" required class="filter-search-input" placeholder="e.g. Maharani Crimson Zari Lehenga" />
+    <div class="modal-card" style="max-width: 650px; padding: 2.5rem;">
+      <button class="modal-close-btn" id="closeAdminModalBtn">✕</button>
+      <h3 class="heading-serif" style="font-size: 1.6rem; color: #4A1224; margin-bottom: 0.5rem;">Royal Product Master (Admin)</h3>
+      <p style="color: #666; font-size: 0.85rem; margin-bottom: 1.5rem;">Upload new curated outfits directly into the catalog.</p>
+      
+      <form id="adminProductForm">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Outfit Name</label>
+            <input type="text" id="adminProdName" class="filter-search-input" placeholder="e.g. Royal Rajputana Lehenga" required />
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Price (₹)</label>
+            <input type="number" id="adminProdPrice" class="filter-search-input" placeholder="35000" required />
+          </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Silhouette Category</label>
+            <select id="adminProdCategory" class="filter-select" style="width: 100%;">
+              <option value="Lehenga">Lehenga</option>
+              <option value="Gown">Evening Gown</option>
+              <option value="Indo-Western">Indo-Western</option>
+              <option value="Sharara">Sharara Suit</option>
+              <option value="Anarkali">Anarkali</option>
+            </select>
+          </div>
           <div>
             <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Occasion</label>
-            <select id="adminProdOccasion" class="filter-search-input">
+            <select id="adminProdOccasion" class="filter-select" style="width: 100%;">
               <option value="Haldi">Haldi</option>
               <option value="Mehendi">Mehendi</option>
               <option value="Sangeet">Sangeet</option>
-              <option value="Wedding">Wedding</option>
+              <option value="Wedding" selected>Wedding</option>
               <option value="Reception">Reception</option>
               <option value="Anniversary">Anniversary</option>
               <option value="Party & Festive">Party &amp; Festive</option>
             </select>
           </div>
-          <div>
-            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Garment Category</label>
-            <select id="adminProdCat" class="filter-search-input">
-              <option value="Lehenga">Lehenga</option>
-              <option value="Anarkali">Anarkali</option>
-              <option value="Sharara">Sharara</option>
-              <option value="Designer Suit">Designer Suit</option>
-              <option value="Wedding Gown">Wedding Gown</option>
-              <option value="Indo-Western">Indo-Western</option>
-            </select>
-          </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
           <div>
-            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Price (₹ INR)</label>
-            <input type="number" id="adminProdPrice" required class="filter-search-input" placeholder="75000" />
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Fabric Details</label>
+            <input type="text" id="adminProdFabric" class="filter-search-input" placeholder="Pure Raw Silk" />
           </div>
           <div>
-            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Photo Path / Relative URL</label>
-            <input type="text" id="adminProdImage" class="filter-search-input" placeholder="haldi/imgi_140_yellow...jpg" />
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Fabric Specs</label>
-            <input type="text" id="adminProdFabric" class="filter-search-input" placeholder="Pure Raw Silk & Organza" />
-          </div>
-          <div>
-            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Embroidery / Work</label>
-            <input type="text" id="adminProdWork" class="filter-search-input" placeholder="Gold Zardozi & Moti" />
+            <label style="font-size: 0.85rem; color: #4A1224; font-weight: 700;">Photo Path</label>
+            <input type="text" id="adminProdImage" class="filter-search-input" placeholder="assets/images/wedding/imgi_180...jpg" />
           </div>
         </div>
 
@@ -457,77 +573,69 @@
     </div>
   </div>
 
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3 class="footer-brand-title heading-serif">RIWAAYAT ROYALE</h3>
-          <p style="font-size: 0.88rem; color: var(--color-ivory-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-            Where every celebration becomes a statement. Premium Indian occasion-wear fashion house powered by 3D digital atelier technology.
-          </p>
-        </div>
+  <!-- ==========================================================================
+       5. AMAZON FOOTER
+       ========================================================================== -->
+  <footer class="amazon-footer">
+    <!-- Back to top button -->
+    <a href="#" class="amazon-back-to-top" id="amazonBackToTop">
+      ▲ Back to top
+    </a>
 
-        <div>
-          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Shop Occasions</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#catalogSection" class="footer-nav-link">Haldi Outfits</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Mehendi Sets</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Sangeet Lehengas</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Bridal Wear</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Reception Gowns</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Categories</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#catalogSection" class="footer-nav-link">Designer Lehengas</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Anarkali Sets</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Shararas &amp; Suits</a></li>
-            <li><a href="#catalogSection" class="footer-nav-link">Indo-Western</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Customer Care</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#" class="footer-nav-link">Custom Stitching Guide</a></li>
-            <li><a href="#" class="footer-nav-link">Worldwide Express Delivery</a></li>
-            <li><a href="#" class="footer-nav-link">WhatsApp Bridal Styling</a></li>
-            <li><a href="#" class="footer-nav-link">Privacy &amp; Terms</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 0.95rem;">Royal Newsletter</h4>
-          <p style="font-size: 0.85rem; color: var(--color-ivory-muted);">Enter the world of Riwaayat Royale for private trunk show invitations.</p>
-          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Welcome to the world of Riwaayat Royale!');">
-            <input type="email" class="newsletter-input" placeholder="Your Email Address" required />
-            <button type="submit" class="btn-royal-primary" style="padding: 0.75rem 1.2rem;">Join</button>
-          </form>
-        </div>
+    <div class="amazon-footer-links-grid">
+      <div class="amazon-footer-col">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="javascript:void(0);">About Riwaayat Royale</a></li>
+          <li><a href="javascript:void(0);">Generational Master Artisans</a></li>
+          <li><a href="javascript:void(0);">Pure Silk &amp; Handloom Heritage</a></li>
+          <li><a href="javascript:void(0);">Press &amp; Fashion Week</a></li>
+        </ul>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; 2026 Riwaayat Royale Maison de Couture. All rights reserved. Source-of-truth product imagery preserved.</p>
+      <div class="amazon-footer-col">
+        <h4>Connect with Us</h4>
+        <ul>
+          <li><a href="javascript:void(0);">Instagram Runway</a></li>
+          <li><a href="javascript:void(0);">Bridal Pinterest Board</a></li>
+          <li><a href="javascript:void(0);">WhatsApp Bridal Hotline</a></li>
+          <li><a href="javascript:void(0);">Private Salon Appointments</a></li>
+        </ul>
       </div>
+
+      <div class="amazon-footer-col">
+        <h4>Couture Silhouettes</h4>
+        <ul>
+          <li><a href="lehengas.html">Royal Lehengas</a></li>
+          <li><a href="gowns.html">Evening Reception Gowns</a></li>
+          <li><a href="shararas.html">Festive Shararas &amp; Suits</a></li>
+          <li><a href="indowestern.html">Modern Indo-Western Sets</a></li>
+        </ul>
+      </div>
+
+      <div class="amazon-footer-col">
+        <h4>Let Us Help You</h4>
+        <ul>
+          <li><a href="javascript:void(0);">Bespoke Stitching Guide</a></li>
+          <li><a href="javascript:void(0);">48-Hour Worldwide Express Delivery</a></li>
+          <li><a href="javascript:void(0);">7-Day Royal Fit Guarantee</a></li>
+          <li><a href="javascript:void(0);">100% Purchase Protection</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="amazon-footer-bottom">
+      <p style="margin-bottom: 0.5rem;">
+        Conditions of Use &amp; Sale &nbsp;|&nbsp; Privacy Notice &nbsp;|&nbsp; Interest-Based Ads
+      </p>
+      <p>&copy; 2026 Riwaayat Royale Maison de Couture Inc. or its affiliates. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Application Scripts -->
+  <!-- Scripts -->
   <script src="js/data.js"></script>
-  <script src="js/three-slowmo.js"></script>
-  <script src="js/three-hero.js"></script>
-  <script src="js/three-atelier.js"></script>
   <script src="js/app.js"></script>
-
-  <!-- Floating Royal Bridal Stylist Concierge -->
-  <button class="royal-concierge-btn" id="royalConciergeBtn" onclick="alert('👑 Royal Bridal Concierge Connected!\n\nOur personal fashion advisor is available for live custom stitching assistance, outfit color matching &amp; express bridal delivery.\n\nContact Stylist Desk: +91 98765 43210 / concierge@riwaayatroyale.com');">
-    <span>💬 Talk To Royal Stylist</span>
-  </button>
+  <script src="js/amazon-home.js"></script>
 
 </body>
 </html>

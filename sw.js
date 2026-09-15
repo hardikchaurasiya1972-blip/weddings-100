@@ -1,16 +1,28 @@
 // Riwaayat Royale — Service Worker for PWA Offline Performance
-const CACHE_NAME = 'riwaayat-royale-v1';
+const CACHE_NAME = 'riwaayat-royale-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './haldi.html',
+  './mehendi.html',
+  './sangeet.html',
+  './wedding.html',
+  './reception.html',
+  './anniversary.html',
+  './festive.html',
+  './lehengas.html',
+  './gowns.html',
+  './shararas.html',
+  './indowestern.html',
+  './product.html',
   './manifest.json',
   './css/main.css',
   './css/components.css',
+  './css/amazon.css',
   './js/data.js',
   './js/app.js',
-  './js/three-slowmo.js',
-  './js/three-hero.js',
-  './js/three-atelier.js',
+  './js/amazon-home.js',
+  './js/product-detail.js',
   './assets/branding/logo-main.svg',
   './assets/branding/favicon.svg'
 ];

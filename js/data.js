@@ -1,4 +1,4 @@
-﻿// Riwaayat Royale - Divided Catalog Data (100 Outfits Divided Into 8 Function Options)
+// Riwaayat Royale - Divided Catalog Data (100 Outfits Divided Into 8 Function Options)
 
 const PRODUCTS_DATA = [
 {
@@ -1808,7 +1808,8 @@ const OCCASIONS_DATA = [
   {
     key: "Haldi",
     title: "Haldi",
-    icon: "ðŸŒ¸",
+    icon: "🌸",
+    url: "haldi.html",
     tagline: "Sunshine, laughter & traditions.",
     description: "Discover bright mustard, golden yellow, and ivory organza outfits handcrafted for auspicious morning rituals.",
     image: "assets/images/haldi/imgi_140_yellow-organza-silk-embroidered-gorgeous-indowestern-skirt-set-iwsuscc48265562-u.jpg",
@@ -1817,7 +1818,8 @@ const OCCASIONS_DATA = [
   {
     key: "Mehendi",
     title: "Mehendi",
-    icon: "ðŸŒ¿",
+    icon: "🌿",
+    url: "mehendi.html",
     tagline: "Colour your celebration.",
     description: "Vibrant teal greens, lime silks, and playful shararas tailored for henna afternoon festivities.",
     image: "assets/images/sangeet/imgi_109_teal-green-chiffon-trouser-suit-with-zari-work-for-mehndi-lstv141798-1.jpg",
@@ -1826,7 +1828,8 @@ const OCCASIONS_DATA = [
   {
     key: "Sangeet",
     title: "Sangeet",
-    icon: "ðŸŽ¶",
+    icon: "🎶",
+    url: "sangeet.html",
     tagline: "Made for unforgettable nights.",
     description: "Dazzling sequined lehengas, shimmering gowns, and one-shoulder silhouettes built for music and dance.",
     image: "assets/images/sangeet/imgi_131_purple-georgette-embroidered-sequins-lehenga-ghsads271-u.jpg",
@@ -1835,7 +1838,8 @@ const OCCASIONS_DATA = [
   {
     key: "Wedding",
     title: "Wedding",
-    icon: "ðŸ‘°",
+    icon: "👰",
+    url: "wedding.html",
     tagline: "Your most beautiful beginning.",
     description: "Royal crimson raw silk lehengas, Kashmir pearl handloom, and magnificent gold zari bridal couture.",
     image: "assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg",
@@ -1844,7 +1848,8 @@ const OCCASIONS_DATA = [
   {
     key: "Reception",
     title: "Reception",
-    icon: "ðŸ’",
+    icon: "💍",
+    url: "reception.html",
     tagline: "Make your grand entrance.",
     description: "Rose gold tissue lehengas, jewel-toned violet gowns, and opulent metallic ensembles.",
     image: "assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg",
@@ -1853,7 +1858,8 @@ const OCCASIONS_DATA = [
   {
     key: "Anniversary",
     title: "Anniversary",
-    icon: "â¤ï¸",
+    icon: "❤️",
+    url: "anniversary.html",
     tagline: "Timeless romance renewed.",
     description: "Regal wine front-slit palazzo tunics and elegant couture pieces for milestone celebrations.",
     image: "assets/images/reception/imgi_159_wine-embroidered-front-slit-palazzo-outfit-palkhi-fashion-6215482.jpg",
@@ -1862,7 +1868,8 @@ const OCCASIONS_DATA = [
   {
     key: "Party & Festive",
     title: "Party & Festive",
-    icon: "âœ¨",
+    icon: "✨",
+    url: "festive.html",
     tagline: "Glimmer in royal elegance.",
     description: "Fusion Indo-Western crop sets, modern Anarkalis, and statement party silhouettes.",
     image: "assets/images/reception/imgi_165_indowestern-sets-for-women-in-purple-georgette-embroidered-sequins-iwsuscc47757096-u.jpg",

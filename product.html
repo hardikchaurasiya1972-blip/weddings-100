@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pdpMetaTitle">Royal Outfit Details — Riwaayat Royale Maison de Haute Couture</title>
+  <meta name="description" id="pdpMetaDesc" content="Explore handcrafted Indian couture, bespoke bridal lehengas, silk shararas, and designer evening gowns at Riwaayat Royale." />
+
+  <!-- Favicon & PWA App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/branding/favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#14030F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Riwaayat Royale" />
+
+  <!-- Google Fonts for Luxury Indian Couture -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/atelier-pdp.css" />
+</head>
+<body class="atelier-theme">
+
+  <!-- ==========================================================================
+       1. MAISON ATELIER TOP HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="maison-header">
+    <div class="maison-header-topline"></div>
+    
+    <!-- Atelier Announcement Ribbon -->
+    <div class="maison-announcement-bar">
+      <span>👑 <em>Complimentary Handloom Vault Box &amp; Bespoke Tailoring on all Bridal Orders</em></span>
+      <span class="hide-mobile">•</span>
+      <span class="hide-mobile">✨ <em>Express Insured Courier Worldwide</em></span>
+      <span class="hide-mobile">•</span>
+      <span class="hide-mobile">💎 <em>Private Atelier Appointments in Mumbai, Delhi &amp; London</em></span>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="maison-header-main">
+      <!-- Maison Logo & Hallmark -->
+      <a href="index.html" class="maison-brand-wrap" title="Riwaayat Royale Maison de Haute Couture">
+        <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale Logo" class="maison-logo-img" />
+        <div class="maison-brand-text">
+          <span class="maison-brand-name">Riwaayat Royale</span>
+          <span class="maison-brand-sub">Maison de Haute Couture</span>
+        </div>
+      </a>
+
+      <!-- Central Search Suite -->
+      <div class="maison-search-wrap">
+        <form class="maison-search-form" id="amazonSearchForm" role="search">
+          <select class="maison-category-select" id="amazonSearchCategory" title="Select Category">
+            <option value="all">All Silhouettes</option>
+            <option value="Lehenga">👑 Royal Lehengas</option>
+            <option value="Gown">💍 Evening Gowns</option>
+            <option value="Sharara">🌿 Shararas &amp; Suits</option>
+            <option value="Indo-Western">✨ Indo-Western Sets</option>
+            <option value="Haldi">🌸 Haldi Outfits</option>
+            <option value="Mehendi">🌿 Mehendi Sets</option>
+            <option value="Sangeet">🎶 Sangeet Gala</option>
+            <option value="Wedding">👰 Bridal Wedding</option>
+            <option value="Reception">💍 Grand Reception</option>
+          </select>
+
+          <input 
+            type="text" 
+            class="maison-search-input" 
+            id="amazonSearchInput" 
+            placeholder="Search bespoke bridal lehengas, silk shararas, reception gowns..." 
+            autocomplete="off" 
+          />
+
+          <button type="submit" class="maison-search-btn" title="Search Couture">
+            🔍
+          </button>
+        </form>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="maison-header-actions">
+        <!-- Maison Multi-Language & Region Selector -->
+        <div class="maison-lang-selector-wrap" id="maisonLangSelectorWrap">
+          <button type="button" class="maison-lang-btn" id="maisonLangBtn" aria-haspopup="true" aria-expanded="false" title="Change Language / भाषा बदलें">
+            <span id="maisonLangFlag">🇮🇳</span>
+            <span id="maisonLangText">EN</span>
+            <span style="font-size: 0.72rem; color: var(--maison-gold); margin-left: 2px;">▾</span>
+          </button>
+          
+          <div class="maison-lang-dropdown" id="maisonLangDropdown" role="menu" aria-label="Language Selector">
+            <div class="maison-lang-dropdown-header">
+              <span>Select Language / भाषा चुनें</span>
+            </div>
+            <div class="maison-lang-list">
+              <button type="button" class="maison-lang-opt active" data-lang="en">
+                <span class="flag">🇮🇳</span>
+                <div class="lang-names">
+                  <strong>English</strong>
+                  <small>India / International</small>
+                </div>
+                <span class="check">✓</span>
+              </button>
+              <button type="button" class="maison-lang-opt" data-lang="hi">
+                <span class="flag">🇮🇳</span>
+                <div class="lang-names">
+                  <strong>हिन्दी</strong>
+                  <small>Hindi</small>
+                </div>
+                <span class="check">✓</span>
+              </button>
+              <button type="button" class="maison-lang-opt" data-lang="gu">
+                <span class="flag">🇮🇳</span>
+                <div class="lang-names">
+                  <strong>ગુજરાતી</strong>
+                  <small>Gujarati</small>
+                </div>
+                <span class="check">✓</span>
+              </button>
+              <button type="button" class="maison-lang-opt" data-lang="pa">
+                <span class="flag">🇮🇳</span>
+                <div class="lang-names">
+                  <strong>ਪੰਜਾਬੀ</strong>
+                  <small>Punjabi</small>
+                </div>
+                <span class="check">✓</span>
+              </button>
+              <button type="button" class="maison-lang-opt" data-lang="ar">
+                <span class="flag">🇦🇪</span>
+                <div class="lang-names">
+                  <strong>العربية</strong>
+                  <small>Arabic (Dubai Salon)</small>
+                </div>
+                <span class="check">✓</span>
+              </button>
+              <button type="button" class="maison-lang-opt" data-lang="fr">
+                <span class="flag">🇫🇷</span>
+                <div class="lang-names">
+                  <strong>Français</strong>
+                  <small>French Couture</small>
+                </div>
+                <span class="check">✓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Global & Domestic Delivery Location Quick Nav -->
+        <button type="button" class="maison-delivery-indicator-btn" id="maisonDeliveryBtn" title="View Delivery Locations &amp; Atelier Salons" onclick="document.getElementById('deliveryMapSection')?.scrollIntoView({behavior: 'smooth'});">
+          <span class="delivery-pin-icon">📍</span>
+          <div class="delivery-loc-text">
+            <span class="delivery-to-lbl" id="headerDeliverToLabel">Deliver to:</span>
+            <span class="delivery-loc-val" id="headerDeliveryCityVal">Mumbai 400001</span>
+          </div>
+        </button>
+
+        <!-- Private Concierge Hotline -->
+        <button class="maison-action-item hide-mobile" id="btnConciergeDesk" onclick="alert('👑 Royal Bridal Concierge Desk:\nDirect Line: +91 98765 43210\nConcierge: concierge@riwaayatroyale.com\nVirtual Salon: Available 24/7');" title="Private Concierge Desk">
+          <span id="conciergeDeskLabel">👑 Concierge Desk</span>
+        </button>
+
+        <!-- Atelier Admin Link -->
+        <div class="maison-action-item" id="adminNavBtn" title="Atelier Master Portal">
+          <span>⚙️ Atelier</span>
+        </div>
+
+        <!-- Royal Shopping Bucket Action Button -->
+        <button class="maison-bucket-trigger" id="cartNavBtn" title="Open Royal Shopping Bucket">
+          <div class="maison-bucket-icon-wrap">
+            🛍️
+            <span class="maison-bucket-badge" id="amazonCartCount">0</span>
+          </div>
+          <span>Royal Bucket</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Haute Couture Department Links -->
+    <nav class="maison-subnav" aria-label="Collections Navigation">
+      <a href="index.html" class="maison-subnav-link">✦ Maison Home</a>
+      <a href="lehengas.html" class="maison-subnav-link">👑 Bridal Lehengas</a>
+      <a href="gowns.html" class="maison-subnav-link">💍 Evening Gowns</a>
+      <a href="shararas.html" class="maison-subnav-link">🌿 Silk Shararas</a>
+      <a href="indowestern.html" class="maison-subnav-link">✨ Indo-Western</a>
+      <a href="haldi.html" class="maison-subnav-link">🌸 Haldi</a>
+      <a href="mehendi.html" class="maison-subnav-link">🌿 Mehendi</a>
+      <a href="sangeet.html" class="maison-subnav-link">🎶 Sangeet</a>
+      <a href="wedding.html" class="maison-subnav-link">👰 Grand Wedding</a>
+      <a href="reception.html" class="maison-subnav-link">💍 Reception</a>
+      <a href="anniversary.html" class="maison-subnav-link">❤️ Anniversary</a>
+      <a href="festive.html" class="maison-subnav-link">✨ Festive</a>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       PRODUCT DETAIL MAIN CONTENT
+       ========================================== -->
+  <main class="pdp-wrapper">
+    
+    <!-- Minimalist Editorial Breadcrumb Bar -->
+    <nav class="pdp-breadcrumb" id="pdpBreadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Maison Atelier</a>
+      <span class="pdp-breadcrumb-separator">✦</span>
+      <a href="index.html#categoriesSection" id="pdpBreadcrumbCategory">Silhouettes</a>
+      <span class="pdp-breadcrumb-separator">✦</span>
+      <a href="wedding.html" id="pdpBreadcrumbOccasion">Occasion</a>
+      <span class="pdp-breadcrumb-separator">✦</span>
+      <span id="pdpBreadcrumbTitle">Outfit Details</span>
+    </nav>
+
+    <!-- Main Asymmetric 2-Column Editorial Grid -->
+    <div class="pdp-layout" id="pdpMainLayout">
+      
+      <!-- ======================================================================
+           LEFT COLUMN: HIGH-FASHION GALLERY, ZOOM LENS & HERITAGE SEALS
+           ====================================================================== -->
+      <div>
+        <div class="pdp-gallery-wrap">
+          <!-- Multi-Angle Thumbnail Rail -->
+          <div class="pdp-thumb-rail" id="pdpThumbRail" role="tablist" aria-label="Garment Angles">
+            <!-- Dynamically populated by product-detail.js -->
+          </div>
+
+          <!-- Main High-Resolution Viewport -->
+          <div class="pdp-viewport-container" id="pdpViewport" title="Hover to magnify • Click for 4K Lightbox">
+            <div class="pdp-floating-badge" id="pdpBadgeStack">
+              <span class="pdp-badge-pill">✦ Maison Masterpiece</span>
+            </div>
+            <img src="" alt="Outfit Image" id="pdpMainImg" class="pdp-main-image" />
+            <div class="pdp-zoom-badge" id="pdpZoomBadge">
+              <span>🔍</span>
+              <span>Click for 4K Lightbox • Hover to Magnify</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Atelier Heritage & Trust Seals -->
+        <div class="pdp-trust-banner-row">
+          <div class="pdp-trust-card">
+            <strong>👑 100% Handloom Silk</strong>
+            Pure Varanasi mulberry silk with authentic gold zari weaves
+          </div>
+          <div class="pdp-trust-card">
+            <strong>✂️ Bespoke 4" Margin</strong>
+            Master couturier allowance tailored inside every seam
+          </div>
+          <div class="pdp-trust-card">
+            <strong>📦 Insured Trunk Courier</strong>
+            Shipped in velvet-lined tamper-proof bridal wardrobe trunks
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           RIGHT COLUMN: BESPOKE ATELIER BUY BOX & OUTFIT SUITE
+           ====================================================================== -->
+      <div class="pdp-info-wrap">
+        <span class="pdp-brand-tag" id="pdpBrandTag">RIWAAYAT ROYALE • HAUTE COUTURE ATELIER</span>
+        <h1 class="pdp-product-title heading-serif" id="pdpTitle">Loading Royal Garment...</h1>
+
+        <!-- Patron Rating & Testimonials Line -->
+        <div class="pdp-rating-row">
+          <div class="pdp-stars" id="pdpStars">★★★★★</div>
+          <span class="pdp-rating-text" id="pdpRatingNum">4.9</span>
+          <span>|</span>
+          <span class="pdp-review-count-link" id="pdpReviewCountText">24 verified bridal appraisals</span>
+          <span>|</span>
+          <span class="pdp-bestseller-badge">#1 Couture Choice</span>
+        </div>
+
+        <!-- Atelier Pricing Suite -->
+        <div class="pdp-price-card">
+          <div class="pdp-price-line">
+            <span class="pdp-discount-tag" id="pdpDiscountBadge">-18%</span>
+            <span class="pdp-current-price" id="pdpCurrentPrice">₹0</span>
+          </div>
+          <div class="pdp-mrp-line">
+            Original Valued Price: <span class="pdp-mrp-strike" id="pdpMrpPrice">₹0</span>
+          </div>
+          <div class="pdp-savings-note" id="pdpSavingsNote">
+            You Save: ₹0 (Atelier Trousseau Privilege)
+          </div>
+          <div class="pdp-tax-note">
+            Includes all luxury handloom taxes, complimentary custom size stitching &amp; white-glove courier vault.
+          </div>
+          <div class="pdp-emi-badge">
+            <span>✨</span>
+            <span><strong>Royal Pay:</strong> Pay in 3 interest-free installments of <strong id="pdpEmiAmount">₹0</strong> with zero down payment.</span>
+          </div>
+        </div>
+
+        <!-- Garment Craftsmanship Highlights -->
+        <div class="pdp-highlights-box">
+          <h4>Artisanal Craftsmanship &amp; Structure</h4>
+          <ul class="pdp-highlights-list" id="pdpHighlightsList">
+            <li><span class="emoji">👗</span> <div><strong>Pure Fabric:</strong> <span id="pdpFabricHighlight">Pure Organza Silk &amp; Satin Chiffon</span></div></li>
+            <li><span class="emoji">🪡</span> <div><strong>Embroidery:</strong> <span id="pdpWorkHighlight">Intricate Dori Zardozi, Gota Patti &amp; Hand Sequins</span></div></li>
+            <li><span class="emoji">✂️</span> <div><strong>Custom Tailoring:</strong> Complimentary 4-inch alteration margin inside each seam</div></li>
+            <li><span class="emoji">📦</span> <div><strong>Dispatch:</strong> Hand-finished and dispatched in luxury bridal wardrobe trunk</div></li>
+            <li><span class="emoji">🔄</span> <div><strong>Assurance:</strong> 7-day royal fit guarantee with dedicated master tailor support</div></li>
+          </ul>
+        </div>
+
+        <!-- Royal Palette Swatch Selection -->
+        <div class="pdp-option-section">
+          <div class="pdp-option-label-row">
+            <span class="pdp-option-title">Royal Palette: <strong id="pdpSelectedColorName">Mustard Yellow</strong></span>
+          </div>
+          <div class="pdp-size-pills-row" id="pdpColorSwatches">
+            <!-- Populated dynamically by product-detail.js -->
+          </div>
+        </div>
+
+        <!-- Bespoke Size Selection -->
+        <div class="pdp-option-section">
+          <div class="pdp-option-label-row">
+            <span class="pdp-option-title">Select Silhouette Size: <strong id="pdpSelectedSizeName">M (Medium - Bust 36")</strong></span>
+            <button type="button" class="pdp-size-guide-link" id="pdpSizeGuideBtn">📏 Measurement Guide</button>
+          </div>
+          <div class="pdp-size-pills-row" id="pdpSizePills">
+            <button type="button" class="pdp-size-pill" data-size="XS">XS (32)</button>
+            <button type="button" class="pdp-size-pill" data-size="S">S (34)</button>
+            <button type="button" class="pdp-size-pill active" data-size="M">M (36)</button>
+            <button type="button" class="pdp-size-pill" data-size="L">L (38)</button>
+            <button type="button" class="pdp-size-pill" data-size="XL">XL (40)</button>
+            <button type="button" class="pdp-size-pill" data-size="Custom Stitching">✨ Bespoke Stitching</button>
+          </div>
+        </div>
+
+        <!-- Delivery Urgency & Interactive Pincode Checker -->
+        <div>
+          <div class="pdp-stock-status">✓ Ready in Master Atelier Production</div>
+          <div class="pdp-delivery-info">
+            Order today for guaranteed express arrival in <strong>3-5 business days</strong>. Includes master couturier alteration assurance.
+          </div>
+
+          <!-- Interactive Delivery Pincode Checker -->
+          <div class="pdp-pincode-card">
+            <span style="font-size: 0.95rem;">📍</span>
+            <input type="text" id="pdpPincodeInput" class="pdp-pincode-input" placeholder="Enter Pincode" maxlength="6" value="110001" />
+            <button type="button" id="pdpPincodeCheckBtn" class="pdp-pincode-btn">Check Delivery</button>
+            <span id="pdpPincodeResult">Free Express Delivery</span>
+          </div>
+        </div>
+
+        <!-- Quantity Stepper -->
+        <div class="pdp-qty-row">
+          <span class="pdp-qty-label">Quantity:</span>
+          <div class="pdp-qty-stepper">
+            <button type="button" class="pdp-qty-btn" id="pdpQtyMinus" aria-label="Decrease quantity">−</button>
+            <input type="number" id="pdpQtyInput" class="pdp-qty-input" value="1" min="1" max="10" readonly />
+            <button type="button" class="pdp-qty-btn" id="pdpQtyPlus" aria-label="Increase quantity">+</button>
+          </div>
+          <span style="font-size: 0.82rem; color: var(--maison-text-dim);">Artisanal Edition • Limited Flare</span>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="pdp-buy-actions">
+          <button type="button" class="btn-pdp-add-bag" id="pdpAddToCartBtn">
+            <span>✦ Add to Royal Shopping Bucket</span>
+          </button>
+          <button type="button" class="btn-atelier-buy-now" id="pdpBuyNowBtn">
+            <span>⚡ 1-Click Bespoke Order (Fast Track)</span>
+          </button>
+          
+          <div class="pdp-secondary-actions-row">
+            <button type="button" class="btn-pdp-wishlist" id="pdpWishlistBtn">
+              <span>🤍 Save to Wishlist</span>
+            </button>
+            <button type="button" class="btn-pdp-whatsapp" onclick="alert('👑 Royal Stylist Desk:\nConnected via WhatsApp (+91 98765 43210).\nQuote Outfit ID: ' + (window.CURRENT_PDP_PRODUCT ? window.CURRENT_PDP_PRODUCT.id : ''));">
+              <span>💬 Stylist WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Secure Transaction Note -->
+        <div style="font-size: 0.8rem; color: var(--maison-text-dim); display: flex; align-items: center; justify-content: center; gap: 1rem; padding-top: 0.8rem; border-top: 1px solid rgba(212, 175, 55, 0.15);">
+          <span>🔒 256-Bit Encrypted Bespoke Checkout</span>
+          <span>•</span>
+          <span>🛡️ Riwaayat Royal Authenticity Seal</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================
+         CURATED TROUSSEAU ENSEMBLE (BUNDLE)
+         ========================================== -->
+    <section class="trousseau-bundle-section" id="bundleSection">
+      <h3 class="heading-serif" style="font-size: 1.6rem; margin-bottom: 0.4rem;">
+        The Complete Trousseau Ensemble — Master Stylist Curation
+      </h3>
+      <p style="color: var(--maison-text-muted); font-size: 0.9rem;">
+        Complete your celebration look with hand-matched heritage jewelry and an embroidered zari potli crafted by our senior atelier stylists.
+      </p>
+
+      <div class="bundle-items-row">
+        <!-- Selected Outfit -->
+        <div class="bundle-item-card">
+          <img src="" alt="Main Outfit" id="bundleMainImg" class="bundle-item-img" />
+          <div class="bundle-item-name" id="bundleMainName">Selected Outfit</div>
+          <div class="bundle-item-price" id="bundleMainPrice">₹0</div>
+        </div>
+
+        <span class="bundle-plus-icon">+</span>
+
+        <!-- Matching Jewelry -->
+        <div class="bundle-item-card">
+          <img src="assets/images/wedding/imgi_180_golden-grace-in-red-silk-zari-embroidered-stone-sequins-lehenga-ghsli2574150-u.jpg" alt="Kundan Choker" class="bundle-item-img" />
+          <div class="bundle-item-name">Royal Heritage Kundan Choker Set</div>
+          <div class="bundle-item-price">₹14,500</div>
+        </div>
+
+        <span class="bundle-plus-icon">+</span>
+
+        <!-- Matching Potli -->
+        <div class="bundle-item-card">
+          <img src="assets/images/reception/imgi_189_classic-rose-gold-tissue-with-moti-and-gota-embroidered-sequins-lehenga-ghspf6062rgo-u.jpg" alt="Zari Potli" class="bundle-item-img" />
+          <div class="bundle-item-name">Embroidered Zari Trousseau Potli</div>
+          <div class="bundle-item-price">₹4,200</div>
+        </div>
+      </div>
+
+      <div class="bundle-total-box">
+        <div>
+          <div style="font-size: 0.88rem; color: var(--maison-text-muted);">Combined Trousseau Ensemble Price:</div>
+          <div style="font-size: 2rem; font-weight: 800; font-family: var(--font-serif);" id="bundleTotalPrice">
+            ₹0
+          </div>
+          <span style="font-size: 0.84rem; color: #34D399; font-weight: 700;">Includes ₹2,500 Complimentary Complete Trousseau Privilege</span>
+        </div>
+        <button type="button" class="btn-pdp-add-bag" id="addBundleBtn" style="padding: 0.9rem 2.2rem;">
+          Add Complete Ensemble To Bucket
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TECHNICAL SPECIFICATIONS & ARCHITECTURE TABLE
+         ========================================== -->
+    <section class="pdp-specs-section">
+      <h3 class="heading-serif" style="font-size: 1.6rem; margin-bottom: 0.4rem;">
+        Garment Architecture &amp; Artisanal Specifications
+      </h3>
+      <p style="color: var(--maison-text-muted); font-size: 0.9rem;">
+        Detailed weave density, inner shantoon silk lining, custom alteration margins, and couturier measurements.
+      </p>
+
+      <div class="pdp-specs-grid">
+        <table class="pdp-specs-table">
+          <tbody>
+            <tr><td class="spec-key">Garment Silhouette</td><td class="spec-val" id="specSilhouette">-</td></tr>
+            <tr><td class="spec-key">Occasion Category</td><td class="spec-val" id="specOccasion">-</td></tr>
+            <tr><td class="spec-key">Primary Fabric</td><td class="spec-val" id="specFabric">-</td></tr>
+            <tr><td class="spec-key">Embroidery Technique</td><td class="spec-val" id="specWork">-</td></tr>
+            <tr><td class="spec-key">Inner Lining</td><td class="spec-val">100% Pure Butter Shantoon Silk</td></tr>
+            <tr><td class="spec-key">Can-Can &amp; Buckram</td><td class="spec-val">Double-Layered Structured Flare</td></tr>
+          </tbody>
+        </table>
+
+        <table class="pdp-specs-table">
+          <tbody>
+            <tr><td class="spec-key">Alteration Margin</td><td class="spec-val">4 Inches (2 Inches on each seam)</td></tr>
+            <tr><td class="spec-key">Dupatta Length</td><td class="spec-val">2.5 Meters Scalloped Border</td></tr>
+            <tr><td class="spec-key">Closure Type</td><td class="spec-val">Concealed YKK Zipper &amp; Handcrafted Latkans</td></tr>
+            <tr><td class="spec-key">Dry Clean Only</td><td class="spec-val">Yes — Professional Couture Care</td></tr>
+            <tr><td class="spec-key">Country of Origin</td><td class="spec-val">India (Handmade in Rajasthan &amp; Varanasi)</td></tr>
+            <tr><td class="spec-key">Artisan House</td><td class="spec-val">Riwaayat Royale Master Atelier</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE MAP & GLOBAL ATELIER LOCATOR
+         ========================================== -->
+    <section class="atelier-delivery-section" id="deliveryMapSection">
+      <div class="delivery-section-header">
+        <div class="delivery-title-wrap">
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--maison-gold); font-weight: 700; display: block; margin-bottom: 0.35rem;">
+            ✦ Global Couture Logistics &amp; Fitting Salons
+          </span>
+          <h3>Global &amp; Domestic Delivery Locations</h3>
+          <p>
+            Track master atelier dispatch hubs, white-glove armored trunk delivery transit times, and reserve private salon fitting appointments across major royal capitals.
+          </p>
+        </div>
+
+        <div class="delivery-stats-row">
+          <div class="delivery-stat-badge">
+            <span>🛡️</span> Armored Trunk Packaging
+          </div>
+          <div class="delivery-stat-badge">
+            <span>⚡</span> 24h Metro Express Dispatch
+          </div>
+          <div class="delivery-stat-badge">
+            <span>✈️</span> 150+ Countries Worldwide
+          </div>
+        </div>
+      </div>
+
+      <!-- Region Filter Tabs -->
+      <div class="delivery-tabs-row" id="deliveryRegionTabs" role="tablist">
+        <button type="button" class="delivery-tab-btn active" data-region="all">All Locations (9)</button>
+        <button type="button" class="delivery-tab-btn" data-region="india">Domestic India (6)</button>
+        <button type="button" class="delivery-tab-btn" data-region="middle-east">Middle East &amp; GCC (1)</button>
+        <button type="button" class="delivery-tab-btn" data-region="uk-europe">UK &amp; Europe (1)</button>
+        <button type="button" class="delivery-tab-btn" data-region="north-america">North America (1)</button>
+      </div>
+
+      <!-- Main Map & Finder Layout Grid -->
+      <div class="delivery-grid-layout">
+        <!-- Left: Interactive Stylized Map -->
+        <div class="delivery-map-container" id="deliveryMapContainer">
+          <div class="map-svg-wrap" id="mapSvgWrap">
+            <!-- Stylized SVG Map with Grids, Continents & Flight/Transit Arc Lines -->
+            <svg class="map-svg" viewBox="0 0 1000 560" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <radialGradient id="mapGlowGrad" cx="60%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.18"/>
+                  <stop offset="60%" stop-color="#8B122C" stop-opacity="0.08"/>
+                  <stop offset="100%" stop-color="#12020D" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="goldLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E5C158" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.3"/>
+                </linearGradient>
+                <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <!-- Radial Background Ambience -->
+              <rect width="1000" height="560" fill="url(#mapGlowGrad)"/>
+
+              <!-- Lat/Long Cartographic Grid Lines -->
+              <g stroke="rgba(212,175,55,0.08)" stroke-width="1" stroke-dasharray="4 6">
+                <line x1="50" y1="100" x2="950" y2="100"/>
+                <line x1="50" y1="200" x2="950" y2="200"/>
+                <line x1="50" y1="300" x2="950" y2="300"/>
+                <line x1="50" y1="400" x2="950" y2="400"/>
+                <line x1="50" y1="500" x2="950" y2="500"/>
+                <line x1="200" y1="40" x2="200" y2="520"/>
+                <line x1="380" y1="40" x2="380" y2="520"/>
+                <line x1="530" y1="40" x2="530" y2="520"/>
+                <line x1="640" y1="40" x2="640" y2="520"/>
+                <line x1="820" y1="40" x2="820" y2="520"/>
+              </g>
+
+              <!-- Stylized World Landmass Silhouettes (Minimalist Luxury Cartography) -->
+              <g fill="rgba(65, 16, 45, 0.45)" stroke="rgba(212, 175, 55, 0.22)" stroke-width="1.2">
+                <!-- North America -->
+                <path d="M120 110 C 150 100, 240 100, 270 140 C 290 170, 270 230, 230 260 C 200 280, 180 340, 160 350 C 140 330, 120 270, 100 240 C 80 200, 90 130, 120 110 Z" />
+                <!-- South America -->
+                <path d="M210 330 C 250 350, 280 400, 270 460 C 250 510, 210 520, 200 480 C 190 430, 190 370, 210 330 Z" />
+                <!-- Europe & UK -->
+                <path d="M370 130 C 420 110, 470 130, 480 180 C 470 220, 420 230, 390 210 C 370 200, 350 160, 370 130 Z" />
+                <path d="M360 145 C 375 140, 385 160, 375 175 C 365 180, 350 165, 360 145 Z" />
+                <!-- Africa -->
+                <path d="M420 230 C 490 230, 520 280, 510 360 C 490 440, 450 470, 420 440 C 390 400, 380 300, 420 230 Z" />
+                <!-- Middle East & Central Asia -->
+                <path d="M500 220 C 560 210, 600 230, 580 280 C 550 300, 510 270, 500 220 Z" />
+                <!-- Indian Subcontinent (Prominently Highlighted) -->
+                <path d="M600 220 C 650 200, 710 230, 715 280 C 700 320, 670 380, 645 420 C 625 380, 615 320, 595 280 C 585 240, 590 230, 600 220 Z" fill="rgba(139, 18, 44, 0.6)" stroke="var(--maison-gold)" stroke-width="2" />
+                <!-- East & SE Asia -->
+                <path d="M700 170 C 780 160, 840 210, 830 290 C 800 340, 740 330, 710 280 Z" />
+                <!-- Australia -->
+                <path d="M790 380 C 860 370, 890 410, 880 470 C 840 500, 790 470, 780 430 C 770 400, 780 385, 790 380 Z" />
+              </g>
+
+              <!-- Dynamic Logistics Flow Arcs (Connecting Mumbai/Delhi Hub to Salons) -->
+              <g stroke="url(#goldLineGrad)" stroke-width="2" fill="none" stroke-linecap="round">
+                <!-- Mumbai to London -->
+                <path d="M630 310 Q 500 160, 380 180" stroke-dasharray="6 6" class="transit-flight-path"/>
+                <!-- Mumbai to Dubai -->
+                <path d="M630 310 Q 570 280, 520 270" stroke-dasharray="5 5" class="transit-flight-path"/>
+                <!-- London to New York -->
+                <path d="M380 180 Q 280 160, 190 210" stroke-dasharray="6 6" class="transit-flight-path"/>
+                <!-- Mumbai to Delhi -->
+                <path d="M630 310 Q 635 285, 640 265" stroke-width="2.2" stroke="#E5C158"/>
+                <!-- Mumbai to Jaipur -->
+                <path d="M630 310 Q 618 295, 612 282" stroke-width="2.2" stroke="#E5C158"/>
+                <!-- Mumbai to Bengaluru -->
+                <path d="M630 310 Q 635 340, 640 365" stroke-width="2.2" stroke="#E5C158"/>
+                <!-- Mumbai to Kolkata -->
+                <path d="M630 310 Q 670 290, 700 295" stroke-width="2.2" stroke="#E5C158"/>
+                <!-- Mumbai to Hyderabad -->
+                <path d="M630 310 Q 640 325, 650 335" stroke-width="2.2" stroke="#E5C158"/>
+              </g>
+
+              <!-- Hub Beacon Circles -->
+              <circle cx="630" cy="310" r="24" fill="none" stroke="var(--maison-gold)" stroke-width="1" opacity="0.3"/>
+              <circle cx="630" cy="310" r="14" fill="none" stroke="var(--maison-gold)" stroke-width="1.5" opacity="0.6"/>
+              <circle cx="630" cy="310" r="5" fill="#D4AF37" filter="url(#goldGlow)"/>
+            </svg>
+
+            <!-- HTML Map Pin Overlays for Crisp Interaction -->
+            <div class="map-pin active" data-loc="mumbai" data-region="india" style="left: 63%; top: 55%;" title="Mumbai Flagship Salon &amp; Central Vault">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">Mumbai</span>
+            </div>
+
+            <div class="map-pin" data-loc="delhi" data-region="india" style="left: 64%; top: 47%;" title="New Delhi Mehrauli Heritage Atelier">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">New Delhi</span>
+            </div>
+
+            <div class="map-pin" data-loc="jaipur" data-region="india" style="left: 61%; top: 50%;" title="Jaipur Johari Palace Master Weavery">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">Jaipur</span>
+            </div>
+
+            <div class="map-pin" data-loc="kolkata" data-region="india" style="left: 70%; top: 53%;" title="Kolkata Camac Street Salon">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">Kolkata</span>
+            </div>
+
+            <div class="map-pin" data-loc="bengaluru" data-region="india" style="left: 64%; top: 65%;" title="Bengaluru Lavelle Road Salon">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">Bengaluru</span>
+            </div>
+
+            <div class="map-pin" data-loc="hyderabad" data-region="india" style="left: 65%; top: 60%;" title="Hyderabad Banjara Hills Salon">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">Hyderabad</span>
+            </div>
+
+            <div class="map-pin" data-loc="dubai" data-region="middle-east" style="left: 52%; top: 48%;" title="Dubai Downtown Fashion Avenue">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">Dubai</span>
+            </div>
+
+            <div class="map-pin" data-loc="london" data-region="uk-europe" style="left: 38%; top: 32%;" title="London Mayfair Couture Salon">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">London</span>
+            </div>
+
+            <div class="map-pin" data-loc="newyork" data-region="north-america" style="left: 19%; top: 38%;" title="New York 5th Avenue Suite">
+              <div class="pin-pulse"></div>
+              <div class="pin-core"></div>
+              <span class="pin-label">New York</span>
+            </div>
+          </div>
+
+          <!-- Map Legend Bar -->
+          <div class="map-legend-bar">
+            <div class="legend-item">
+              <span class="legend-dot salon"></span>
+              <span>Flagship Bridal Salon</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot hub"></span>
+              <span>Central Dispatched Vault</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot intl"></span>
+              <span>Global Fitting Embassy</span>
+            </div>
+            <div style="margin-left: auto; font-size: 0.76rem; color: var(--maison-gold);">
+              ⚡ Click any location pin to view transit &amp; salon details
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Location Finder & Active Hub Details -->
+        <div class="delivery-finder-col">
+          <!-- Pincode / City Lookup Box -->
+          <div class="delivery-lookup-box">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--maison-gold); margin-bottom: 0.6rem;">
+              🔍 Check Delivery Speed &amp; Nearest Salon
+            </div>
+            <form class="delivery-lookup-form" id="deliveryLookupForm" onsubmit="return false;">
+              <input 
+                type="text" 
+                class="delivery-lookup-input" 
+                id="deliveryLookupInput" 
+                placeholder="Enter Pincode (e.g. 400001) or City..." 
+                value="400001" 
+                maxlength="20"
+                autocomplete="off"
+              />
+              <button type="submit" class="delivery-lookup-btn" id="deliveryLookupSubmitBtn">
+                Locate
+              </button>
+            </form>
+
+            <div class="city-quick-pills" id="cityQuickPills">
+              <button type="button" class="city-quick-pill active" data-loc="mumbai">Mumbai</button>
+              <button type="button" class="city-quick-pill" data-loc="delhi">Delhi NCR</button>
+              <button type="button" class="city-quick-pill" data-loc="jaipur">Jaipur</button>
+              <button type="button" class="city-quick-pill" data-loc="bengaluru">Bengaluru</button>
+              <button type="button" class="city-quick-pill" data-loc="kolkata">Kolkata</button>
+              <button type="button" class="city-quick-pill" data-loc="hyderabad">Hyderabad</button>
+              <button type="button" class="city-quick-pill" data-loc="dubai">Dubai</button>
+              <button type="button" class="city-quick-pill" data-loc="london">London</button>
+              <button type="button" class="city-quick-pill" data-loc="newyork">New York</button>
+            </div>
+          </div>
+
+          <!-- Active Location Detail Card -->
+          <div class="active-location-card" id="activeLocationCard">
+            <div>
+              <div class="location-card-header">
+                <div>
+                  <h4 class="location-title" id="locCardTitle">Mumbai Flagship Atelier &amp; Central Vault</h4>
+                  <div class="location-address" id="locCardAddress">
+                    Riwaayat Royale Mansion, Apollo Bunder, Colaba, Mumbai, Maharashtra 400001
+                  </div>
+                </div>
+                <span class="location-card-badge" id="locCardBadge">Central Flagship</span>
+              </div>
+
+              <!-- Key Specs Grid -->
+              <div class="location-specs-grid">
+                <div class="location-spec-item">
+                  <strong>Standard Dispatch:</strong>
+                  <span id="locCardDispatch">Next-Day (24h) Hand Courier</span>
+                </div>
+                <div class="location-spec-item">
+                  <strong>Transit Vault:</strong>
+                  <span id="locCardTransit">Armored Trunk + Tailor Escort</span>
+                </div>
+                <div class="location-spec-item">
+                  <strong>Master Tailor Fitting:</strong>
+                  <span id="locCardFitting">In-Salon &amp; At-Home Available</span>
+                </div>
+                <div class="location-spec-item">
+                  <strong>Salon Visiting Hours:</strong>
+                  <span id="locCardHours">11:00 AM – 8:30 PM Daily</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="location-actions-row">
+              <button type="button" class="btn-book-salon" id="btnBookSalonVisit" onclick="alert('👑 Private Bridal Salon Fitting Reserved!\nLocation: ' + document.getElementById('locCardTitle').innerText + '\nOur Head Stylist will contact you within 15 minutes.');">
+                Book Private Fitting Appointment
+              </button>
+              <button type="button" class="btn-salon-whatsapp" id="btnSalonWhatsapp" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&amp;text=Hello%20Riwaayat%20Royale,%20I%20would%20like%20to%20inquire%20about%20delivery%20and%20fitting%20at%20' + encodeURIComponent(document.getElementById('locCardTitle').innerText), '_blank');">
+                <span>💬 WhatsApp Salon</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PATRON REVIEWS & VERIFIED BRIDAL TESTIMONIALS
+         ========================================== -->
+    <section class="pdp-reviews-section" id="reviewsSection">
+      <h3 class="heading-serif" style="font-size: 1.6rem; margin-bottom: 0.4rem;">
+        Patron Reviews &amp; Verified Bridal Testimonials
+      </h3>
+      <p style="color: var(--maison-text-muted); font-size: 0.9rem;">
+        Read experiences from real brides and families celebrating grand celebrations in Riwaayat Royale couture.
+      </p>
+
+      <div class="pdp-reviews-grid">
+        <!-- Breakdown Scorecard -->
+        <div class="review-breakdown-card">
+          <div style="display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 2.8rem; font-weight: 800; font-family: var(--font-serif);" id="reviewScoreBig">4.9</span>
+            <span style="color: var(--maison-text-dim); font-size: 0.9rem;">out of 5.0</span>
+          </div>
+          <div class="pdp-stars" style="margin-bottom: 1rem; font-size: 1.2rem;">★★★★★</div>
+          <div style="font-size: 0.85rem; color: var(--maison-text-muted); margin-bottom: 1.5rem;">
+            100% of bridal patrons recommend this masterwork
+          </div>
+
+          <!-- Progress Distribution -->
+          <div class="review-bar-row">
+            <span>5 star</span>
+            <div class="review-progress-track"><div class="review-progress-fill" style="width: 92%;"></div></div>
+            <span>92%</span>
+          </div>
+          <div class="review-bar-row">
+            <span>4 star</span>
+            <div class="review-progress-track"><div class="review-progress-fill" style="width: 8%;"></div></div>
+            <span>8%</span>
+          </div>
+          <div class="review-bar-row">
+            <span>3 star</span>
+            <div class="review-progress-track"><div class="review-progress-fill" style="width: 0%;"></div></div>
+            <span>0%</span>
+          </div>
+          <div class="review-bar-row">
+            <span>2 star</span>
+            <div class="review-progress-track"><div class="review-progress-fill" style="width: 0%;"></div></div>
+            <span>0%</span>
+          </div>
+          <div class="review-bar-row">
+            <span>1 star</span>
+            <div class="review-progress-track"><div class="review-progress-fill" style="width: 0%;"></div></div>
+            <span>0%</span>
+          </div>
+        </div>
+
+        <!-- Review Testimonials -->
+        <div class="customer-reviews-list" id="customerReviewsList">
+          <div class="single-review-item">
+            <div class="reviewer-profile">
+              <div class="reviewer-avatar">AN</div>
+              <div class="reviewer-meta">
+                <strong>Ananya N.</strong>
+                <span class="verified-buyer-tag">✓ Verified Bridal Order</span>
+              </div>
+            </div>
+            <div class="pdp-stars" style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+              ★★★★★ <strong style="color: #FFFFFF; font-size: 0.95rem; margin-left: 0.4rem;">Breathtaking embroidery and immaculate fit!</strong>
+            </div>
+            <p style="font-size: 0.92rem; line-height: 1.6;">
+              I ordered this outfit for my sister’s wedding celebration and it exceeded every expectation. The weight of the pure silk, the intricate zari work, and the royal flare made me feel like royalty. The bespoke 4-inch margin made alterations completely effortless.
+            </p>
+            <span style="font-size: 0.78rem; color: var(--maison-text-dim); display: block; margin-top: 0.6rem;">
+              Celebration in Mumbai • January 28, 2026 • Verified Bridal Order
+            </span>
+          </div>
+
+          <div class="single-review-item">
+            <div class="reviewer-profile">
+              <div class="reviewer-avatar">PS</div>
+              <div class="reviewer-meta">
+                <strong>Pooja S.</strong>
+                <span class="verified-buyer-tag">✓ Verified Bridal Order</span>
+              </div>
+            </div>
+            <div class="pdp-stars" style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+              ★★★★★ <strong style="color: #FFFFFF; font-size: 0.95rem; margin-left: 0.4rem;">Surpasses high-street designer boutiques</strong>
+            </div>
+            <p style="font-size: 0.92rem; line-height: 1.6;">
+              The photos don’t even do justice to how magical the shimmer is under evening lights! Arrived in a gorgeous tamper-proof trunk with custom velvet garment bags. The master tailor support was prompt and reassuring.
+            </p>
+            <span style="font-size: 0.78rem; color: var(--maison-text-dim); display: block; margin-top: 0.6rem;">
+              Celebration in New Delhi • February 14, 2026 • Verified Bridal Order
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MORE FROM THIS ATELIER (RELATED OUTFITS)
+         ========================================== -->
+    <section class="section" style="padding-top: 2rem;">
+      <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+        <span class="section-subtitle" style="color: var(--maison-gold); font-weight: 700; letter-spacing: 0.15em;">CURATED RECOMMENDATIONS</span>
+        <h2 class="section-title heading-serif" style="color: #FFFFFF; font-size: 2rem;">More from this Atelier</h2>
+        <p class="section-description" style="color: var(--maison-text-muted);">
+          Explore complementing silhouettes handcrafted by the same master artisanal workshop.
+        </p>
+      </div>
+
+      <div class="product-grid" id="relatedProductsGrid">
+        <!-- Injected dynamically by product-detail.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       HAUTE COUTURE MAISON FOOTER
+       ========================================================================== -->
+  <footer class="maison-footer">
+    <div class="maison-footer-grid">
+      <!-- Col 1: Maison Heritage -->
+      <div class="maison-footer-col">
+        <h4 style="font-size: 1.3rem; margin-bottom: 0.8rem; background: var(--maison-gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          RIWAAYAT ROYALE
+        </h4>
+        <p style="font-size: 0.88rem; color: var(--maison-text-muted); line-height: 1.6; margin-bottom: 1.4rem;">
+          Maison de Haute Couture dedicated to the preservation and elevation of generational Indian handlooms, master zari weaves, and bespoke bridal tailoring.
+        </p>
+        <div style="font-size: 0.82rem; color: var(--maison-gold-light);">
+          📍 <strong>Flagship Salons:</strong> Mumbai (Colaba) • New Delhi (Mehrauli) • London (Mayfair) • Dubai (Downtown)
+        </div>
+      </div>
+
+      <!-- Col 2: Couture Silhouettes -->
+      <div class="maison-footer-col">
+        <h4>Couture Silhouettes</h4>
+        <ul>
+          <li><a href="lehengas.html">Royal Lehengas</a></li>
+          <li><a href="gowns.html">Evening Reception Gowns</a></li>
+          <li><a href="shararas.html">Silk Shararas &amp; Suits</a></li>
+          <li><a href="indowestern.html">Modern Indo-Western Sets</a></li>
+          <li><a href="wedding.html">Bridal Wedding Trousseau</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Atelier Services -->
+      <div class="maison-footer-col">
+        <h4>Atelier Services</h4>
+        <ul>
+          <li><a href="javascript:void(0);" onclick="alert('Bespoke Tailoring Desk:\nEvery ensemble includes a 4-inch built-in margin.\nVirtual fittings available worldwide.');">Bespoke Fitting Protocol</a></li>
+          <li><a href="javascript:void(0);" onclick="alert('Private Trunk Shows:\nPrivate salon viewings by invitation only.');">Private Salon Appointments</a></li>
+          <li><a href="javascript:void(0);" onclick="alert('Insured Vault Delivery:\nDispatched in tamper-proof reinforced trunks.');">Worldwide Courier Vault</a></li>
+          <li><a href="javascript:void(0);" onclick="alert('Master Artisan Heritage:\nVaranasi, Rajasthan and Bengal generational weavers.');">Artisanal Guild Archives</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Royal Concierge -->
+      <div class="maison-footer-col">
+        <h4>Royal Concierge</h4>
+        <ul>
+          <li><a href="javascript:void(0);" onclick="alert('Direct Stylist Hotline:\nPhone: +91 98765 43210\nEmail: concierge@riwaayatroyale.com');">Stylist WhatsApp Desk</a></li>
+          <li><a href="javascript:void(0);">Order Tracking &amp; Courier Security</a></li>
+          <li><a href="javascript:void(0);">7-Day Royal Fit Guarantee</a></li>
+          <li><a href="javascript:void(0);">Care &amp; Restoration Guidelines</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="maison-footer-bottom">
+      <div>
+        &copy; 2026 Riwaayat Royale Maison de Haute Couture. All rights reserved. Artisanal copyright preserved.
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="javascript:void(0);" style="color: inherit;">Privacy Charter</a>
+        <a href="javascript:void(0);" style="color: inherit;">Terms of Service</a>
+        <a href="javascript:void(0);" style="color: inherit;">Authenticity Guarantee</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS & DRAWERS (ALL PRESERVED WITH 100% FUNCTIONALITY)
+       ========================================================================== -->
+
+  <!-- Size Guide Modal -->
+  <div class="modal-overlay" id="sizeGuideModal" role="dialog" aria-modal="true" aria-label="Royal Measurement Guide">
+    <div class="modal-card" style="max-width: 600px; padding: 2.5rem; background: #1C0515; border: 1px solid var(--maison-gold); color: #FFFFFF;">
+      <button type="button" class="modal-close-btn" id="closeSizeGuideBtn" style="color: #FFFFFF;">✕</button>
+      <h3 class="heading-serif" style="font-size: 1.6rem; color: var(--maison-gold-light); margin-bottom: 0.8rem;">Royal Size &amp; Measurement Guide</h3>
+      <p style="color: var(--maison-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        All Riwaayat Royale ensembles include a 4-inch bespoke margin for custom adjustments. Our master couturiers craft each garment to your exact measurements.
+      </p>
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--maison-gold); color: var(--maison-gold-light);">
+            <th style="padding: 0.6rem;">Size</th>
+            <th style="padding: 0.6rem;">Bust (in)</th>
+            <th style="padding: 0.6rem;">Waist (in)</th>
+            <th style="padding: 0.6rem;">Hip (in)</th>
+          </tr>
+        </thead>
+        <tbody style="color: var(--maison-text-muted);">
+          <tr style="border-bottom: 1px solid rgba(212,175,55,0.15);"><td style="padding: 0.6rem; font-weight: 700; color: #FFFFFF;">XS</td><td style="padding: 0.6rem;">32</td><td style="padding: 0.6rem;">26</td><td style="padding: 0.6rem;">36</td></tr>
+          <tr style="border-bottom: 1px solid rgba(212,175,55,0.15);"><td style="padding: 0.6rem; font-weight: 700; color: #FFFFFF;">S</td><td style="padding: 0.6rem;">34</td><td style="padding: 0.6rem;">28</td><td style="padding: 0.6rem;">38</td></tr>
+          <tr style="border-bottom: 1px solid rgba(212,175,55,0.15);"><td style="padding: 0.6rem; font-weight: 700; color: #FFFFFF;">M</td><td style="padding: 0.6rem;">36</td><td style="padding: 0.6rem;">30</td><td style="padding: 0.6rem;">40</td></tr>
+          <tr style="border-bottom: 1px solid rgba(212,175,55,0.15);"><td style="padding: 0.6rem; font-weight: 700; color: #FFFFFF;">L</td><td style="padding: 0.6rem;">38</td><td style="padding: 0.6rem;">32</td><td style="padding: 0.6rem;">42</td></tr>
+          <tr style="border-bottom: 1px solid rgba(212,175,55,0.15);"><td style="padding: 0.6rem; font-weight: 700; color: #FFFFFF;">XL</td><td style="padding: 0.6rem;">40</td><td style="padding: 0.6rem;">34</td><td style="padding: 0.6rem;">44</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Built-In Shopping Bucket Drawer Overlay -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+
+  <!-- Built-In Shopping Bucket Drawer -->
+  <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Royal Shopping Bucket">
+    <div class="cart-header">
+      <div class="cart-header-title-wrap">
+        <span style="font-size: 1.3rem;">👑</span>
+        <h3 class="cart-header-title">Royal Shopping Bucket</h3>
+        <span class="cart-count-pill" id="bucketHeaderCountPill">0 items</span>
+      </div>
+      <button type="button" class="cart-close-btn" id="closeCartBtn" aria-label="Close Shopping Bucket">✕</button>
+    </div>
+
+    <!-- Free Express Shipping Meter -->
+    <div class="bucket-shipping-bar-wrap">
+      <div class="bucket-shipping-label">
+        <span id="bucketShippingText">🚚 Free Express Insured Delivery on all bridal orders!</span>
+        <span style="color: #34D399; font-weight: 700;">100% UNLOCKED</span>
+      </div>
+      <div class="bucket-shipping-progress">
+        <div class="bucket-shipping-fill" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Items Container (Injected by app.js) -->
+    <div class="cart-body" id="cartItemsContainer">
+      <!-- Items rendered dynamically -->
+    </div>
+
+    <!-- Bucket Footer -->
+    <div class="cart-footer">
+      <div class="bucket-summary-row">
+        <span>Original Valued Subtotal:</span>
+        <span id="bucketMrpSubtotal">₹0</span>
+      </div>
+      <div class="bucket-summary-row" style="color: #34D399; font-weight: 600;">
+        <span>Royal Trousseau Savings:</span>
+        <span id="bucketSavingsSubtotal">-₹0</span>
+      </div>
+      <div class="bucket-summary-row">
+        <span>Insured Courier &amp; Vault Box:</span>
+        <span style="color: #34D399; font-weight: 700;">FREE</span>
+      </div>
+      <div class="bucket-total-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <button type="button" class="btn-bucket-checkout" id="bucketCheckoutBtn">
+        <span>⚡ Proceed to Royal Checkout</span>
+      </button>
+      <div class="bucket-footer-actions">
+        <button type="button" class="bucket-clear-btn" id="bucketClearAllBtn">Clear Bucket</button>
+        <button type="button" class="bucket-clear-btn" id="bucketContinueShoppingBtn" style="color: var(--maison-gold-light);">← Continue Browsing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card" style="max-width: 650px; padding: 2.5rem; background: #1C0515; border: 1px solid var(--maison-gold); color: #FFFFFF;">
+      <button type="button" class="modal-close-btn" id="closeAdminModalBtn" style="color: #FFFFFF;">✕</button>
+      <h3 class="heading-serif" style="font-size: 1.6rem; color: var(--maison-gold-light); margin-bottom: 0.5rem;">Royal Product Master (Admin)</h3>
+      <p style="color: var(--maison-text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Upload new curated outfits directly into local catalog.</p>
+      
+      <form id="adminProductForm">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--maison-gold-light); font-weight: 700;">Outfit Name</label>
+            <input type="text" id="adminProdName" class="buy-now-input" placeholder="e.g. Royal Rajputana Lehenga" required style="width: 100%;" />
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: var(--maison-gold-light); font-weight: 700;">Price (₹)</label>
+            <input type="number" id="adminProdPrice" class="buy-now-input" placeholder="35000" required style="width: 100%;" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--maison-gold-light); font-weight: 700;">Silhouette Category</label>
+            <select id="adminProdCategory" class="buy-now-input" style="width: 100%;">
+              <option value="Lehenga">Lehenga</option>
+              <option value="Gown">Evening Gown</option>
+              <option value="Indo-Western">Indo-Western</option>
+              <option value="Sharara">Sharara Suit</option>
+              <option value="Anarkali">Anarkali</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: var(--maison-gold-light); font-weight: 700;">Occasion</label>
+            <select id="adminProdOccasion" class="buy-now-input" style="width: 100%;">
+              <option value="Haldi">Haldi</option>
+              <option value="Mehendi">Mehendi</option>
+              <option value="Sangeet">Sangeet</option>
+              <option value="Wedding" selected>Wedding</option>
+              <option value="Reception">Reception</option>
+              <option value="Anniversary">Anniversary</option>
+              <option value="Party & Festive">Party &amp; Festive</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; color: var(--maison-gold-light); font-weight: 700;">Fabric Details</label>
+            <input type="text" id="adminProdFabric" class="buy-now-input" placeholder="Pure Raw Silk" style="width: 100%;" />
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; color: var(--maison-gold-light); font-weight: 700;">Photo Path</label>
+            <input type="text" id="adminProdImage" class="buy-now-input" placeholder="assets/images/wedding/imgi_180...jpg" style="width: 100%;" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-pdp-add-bag" style="margin-top: 1rem; width: 100%;">Publish Outfit To Catalog</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- High-Definition 4K Lightbox Modal -->
+  <div class="modal-overlay" id="imageLightboxModal" role="dialog" aria-modal="true" aria-label="High Resolution Image Viewer">
+    <div class="lightbox-content-wrap">
+      <button type="button" class="lightbox-close-btn" id="closeLightboxBtn" aria-label="Close Lightbox">✕</button>
+      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" id="lightboxPrevBtn" aria-label="Previous angle">‹</button>
+      <img src="" alt="High-Definition Garment View" id="lightboxMainImg" class="lightbox-main-img" />
+      <button type="button" class="lightbox-nav-btn lightbox-next-btn" id="lightboxNextBtn" aria-label="Next angle">›</button>
+      <div class="lightbox-caption-bar">
+        <span id="lightboxCaptionTitle" style="font-weight: 700; color: #FFFFFF;">Artisanal Masterpiece</span>
+        <span id="lightboxAngleIndicator" style="color: var(--maison-gold-light); font-weight: 700;">Angle 1 of 3</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1-Click Buy Now Express Checkout Modal -->
+  <div class="modal-overlay" id="buyNowModal" role="dialog" aria-modal="true" aria-label="Instant Checkout">
+    <div class="buy-now-card">
+      <div class="buy-now-header">
+        <div class="buy-now-header-title">
+          <span style="font-size: 1.3rem;">👑</span>
+          <span>1-Click Royal Express Checkout</span>
+          <span class="buy-now-badge">Fast Track</span>
+        </div>
+        <button type="button" class="buy-now-close-btn" id="closeBuyNowBtn" aria-label="Close Checkout">✕</button>
+      </div>
+
+      <div class="buy-now-body" id="buyNowMainBody">
+        <!-- Left: Selected Outfit Summary -->
+        <div class="buy-now-item-card">
+          <div class="buy-now-item-summary">
+            <img src="" alt="Outfit Image" id="buyNowItemImg" class="buy-now-item-img" />
+            <div class="buy-now-item-details">
+              <h4 class="buy-now-item-title" id="buyNowItemTitle">Royal Outfit</h4>
+              <div class="buy-now-spec-line">Size: <strong id="buyNowItemSize">M (36)</strong></div>
+              <div class="buy-now-spec-line">Color: <strong id="buyNowItemColor">Mustard Yellow</strong></div>
+              <div class="buy-now-spec-line">Quantity: <strong id="buyNowItemQty">1</strong></div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: #34D399; background: rgba(16, 185, 129, 0.12); padding: 0.6rem 0.85rem; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.3);">
+            ✨ Complimentary 4-inch alteration margin &amp; bridal vault box packaging included.
+          </div>
+
+          <div class="buy-now-price-breakdown">
+            <div class="buy-now-price-row">
+              <span>Item Price:</span>
+              <span id="buyNowItemUnitPrice">₹0</span>
+            </div>
+            <div class="buy-now-price-row">
+              <span>Quantity:</span>
+              <span id="buyNowItemQtyText">× 1</span>
+            </div>
+            <div class="buy-now-price-row" style="color: #34D399;">
+              <span>Express Insured Courier:</span>
+              <span style="font-weight: 700;">FREE</span>
+            </div>
+            <div class="buy-now-price-row buy-now-price-total">
+              <span>Order Total:</span>
+              <span id="buyNowItemTotal">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Fast Delivery Form & Simulated Payment -->
+        <form class="buy-now-form-card" id="buyNowCheckoutForm">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--maison-gold-light); border-bottom: 1px solid rgba(212, 175, 55, 0.15); padding-bottom: 0.4rem;">
+            📍 Shipping &amp; Measurements
+          </div>
+
+          <div class="buy-now-form-group">
+            <label class="buy-now-form-label">Full Name *</label>
+            <input type="text" id="buyNowCustomerName" class="buy-now-input" placeholder="e.g. Radhika Sharma" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.6rem;">
+            <div class="buy-now-form-group">
+              <label class="buy-now-form-label">Contact Phone *</label>
+              <input type="tel" id="buyNowCustomerPhone" class="buy-now-input" placeholder="+91 98765 43210" required />
+            </div>
+            <div class="buy-now-form-group">
+              <label class="buy-now-form-label">Delivery Pincode *</label>
+              <input type="text" id="buyNowCustomerPincode" class="buy-now-input" placeholder="400001" maxlength="6" required />
+            </div>
+          </div>
+
+          <div class="buy-now-form-group">
+            <label class="buy-now-form-label">Delivery Address *</label>
+            <input type="text" id="buyNowCustomerAddress" class="buy-now-input" placeholder="House/Flat No., Street, Landmark, City" required />
+          </div>
+
+          <div class="buy-now-form-group">
+            <label class="buy-now-form-label">Bespoke Tailoring Note (Optional)</label>
+            <input type="text" id="buyNowTailoringNote" class="buy-now-input" placeholder="e.g. Custom blouse length 15 inches, waist 30" />
+          </div>
+
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--maison-gold-light); border-bottom: 1px solid rgba(212, 175, 55, 0.15); padding-bottom: 0.4rem; margin-top: 0.4rem;">
+            💳 Select Payment Mode (Simulated)
+          </div>
+
+          <div class="buy-now-payment-methods">
+            <div class="buy-now-payment-pill active" data-pay="Cash on Delivery">
+              <span>💵 Cash on Delivery</span>
+            </div>
+            <div class="buy-now-payment-pill" data-pay="Instant UPI / QR">
+              <span>📱 Instant UPI / QR</span>
+            </div>
+            <div class="buy-now-payment-pill" data-pay="Credit / Debit Card">
+              <span>💳 Credit / Debit Card</span>
+            </div>
+            <div class="buy-now-payment-pill" data-pay="3-Month 0% Interest EMI">
+              <span>✨ 3-Mo 0% EMI</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-place-order" id="btnPlaceRoyalOrder">
+            <span>🔒 Confirm &amp; Place Royal Order</span>
+          </button>
+          
+          <div style="font-size: 0.75rem; text-align: center; color: var(--maison-text-dim);">
+            Zero commitment test order simulation • No real charges applied
+          </div>
+        </form>
+      </div>
+
+      <!-- Order Confirmation State (Hidden until submitted) -->
+      <div class="buy-now-success-view" id="buyNowSuccessView" style="display: none;">
+        <div class="buy-now-success-icon">✓</div>
+        <h3 style="font-size: 1.8rem; color: #FFFFFF; margin: 0; font-family: var(--font-serif); font-weight: 800;">
+          Royal Order Confirmed!
+        </h3>
+        <div class="buy-now-order-id-badge" id="confirmedOrderId">
+          ORDER #RR-2026-89412
+        </div>
+        <p style="color: var(--maison-text-muted); font-size: 0.95rem; max-width: 480px; line-height: 1.5; margin: 0;">
+          Congratulations <strong id="confirmedRecipient" style="color: #FFFFFF;">Radhika Sharma</strong>! Your bespoke outfit has been placed into our master couturier production queue. Expected express delivery: <strong id="confirmedDeliveryDate" style="color: var(--maison-gold-light);">within 3-5 business days</strong>.
+        </p>
+
+        <div style="background: rgba(39, 10, 30, 0.7); border: 1px solid var(--maison-border); border-radius: 8px; padding: 1rem 1.5rem; width: 100%; max-width: 480px; text-align: left; font-size: 0.88rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span style="color: var(--maison-text-dim);">Outfit:</span>
+            <strong id="confirmedOutfitName" style="color: #FFFFFF;">Royal Rajputana Lehenga</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span style="color: var(--maison-text-dim);">Size &amp; Qty:</span>
+            <strong id="confirmedSizeQty" style="color: #FFFFFF;">Size M (36) • Qty: 1</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span style="color: var(--maison-text-dim);">Payment Mode:</span>
+            <strong id="confirmedPaymentMode" style="color: #FFFFFF;">Cash on Delivery</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 1.1rem; border-top: 1px dashed rgba(212, 175, 55, 0.2); padding-top: 0.6rem; margin-top: 0.6rem;">
+            <span style="font-weight: 700; color: #FFFFFF;">Total Amount:</span>
+            <strong id="confirmedTotalAmount" style="color: var(--maison-gold-light); font-weight: 800;">₹35,000</strong>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem; flex-wrap: wrap; justify-content: center;">
+          <button type="button" class="btn-pdp-wishlist" id="btnPrintReceiptBtn" style="padding: 0.75rem 1.6rem; font-size: 0.9rem;">
+            🖨️ Print Receipt
+          </button>
+          <button type="button" class="btn-pdp-add-bag" id="btnContinueAfterOrderBtn" style="padding: 0.75rem 1.8rem; font-size: 0.9rem;">
+            🛍️ Continue Browsing
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Bucket Widget Button -->
+  <button type="button" class="floating-bucket-btn" id="floatingBucketBtn" aria-label="Open Shopping Bucket">
+    <span>🛍️ Royal Bucket</span>
+    <span class="floating-bucket-count" id="floatingBucketCount">0</span>
+  </button>
+
+  <!-- Animated Toast Notification -->
+  <div class="royal-floating-toast" id="royalFloatingToast">
+    <div class="royal-toast-content">
+      <span style="color: #10B981; font-size: 1.2rem;">✓</span>
+      <img src="" alt="Outfit" id="royalToastImg" class="royal-toast-img" />
+      <span class="royal-toast-text" id="royalToastText">Added to Royal Bucket</span>
+    </div>
+  </div>
+
+  <!-- Floating Royal Bridal Stylist Concierge Button -->
+  <button type="button" class="royal-concierge-btn" id="royalConciergeBtn" onclick="alert('👑 Royal Bridal Concierge Connected!\n\nContact Stylist Desk: +91 98765 43210\nEmail: concierge@riwaayatroyale.com\nPrivate Salon Appointments: Mumbai • Delhi • London');">
+    <span>💬 Talk To Royal Stylist</span>
+  </button>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/product-detail.js"></script>
+
+</body>
+</html>

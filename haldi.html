@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon.in: Haldi Ceremony Outfits — Riwaayat Royale Couture</title>
+  <meta name="description" content="Shop handcrafted Indian Haldi ceremony outfits, mustard silks, organza skirts, yellow lehengas with express Prime delivery." />
+
+  <!-- Favicon & PWA App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/branding/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/branding/favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#131921" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/amazon.css" />
+</head>
+<body class="amazon-theme">
+
+  <!-- ==========================================================================
+       1. AMAZON TOP HEADER & GLOBAL SEARCH BAR
+       ========================================================================== -->
+  <header class="amazon-top-header">
+    <a href="index.html" class="amazon-logo-wrap" title="Riwaayat Royale Home">
+      <img src="assets/branding/logo-main.svg" alt="Riwaayat Royale" class="amazon-logo-img" />
+    </a>
+
+    <button class="amazon-location-btn" onclick="alert('Deliver to: Mumbai, Maharashtra 400001\n(Express 48-Hour Wedding Courier Available)');">
+      <span class="amazon-loc-pin">📍</span>
+      <div>
+        <span class="amazon-loc-text">Deliver to</span>
+        <span class="amazon-loc-city">Mumbai 400001</span>
+      </div>
+    </button>
+
+    <form class="amazon-search-container" id="amazonSearchForm">
+      <select class="amazon-search-category" id="amazonSearchCategory" title="Select Category">
+        <option value="all">All Departments</option>
+        <option value="Lehenga">👑 Royal Lehengas</option>
+        <option value="Gown">💍 Evening Gowns</option>
+        <option value="Sharara">🌿 Shararas &amp; Suits</option>
+        <option value="Indo-Western">✨ Indo-Western Sets</option>
+        <option value="Haldi" selected>🌸 Haldi Outfits</option>
+        <option value="Mehendi">🌿 Mehendi Sets</option>
+        <option value="Sangeet">🎶 Sangeet Gala</option>
+        <option value="Wedding">👰 Bridal Wedding</option>
+        <option value="Reception">💍 Grand Reception</option>
+      </select>
+
+      <input 
+        type="text" 
+        class="amazon-search-input" 
+        id="amazonSearchInput" 
+        placeholder="Search Riwaayat Royale Indian wedding couture, lehengas, gowns..." 
+        autocomplete="off" 
+      />
+
+      <button type="submit" class="amazon-search-submit" title="Search Couture">
+        🔍
+      </button>
+    </form>
+
+    <div class="amazon-header-nav">
+      <div class="amazon-nav-item hide-mobile" title="Language: English (India)">
+        <span class="line-1">Language</span>
+        <span class="line-2">🇮🇳 EN</span>
+      </div>
+
+      <div class="amazon-nav-item hide-mobile" onclick="alert('Royal Couture Concierge Account Desk\nVIP Member: Her Royal Highness');">
+        <span class="line-1">Hello, Sign In</span>
+        <span class="line-2">Account &amp; Lists ▾</span>
+      </div>
+
+      <div class="amazon-nav-item hide-mobile" onclick="alert('Order Tracking Desk:\nYour bridal orders are handcrafted & tracked with 256-bit courier security.');">
+        <span class="line-1">Returns</span>
+        <span class="line-2">&amp; Orders</span>
+      </div>
+
+      <div class="amazon-nav-item" id="adminNavBtn" title="Atelier Admin Master" style="cursor:pointer;">
+        <span class="line-1">Atelier</span>
+        <span class="line-2">⚙️ Admin</span>
+      </div>
+
+      <div class="amazon-cart-btn" id="cartNavBtn" title="Shopping Cart">
+        <div class="amazon-cart-icon-wrap">
+          🛒
+          <span class="amazon-cart-count" id="amazonCartCount">0</span>
+        </div>
+        <span class="amazon-cart-label">Cart</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. AMAZON SUB-NAVIGATION BAR (DEPARTMENTS & DEALS)
+       ========================================================================== -->
+  <nav class="amazon-subnav">
+    <a href="index.html" class="amazon-subnav-link">☰ All</a>
+    <a href="lehengas.html" class="amazon-subnav-link">👑 Royal Lehengas</a>
+    <a href="gowns.html" class="amazon-subnav-link">💍 Evening Gowns</a>
+    <a href="shararas.html" class="amazon-subnav-link">🌿 Shararas &amp; Suits</a>
+    <a href="indowestern.html" class="amazon-subnav-link">✨ Indo-Western</a>
+    <a href="haldi.html" class="amazon-subnav-link active">🌸 Haldi</a>
+    <a href="mehendi.html" class="amazon-subnav-link">🌿 Mehendi</a>
+    <a href="sangeet.html" class="amazon-subnav-link">🎶 Sangeet</a>
+    <a href="wedding.html" class="amazon-subnav-link">👰 Bridal Wedding</a>
+    <a href="reception.html" class="amazon-subnav-link">💍 Reception</a>
+    <a href="anniversary.html" class="amazon-subnav-link">❤️ Anniversary</a>
+    <a href="festive.html" class="amazon-subnav-link">✨ Festive</a>
+    <a href="index.html#dealsSection" class="amazon-subnav-link" style="color: var(--amazon-gold); font-weight:700;">⚡ Today's Royal Deals</a>
+    <a href="javascript:void(0);" onclick="alert('👑 24/7 Royal Bridal Concierge Desk:\nPhone: +91 98765 43210\nWhatsApp: Available worldwide');" class="amazon-subnav-link">Customer Service</a>
+  </nav>
+
+  <!-- ==========================================================================
+       3. AMAZON DEPARTMENT RESULTS PAGE
+       ========================================================================== -->
+  <main class="amazon-dept-page">
+    <!-- Breadcrumb -->
+    <nav class="amazon-dept-breadcrumb">
+      <a href="index.html">Amazon Home</a>
+      <span>›</span>
+      <a href="javascript:void(0);">Wedding Occasions</a>
+      <span>›</span>
+      <span style="color: #0F1111; font-weight: 700;">Haldi Rituals</span>
+    </nav>
+
+    <div class="amazon-dept-layout">
+      <!-- Left Filter Sidebar -->
+      <aside class="amazon-filter-sidebar">
+        <!-- Occasion Group -->
+        <div class="amazon-filter-group">
+          <div class="amazon-filter-heading">Wedding Occasions</div>
+          <ul class="amazon-filter-list">
+            <li><a href="haldi.html" class="amazon-filter-link active">🌸 Haldi Mornings <span class="amazon-filter-count">(16+)</span></a></li>
+            <li><a href="mehendi.html" class="amazon-filter-link">🌿 Mehendi Henna <span class="amazon-filter-count">(14+)</span></a></li>
+            <li><a href="sangeet.html" class="amazon-filter-link">🎶 Sangeet Gala <span class="amazon-filter-count">(20+)</span></a></li>
+            <li><a href="wedding.html" class="amazon-filter-link">👰 Bridal Wedding <span class="amazon-filter-count">(25+)</span></a></li>
+            <li><a href="reception.html" class="amazon-filter-link">💍 Grand Reception <span class="amazon-filter-count">(22+)</span></a></li>
+            <li><a href="anniversary.html" class="amazon-filter-link">❤️ Anniversary <span class="amazon-filter-count">(12+)</span></a></li>
+            <li><a href="festive.html" class="amazon-filter-link">✨ Festive Outfits <span class="amazon-filter-count">(18+)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Prime Delivery Group -->
+        <div class="amazon-filter-group">
+          <div class="amazon-filter-heading">Delivery Day</div>
+          <label class="amazon-filter-item">
+            <input type="checkbox" checked />
+            <span>Get It by Tomorrow</span>
+          </label>
+          <label class="amazon-filter-item" style="margin-top: 0.4rem;">
+            <input type="checkbox" checked />
+            <span><span class="amazon-prime-tag">✓prime</span> Eligible</span>
+          </label>
+        </div>
+
+        <!-- Customer Review Group -->
+        <div class="amazon-filter-group">
+          <div class="amazon-filter-heading">Customer Reviews</div>
+          <div class="amazon-rating-filter-row">
+            <span class="amazon-stars">★★★★☆</span>
+            <span>&amp; Up (4.0+)</span>
+          </div>
+          <div class="amazon-rating-filter-row">
+            <span class="amazon-stars">★★★★★</span>
+            <span>5 Stars Only</span>
+          </div>
+        </div>
+
+        <!-- Price Range Group -->
+        <div class="amazon-filter-group">
+          <div class="amazon-filter-heading">Price Range</div>
+          <label class="amazon-filter-item">
+            <input type="radio" name="amazonPriceFilter" value="all" checked />
+            <span>All Prices</span>
+          </label>
+          <label class="amazon-filter-item">
+            <input type="radio" name="amazonPriceFilter" value="25000" />
+            <span>Under ₹25,000</span>
+          </label>
+          <label class="amazon-filter-item">
+            <input type="radio" name="amazonPriceFilter" value="50000" />
+            <span>Under ₹50,000</span>
+          </label>
+          <label class="amazon-filter-item">
+            <input type="radio" name="amazonPriceFilter" value="75000" />
+            <span>Under ₹75,000</span>
+          </label>
+        </div>
+
+        <!-- Fabric Group -->
+        <div class="amazon-filter-group">
+          <div class="amazon-filter-heading">Pure Fabric Heritage</div>
+          <label class="amazon-filter-item">
+            <input type="checkbox" name="amazonFabricFilter" value="Organza" />
+            <span>Organza Silk</span>
+          </label>
+          <label class="amazon-filter-item">
+            <input type="checkbox" name="amazonFabricFilter" value="Silk" />
+            <span>Pure Raw Silk</span>
+          </label>
+          <label class="amazon-filter-item">
+            <input type="checkbox" name="amazonFabricFilter" value="Georgette" />
+            <span>Georgette &amp; Chiffon</span>
+          </label>
+          <label class="amazon-filter-item">
+            <input type="checkbox" name="amazonFabricFilter" value="Cotton" />
+            <span>Chanderi &amp; Cotton</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- Right Results Column -->
+      <section class="amazon-results-container">
+        <!-- Results Bar -->
+        <div class="amazon-results-bar">
+          <div class="amazon-results-count" id="amazonResultsCount">
+            Showing results for <strong>"Haldi Rituals"</strong>
+          </div>
+
+          <div class="amazon-sort-wrap">
+            <label class="amazon-sort-label" for="amazonSortSelect">Sort by:</label>
+            <select class="amazon-sort-select" id="amazonSortSelect">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Avg. Customer Review</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid (Amazon Cards injected dynamically by app.js) -->
+        <div class="amazon-results-grid" id="productGrid">
+          <!-- Injected dynamically by app.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 class="heading-serif" style="font-size: 1.3rem; color: var(--gold-light);">Your Shopping Cart</h3>
+      <button style="color: var(--color-ivory); font-size: 1.4rem;" id="closeCartBtn">✕</button>
+    </div>
+    <div class="cart-body" id="cartItemsContainer"></div>
+    <div class="cart-footer">
+      <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem;">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal" style="color: var(--gold-light);">₹0</span>
+      </div>
+      <button class="btn-royal-primary" style="width: 100%;" onclick="alert('Proceeding to 1-Click Amazon Checkout...');">Proceed To Checkout</button>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card" style="max-width: 650px; padding: 2.5rem;">
+      <button class="modal-close-btn" id="closeAdminBtn">✕</button>
+      <h3 class="heading-serif" style="font-size: 1.6rem; color: #4A1224; margin-bottom: 0.5rem;">Royal Product Master (Admin)</h3>
+      <form id="adminProductForm">
+        <input type="text" id="adminProdName" placeholder="Outfit Name" required style="width:100%; margin-bottom:1rem; padding:0.6rem;" />
+        <input type="number" id="adminProdPrice" placeholder="Price" required style="width:100%; margin-bottom:1rem; padding:0.6rem;" />
+        <button type="submit" class="btn-royal-primary">Publish Outfit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Amazon Footer -->
+  <footer class="amazon-footer">
+    <a href="#" class="amazon-back-to-top" id="amazonBackToTop">
+      ▲ Back to top
+    </a>
+
+    <div class="amazon-footer-links-grid">
+      <div class="amazon-footer-col">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="javascript:void(0);">About Riwaayat Royale</a></li>
+          <li><a href="javascript:void(0);">Generational Master Artisans</a></li>
+          <li><a href="javascript:void(0);">Pure Silk &amp; Handloom Heritage</a></li>
+          <li><a href="javascript:void(0);">Press &amp; Fashion Week</a></li>
+        </ul>
+      </div>
+
+      <div class="amazon-footer-col">
+        <h4>Connect with Us</h4>
+        <ul>
+          <li><a href="javascript:void(0);">Instagram Runway</a></li>
+          <li><a href="javascript:void(0);">Bridal Pinterest Board</a></li>
+          <li><a href="javascript:void(0);">WhatsApp Bridal Hotline</a></li>
+          <li><a href="javascript:void(0);">Private Salon Appointments</a></li>
+        </ul>
+      </div>
+
+      <div class="amazon-footer-col">
+        <h4>Couture Silhouettes</h4>
+        <ul>
+          <li><a href="lehengas.html">Royal Lehengas</a></li>
+          <li><a href="gowns.html">Evening Reception Gowns</a></li>
+          <li><a href="shararas.html">Festive Shararas &amp; Suits</a></li>
+          <li><a href="indowestern.html">Modern Indo-Western Sets</a></li>
+        </ul>
+      </div>
+
+      <div class="amazon-footer-col">
+        <h4>Let Us Help You</h4>
+        <ul>
+          <li><a href="javascript:void(0);">Bespoke Stitching Guide</a></li>
+          <li><a href="javascript:void(0);">48-Hour Worldwide Express Delivery</a></li>
+          <li><a href="javascript:void(0);">7-Day Royal Fit Guarantee</a></li>
+          <li><a href="javascript:void(0);">100% Purchase Protection</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="amazon-footer-bottom">
+      <p style="margin-bottom: 0.5rem;">
+        Conditions of Use &amp; Sale &nbsp;|&nbsp; Privacy Notice &nbsp;|&nbsp; Interest-Based Ads
+      </p>
+      <p>&copy; 2026 Riwaayat Royale Maison de Couture Inc. or its affiliates. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.OCCASION_PAGE_KEY = 'Haldi';
+  </script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
