@@ -134,10 +134,14 @@ weddings/
 
 ### Steps to Run the Project
 
-1. **Clone the Repository**:
+1. **Live Website (Mobile & Desktop)**:
+   - **Live Store URL**: [https://hardikchaurasiya1972-blip.github.io/weddings-100/](https://hardikchaurasiya1972-blip.github.io/weddings-100/)
+   - Works instantly on any mobile phone, tablet, or desktop browser with 0 setup needed!
+
+2. **Clone the Repository**:
    ```bash
-   git clone https://github.com/hardikchaurasiya1972-blip/weddings.git
-   cd weddings
+   git clone https://github.com/hardikchaurasiya1972-blip/weddings-100.git
+   cd weddings-100
    ```
 
 2. **Run on Mobile Phone (1-Click Local Wi-Fi)**:
