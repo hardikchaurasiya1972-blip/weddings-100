@@ -4,14 +4,27 @@
 
 ![Riwaayat Royale Banner](assets/branding/logo-main.svg)
 
-Riwaayat Royale is a luxury Indian women's occasion-wear fashion and e-commerce platform designed to deliver an opulent shopping experience combining traditional royal aesthetics with 3D fashion atelier technology. Customers can explore high-end bridal couture, lehengas, Anarkalis, shararas, and Indo-Western outfits curated specifically for wedding functions and special Indian celebrations.
+Riwaayat Royale is a luxury Indian women's occasion-wear couture and e-commerce platform combining traditional royal palace aesthetics with modern 3D fashion atelier technology and mobile ergonomics. Customers can explore handcrafted bridal couture, lehengas, evening gowns, shararas, Anarkalis, and Indo-Western outfits curated specifically for all major Indian wedding celebrations.
 
 ---
 
 ## ✨ Main Features
 
+- **📱 Complete Mobile-First & Touch Experience**:
+  - **Native-App-Style Bottom Navigation Bar**: Fixed bottom bar featuring 🏠 *Home*, 👑 *Occasions*, 🔍 *Search*, 🛒 *Cart* (with live count badge), and ⚙️ *Admin*.
+  - **Mobile Occasions Drawer**: Bottom sheet drawer sliding up with one-tap access to all 7 celebrations and 4 couture silhouettes.
+  - **Adaptive Amazon Header**: Seamless multi-row header on mobile devices with full-width search input and clean touch targets.
+  - **Fluid 2-Column Mobile Product Grids**: High-density 2-card product display on smartphones with clear pricing, ratings, and instant "Add to Cart" buttons.
+  - **Mobile Filter & Sort Modal**: Department filter sidebar automatically adapts into a slide-up modal with an "Apply Filters" bar.
+  - **Sticky PDP Action Bar**: Pinned price, "Add to Cart", and "Buy Now" bottom bar on the product detail page for fast mobile purchasing.
+
+- **🚀 1-Click Zero-Dependency Mobile Wi-Fi Server (`START_MOBILE_SERVER.bat`)**:
+  - Built-in zero-dependency local web server powered by Windows PowerShell (`System.Net.Sockets.TcpListener`).
+  - Automatically discovers local Wi-Fi IP address and displays a scannable **QR Code** on your computer screen.
+  - Scan the QR code with any smartphone camera to open the store instantly over Wi-Fi without needing Node.js or Python.
+
 - **🎬 Cinematic Slow-Motion Opening Video & 3D Curtain Intro**:
-  - Full-screen slow-motion particle physics engine with floating marigold/rose flower petals, volumetric light beams, and dual parting Royal Silk Curtains.
+  - Full-screen slow-motion particle physics engine with floating marigold/rose petals, volumetric light beams, and dual parting Royal Silk Curtains.
 
 - **🌸 Dedicated Multi-Page Occasion & Garment Route Architecture**:
   - Direct individual storefronts for all key wedding functions and couture categories:
@@ -32,12 +45,9 @@ Riwaayat Royale is a luxury Indian women's occasion-wear fashion and e-commerce 
   - Multi-angle image switcher, high-resolution zoom viewer, and occasion-specific styling notes.
   - Real-time size recommendation engine, luxury fabric detail breakdown, and express bridal delivery estimator.
 
-- **📽️ "A Celebration in Motion" Campaign Runway**:
-  - 3D palace corridor canvas runway animation with atmospheric light shafts.
-
 - **📸 Multi-Photo Lookbook & 60fps Photo Hover Flip**:
   - Editorial gallery showing real bridal photographs.
-  - Hovering over any product card smoothly crossfades to its secondary uploaded photo angle.
+  - Hovering or tapping over any product card smoothly crossfades to its secondary angle.
 
 - **🔍 Smart Catalog Filtering & Search**:
   - Dynamic multi-criteria filtering by occasion, garment category, price range slider, color tone, and keyword search.
@@ -45,24 +55,22 @@ Riwaayat Royale is a luxury Indian women's occasion-wear fashion and e-commerce 
 - **🛍️ Persistent Wishlist & Slide-Out Shopping Bag**:
   - Seamless shopping drawer, quantity manager, and wishlist powered by browser `localStorage`.
 
-- **💬 Floating Royal Bridal Stylist Concierge**:
-  - Instant one-click consultation modal for custom tailoring, color matching, and express concierge requests.
-
 - **⚙️ Royal Admin Panel**:
   - Built-in outfit uploader for publishing new garments dynamically to the live catalog.
 
 - **📱 Progressive Web App (PWA) Offline Readiness**:
-  - Built-in `manifest.json` and service worker (`sw.js`) for fast offline asset caching and home screen installability.
+  - Built-in `manifest.json` and service worker (`sw.js`) for offline asset caching and home screen installability.
 
 ---
 
 ## 🛠️ Technologies Used
 
 - **Markup & Structure**: HTML5 (Semantic elements, accessibility landmarks, SEO meta tags)
-- **Styling**: Vanilla CSS3 with CSS Custom Properties (Variables), Glassmorphic effects, Flexbox, Grid, and hardware-accelerated transitions
-- **Client Logic**: Vanilla JavaScript (ES6+ modular object-oriented architecture, zero heavy external framework overhead)
+- **Styling**: Vanilla CSS3 with CSS Custom Properties (Variables), Glassmorphism, Flexbox, CSS Grid, and hardware-accelerated transitions
+- **Client Logic**: Vanilla JavaScript (ES6+ modular object-oriented architecture, zero external runtime framework overhead)
 - **Graphics & Motion**: HTML5 2D Canvas API (Custom particle engines, petal physics, ray tracing, 360° drag canvas)
 - **State & Storage**: Browser `localStorage` API for bag items and wishlist persistence
+- **Local Mobile Server**: Windows PowerShell (`System.Net.Sockets.TcpListener`) with automatic local IP discovery and QR code generation
 - **Offline & PWA**: Service Worker API (`sw.js`) and Web App Manifest (`manifest.json`)
 - **Assets**: Scalable Vector Graphics (SVG) branding and curated high-resolution photography
 
@@ -82,14 +90,14 @@ weddings/
 │       └── wedding/           # Bridal couture outfits
 ├── css/
 │   ├── main.css               # Design system tokens, root color variables & typography
-│   ├── components.css         # Responsive cards, modals, hero & lookbook styles
-│   ├── amazon.css             # Amazon-inspired responsive product components & banners
+│   ├── components.css         # Mobile bottom nav, occasions drawer, sticky bars & modals
+│   ├── amazon.css             # Amazon-inspired mobile header, 2-column cards & filters
 │   └── atelier-pdp.css        # Interactive 3D Product Detail Page (PDP) styling
 ├── js/
-│   ├── app.js                 # Main storefront e-commerce application engine
+│   ├── app.js                 # Main storefront engine, mobile bottom nav & filter drawer
 │   ├── data.js                # Centralized product catalog dataset & occasion metadata
 │   ├── amazon-home.js         # Amazon-style storefront interactions & dynamic feeds
-│   ├── product-detail.js      # PDP interactivity (360° viewer, size selector, cart sync)
+│   ├── product-detail.js      # PDP interactivity (360° viewer, size selector, mobile bar)
 │   ├── three-slowmo.js        # Slow-motion opening video & silk curtain splash engine
 │   ├── three-hero.js          # Hero section 3D particle canvas
 │   ├── three-atelier.js       # 360° interactive Atelier canvas engine
@@ -107,6 +115,9 @@ weddings/
 ├── sangeet.html               # Dedicated Sangeet collection page
 ├── shararas.html              # Dedicated Royal Shararas collection page
 ├── wedding.html               # Dedicated Wedding bridal couture collection page
+├── mobile-connect.html        # QR Code connection screen for smartphone scanning
+├── START_MOBILE_SERVER.bat    # 1-Click launcher for zero-dependency local mobile server
+├── server.ps1                 # Zero-dependency PowerShell HTTP server for Wi-Fi access
 ├── manifest.json              # Progressive Web App (PWA) manifest configuration
 ├── sw.js                      # Service worker for offline asset caching
 ├── .gitignore                 # Git ignore rules for clean repository hygiene
@@ -118,39 +129,42 @@ weddings/
 ## 🚀 Installation & Setup Steps
 
 ### Prerequisites
-- Any modern web browser (Google Chrome, Microsoft Edge, Mozilla Firefox, or Safari) with Canvas and WebGL support enabled.
+- Any modern web browser (Google Chrome, Microsoft Edge, Mozilla Firefox, or Safari).
 - Git installed on your system.
 
 ### Steps to Run the Project
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/hardikchaurasiya1972-blip/wedding1.git
-   cd wedding1
+   git clone https://github.com/hardikchaurasiya1972-blip/weddings.git
+   cd weddings
    ```
 
-2. **Run Locally**:
-   - **Option A (Direct in Browser)**: Double-click or open `index.html` directly in any web browser.
-   - **Option B (Local Web Server - Recommended for full PWA Service Worker support)**:
+2. **Run on Mobile Phone (1-Click Local Wi-Fi)**:
+   - Double-click **`START_MOBILE_SERVER.bat`**.
+   - A browser window will open on your PC showing a **scannable QR Code** and your local Wi-Fi IP address (`http://<YOUR_IP>:8080`).
+   - Connect your phone to the same Wi-Fi, open your phone's **Camera**, and scan the QR code to open the site directly on your phone!
+
+3. **Run on Desktop**:
+   - **Option A**: Double-click `index.html` directly in any web browser.
+   - **Option B (Recommended for full PWA & Service Worker features)**:
+     Double-click `START_MOBILE_SERVER.bat` or run:
      ```bash
      # Using Python:
-     python -m http.server 8085
+     python -m http.server 8080
      
-     # Or using Node.js / npx:
+     # Or using Node.js:
      npx serve .
-     
-     # Or using PHP:
-     php -S localhost:8085
      ```
-   - Open your browser and navigate to: `http://localhost:8085`
+   - Navigate to: `http://localhost:8080`
 
 ---
 
 ## ⚙️ Configuration Requirements & Notes
 
-- **Service Worker & PWA**: Service Workers require a secure origin (`https://` or `http://localhost`). For full offline caching features, serve via a local web server rather than the `file://` protocol.
-- **Persistent State**: The shopping cart and wishlist utilize browser `localStorage`. Cookies/storage must be enabled in your browser settings.
-- **Canvas Hardware Acceleration**: Ensure hardware acceleration is enabled in your browser settings for optimal 60fps performance of the 3D particle curtain and 360° canvas atelier.
+- **Zero External Dependencies**: The project requires zero npm packages, zero compilers, and zero runtime installations.
+- **Service Worker & PWA**: Service Workers require an HTTP/HTTPS origin (`http://localhost` or `http://<IP>:8080`). Use `START_MOBILE_SERVER.bat` for offline caching features.
+- **Persistent State**: The shopping cart and wishlist utilize browser `localStorage`. Storage must be enabled in your browser settings.
 - **Sensitive Information**: The repository contains no API keys, credentials, or private authentication tokens. All client features run locally and securely.
 
 ---
@@ -158,4 +172,4 @@ weddings/
 ## 📄 License & Credits
 
 - Visual photography and garment assets are curated for high-fashion royal bridal presentation.
-- © 2026 **Riwaayat Royale Maison de Couture**. All rights reserved.
+- © 2026 Riwaayat Royale Maison de Couture Inc. All rights reserved.

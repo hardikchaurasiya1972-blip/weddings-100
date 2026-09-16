@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect Mobile Phone — Riwaayat Royale</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <!-- Fast, lightweight client-side QR Code library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 20%, #2A0820 0%, #12030E 100%);
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .connect-card {
+      background: rgba(45, 10, 30, 0.88);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+    }
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #D4AF37;
+      margin-bottom: 0.3rem;
+      letter-spacing: 2px;
+    }
+    .brand-sub {
+      color: #F3EBE1;
+      font-size: 0.95rem;
+      margin-bottom: 1.6rem;
+    }
+    .qr-box {
+      background: #FFFFFF;
+      padding: 1.2rem;
+      border-radius: 16px;
+      display: inline-block;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    #qrCanvas {
+      display: block;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+    }
+    .url-pill {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      padding: 0.75rem 1.2rem;
+      border-radius: 30px;
+      font-family: monospace;
+      font-size: 1.05rem;
+      color: #FEB800;
+      margin-bottom: 1.4rem;
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .copy-btn {
+      background: #D4AF37;
+      color: #12030E;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover {
+      background: #FEB800;
+    }
+    .instructions {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #F3EBE1;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .instructions ol {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .actions-row {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-action {
+      background: linear-gradient(135deg, #FFF5D6 0%, #F2D272 30%, #D4AF37 70%, #B38728 100%);
+      color: #1A0512;
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="connect-card">
+    <div class="brand-title">RIWAAYAT ROYALE</div>
+    <div class="brand-sub">📱 Mobile Phone Instant Access</div>
+
+    <div class="qr-box">
+      <canvas id="qrCanvas"></canvas>
+    </div>
+
+    <div class="url-pill">
+      <span id="targetUrl">Loading server address...</span>
+      <button class="copy-btn" id="copyUrlBtn">Copy</button>
+    </div>
+
+    <div class="instructions">
+      <strong>How to open on your phone:</strong>
+      <ol>
+        <li>Ensure your phone is on the <strong>same Wi-Fi</strong> network as your computer.</li>
+        <li>Open your mobile <strong>Camera</strong> and scan the QR code above.</li>
+        <li>Tap the popup banner to browse the full mobile couture store!</li>
+      </ol>
+    </div>
+
+    <div class="actions-row">
+      <a href="index.html" class="btn-action">Open Store on PC →</a>
+      <a href="product.html?id=rr-wedd-1" class="btn-action btn-secondary">Test Mobile PDP</a>
+    </div>
+  </div>
+
+  <script>
+    // Automatically detect current host or fallback to standard local IP
+    const currentHost = window.location.host || 'localhost:8080';
+    const mobileTargetUrl = window.location.protocol + '//' + currentHost + '/index.html';
+    
+    document.getElementById('targetUrl').textContent = mobileTargetUrl;
+    
+    document.getElementById('copyUrlBtn').addEventListener('click', function() {
+      navigator.clipboard.writeText(mobileTargetUrl).then(() => {
+        this.textContent = 'Copied!';
+        setTimeout(() => { this.textContent = 'Copy'; }, 2000);
+      });
+    });
+
+    function renderQR() {
+      if (window.QRCode) {
+        QRCode.toCanvas(document.getElementById('qrCanvas'), mobileTargetUrl, {
+          width: 220,
+          margin: 1,
+          color: { dark: '#12030E', light: '#FFFFFF' }
+        }, function (error) {
+          if (error) console.error('QR code render error', error);
+        });
+      } else {
+        const canvas = document.getElementById('qrCanvas');
+        const img = document.createElement('img');
+        img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(mobileTargetUrl);
+        img.alt = 'Scan with Mobile Phone';
+        img.style.width = '220px';
+        img.style.height = '220px';
+        canvas.replaceWith(img);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderQR);
+    } else {
+      renderQR();
+    }
+  </script>
+</body>
+</html>

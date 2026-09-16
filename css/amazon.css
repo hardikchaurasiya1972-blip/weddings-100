@@ -725,21 +725,313 @@ body.amazon-theme {
 }
 
 @media (max-width: 768px) {
-  .amazon-quad-row {
-    grid-template-columns: 1fr;
+  /* Safe body bottom padding for mobile navigation bar */
+  body.amazon-theme {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
   }
-  .amazon-content-container {
-    margin-top: -80px;
+
+  /* 1. Mobile Multi-Row Header */
+  .amazon-top-header {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
   }
-  .amazon-hero-carousel {
-    height: 320px;
+  .amazon-logo-wrap {
+    order: 1;
+    padding: 0;
+  }
+  .amazon-logo-img {
+    height: 32px;
+  }
+  .amazon-header-nav {
+    order: 2;
+    margin-left: auto;
+    gap: 0.4rem;
+  }
+  .amazon-search-container {
+    order: 3;
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: 38px;
+  }
+  .amazon-search-category {
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+    max-width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .amazon-search-input {
+    font-size: 0.85rem;
+    padding: 0 0.65rem;
+  }
+  .amazon-search-submit {
+    width: 42px;
+    font-size: 1rem;
   }
   .amazon-location-btn,
   .amazon-nav-item.hide-mobile {
+    display: none !important;
+  }
+
+  /* 2. Touch-Optimized Sub-Navigation */
+  .amazon-subnav {
+    padding: 0 0.5rem;
+    gap: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .amazon-subnav::-webkit-scrollbar {
     display: none;
   }
+  .amazon-subnav-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.65rem;
+    flex-shrink: 0;
+  }
+
+  /* 3. Hero Carousel on Mobile */
+  .amazon-hero-carousel {
+    height: 260px;
+  }
+  .amazon-hero-gradient-fade {
+    height: 120px;
+  }
+  .amazon-hero-arrow {
+    width: 32px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  /* 4. Homepage Quadrant Cards */
+  .amazon-content-container {
+    margin-top: -60px;
+    padding: 0 0.6rem;
+  }
+  .amazon-quad-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .amazon-quad-card {
+    padding: 1.1rem 0.9rem;
+    border-radius: 8px;
+  }
+  .amazon-quad-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .amazon-quad-tiles-2x2 {
+    gap: 0.6rem;
+  }
+  .amazon-tile-label {
+    font-size: 0.76rem;
+    margin-top: 0.3rem;
+  }
+
+  /* 5. Department Results Layout (Single Column) */
+  .amazon-dept-page {
+    padding: 0 0.6rem;
+    margin: 0.8rem auto 2.5rem;
+  }
+  .amazon-dept-layout {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  /* Filter Sidebar Mobile Bottom-Sheet Modal */
+  .amazon-filter-sidebar {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000;
+    background: #FFFFFF;
+    overflow-y: auto;
+    padding: 1.2rem 1.2rem 6rem;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.35);
+  }
+  .amazon-filter-sidebar.mobile-open {
+    display: block !important;
+    animation: mobileFilterSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .amazon-filter-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid #EAEDED;
+  }
+  .amazon-filter-mobile-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111111;
+  }
+  .amazon-filter-mobile-close {
+    background: #F0F2F2;
+    border: 1px solid #D5D9D9;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #111111;
+  }
+  .amazon-filter-mobile-apply {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: #FFFFFF;
+    border-top: 1px solid #D5D9D9;
+    z-index: 100001;
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  /* Mobile Sticky Filter & Sort Trigger Bar */
+  .mobile-dept-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .mobile-filter-toggle-btn {
+    background: #F0F2F2;
+    border: 1px solid #D5D9D9;
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0F1111;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* 6. Product Cards Grid (2-Column Mobile Layout) */
+  .amazon-results-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+  }
+  .amazon-product-card {
+    padding: 0.6rem;
+    border-radius: 6px;
+  }
+  .amazon-card-img-wrap {
+    aspect-ratio: 3 / 4;
+    margin-bottom: 0.5rem;
+  }
+  .amazon-badge-choice,
+  .amazon-badge-bestseller {
+    font-size: 0.6rem;
+    padding: 1px 6px;
+  }
+  .amazon-card-title {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
+    margin-bottom: 0.3rem;
+  }
+  .amazon-card-rating {
+    margin-bottom: 0.3rem;
+    font-size: 0.75rem;
+  }
+  .amazon-card-price-current {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  .amazon-card-price-orig {
+    font-size: 0.75rem;
+  }
+  .amazon-card-badge-gold {
+    font-size: 0.68rem;
+    padding: 1px 4px;
+  }
+  .amazon-btn-add-cart {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.78rem;
+    border-radius: 20px;
+    margin-top: 0.4rem;
+  }
+
+  /* 7. Footer on Mobile */
   .amazon-footer-links-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    padding: 2rem 1rem;
+  }
+
+  /* 8. Modals & Cart Drawer on Mobile */
+  .modal-card {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    padding: 1.2rem !important;
+    border-radius: 12px !important;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+  #adminProductForm > div {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .amazon-top-header {
+    padding: 0.4rem 0.6rem;
+  }
+  .amazon-logo-img {
+    height: 28px;
+  }
+  .amazon-search-category {
+    display: none; /* Hide category select on narrow screens so input is wide */
+  }
+  .amazon-search-input {
+    font-size: 0.82rem;
+  }
+  .amazon-search-submit {
+    width: 38px;
+  }
+  .cart-drawer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0;
+  }
+  .amazon-results-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  .amazon-product-card {
+    padding: 0.45rem;
+  }
+}
+
+@keyframes mobileFilterSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 

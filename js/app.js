@@ -39,6 +39,7 @@ class RiwaayatRoyaleApp {
     this.updateBadges();
     this.setupNavbarScroll();
     this.registerServiceWorker();
+    this.setupMobileExperience();
   }
 
   registerServiceWorker() {
@@ -514,6 +515,8 @@ class RiwaayatRoyaleApp {
     if (maisonCartBadge) maisonCartBadge.textContent = totalCartItems;
     if (amazonCartBadge) amazonCartBadge.textContent = totalCartItems;
     if (floatingCartBadge) floatingCartBadge.textContent = totalCartItems;
+    const mobileBottomBadge = document.getElementById('mobileBottomCartCount');
+    if (mobileBottomBadge) mobileBottomBadge.textContent = totalCartItems;
     if (bucketItemCountText) {
       bucketItemCountText.textContent = `${totalCartItems} item${totalCartItems === 1 ? '' : 's'}`;
     }
@@ -876,6 +879,258 @@ class RiwaayatRoyaleApp {
     alert('Royal Outfit Successfully Added to Catalog!');
     document.getElementById('adminModal').classList.remove('active');
     e.target.reset();
+  }
+
+  /* ==========================================================================
+     MOBILE-FIRST EXPERIENCE SUITE
+     ========================================================================== */
+  setupMobileExperience() {
+    this.injectMobileBottomNav();
+    this.injectMobileOccasionsSheet();
+    this.setupMobileFilterDrawer();
+    this.setupDesktopMobileConnect();
+  }
+
+  injectMobileBottomNav() {
+    if (document.getElementById('mobileBottomNav')) return;
+
+    const nav = document.createElement('nav');
+    nav.className = 'amazon-mobile-bottom-nav';
+    nav.id = 'mobileBottomNav';
+
+    const path = window.location.pathname.toLowerCase();
+    const isHome = path.endsWith('index.html') || path.endsWith('/') || path === '';
+    const totalCartItems = this.cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+    nav.innerHTML = `
+      <a href="index.html" class="mobile-nav-btn ${isHome ? 'active' : ''}">
+        <span class="mobile-nav-icon">🏠</span>
+        <span>Home</span>
+      </a>
+      <button class="mobile-nav-btn" id="mobileNavOccasionsBtn">
+        <span class="mobile-nav-icon">👑</span>
+        <span>Occasions</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobileNavSearchBtn">
+        <span class="mobile-nav-icon">🔍</span>
+        <span>Search</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobileNavCartBtn">
+        <span class="mobile-nav-icon">🛒</span>
+        <span>Cart</span>
+        <span class="mobile-nav-badge" id="mobileBottomCartCount">${totalCartItems}</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobileNavAdminBtn">
+        <span class="mobile-nav-icon">⚙️</span>
+        <span>Admin</span>
+      </button>
+    `;
+
+    document.body.appendChild(nav);
+
+    // Event listeners
+    document.getElementById('mobileNavOccasionsBtn')?.addEventListener('click', () => {
+      this.toggleOccasionsSheet(true);
+    });
+
+    document.getElementById('mobileNavSearchBtn')?.addEventListener('click', () => {
+      const searchInput = document.getElementById('amazonSearchInput') || 
+                          document.querySelector('.amazon-search-input') || 
+                          document.getElementById('maisonSearchInput');
+      if (searchInput) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => searchInput.focus(), 300);
+      }
+    });
+
+    document.getElementById('mobileNavCartBtn')?.addEventListener('click', () => {
+      this.openCart();
+    });
+
+    document.getElementById('mobileNavAdminBtn')?.addEventListener('click', () => {
+      const adminModal = document.getElementById('adminModal');
+      if (adminModal) adminModal.classList.add('active');
+    });
+  }
+
+  injectMobileOccasionsSheet() {
+    if (document.getElementById('mobileOccasionsSheetOverlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-occasions-sheet-overlay';
+    overlay.id = 'mobileOccasionsSheetOverlay';
+
+    overlay.innerHTML = `
+      <div class="mobile-occasions-sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+          <span class="sheet-title">Royal Celebrations</span>
+          <button class="sheet-close-btn" id="closeOccasionsSheetBtn">✕</button>
+        </div>
+        <div class="sheet-grid">
+          <a href="wedding.html" class="sheet-item">
+            <span class="sheet-item-icon">👰</span>
+            <span class="sheet-item-label">Bridal Wedding</span>
+          </a>
+          <a href="reception.html" class="sheet-item">
+            <span class="sheet-item-icon">💍</span>
+            <span class="sheet-item-label">Grand Reception</span>
+          </a>
+          <a href="sangeet.html" class="sheet-item">
+            <span class="sheet-item-icon">🎶</span>
+            <span class="sheet-item-label">Sangeet Gala</span>
+          </a>
+          <a href="mehendi.html" class="sheet-item">
+            <span class="sheet-item-icon">🌿</span>
+            <span class="sheet-item-label">Mehendi Henna</span>
+          </a>
+          <a href="haldi.html" class="sheet-item">
+            <span class="sheet-item-icon">🌸</span>
+            <span class="sheet-item-label">Haldi Morning</span>
+          </a>
+          <a href="festive.html" class="sheet-item">
+            <span class="sheet-item-icon">✨</span>
+            <span class="sheet-item-label">Festive Outfits</span>
+          </a>
+          <a href="lehengas.html" class="sheet-item">
+            <span class="sheet-item-icon">👑</span>
+            <span class="sheet-item-label">Royal Lehengas</span>
+          </a>
+          <a href="gowns.html" class="sheet-item">
+            <span class="sheet-item-icon">👗</span>
+            <span class="sheet-item-label">Evening Gowns</span>
+          </a>
+          <a href="shararas.html" class="sheet-item">
+            <span class="sheet-item-icon">🌿</span>
+            <span class="sheet-item-label">Shararas & Suits</span>
+          </a>
+          <a href="indowestern.html" class="sheet-item">
+            <span class="sheet-item-icon">✨</span>
+            <span class="sheet-item-label">Indo-Western</span>
+          </a>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) this.toggleOccasionsSheet(false);
+    });
+    document.getElementById('closeOccasionsSheetBtn')?.addEventListener('click', () => {
+      this.toggleOccasionsSheet(false);
+    });
+  }
+
+  toggleOccasionsSheet(show) {
+    const overlay = document.getElementById('mobileOccasionsSheetOverlay');
+    if (overlay) {
+      if (show) overlay.classList.add('active');
+      else overlay.classList.remove('active');
+    }
+  }
+
+  setupMobileFilterDrawer() {
+    const sidebar = document.querySelector('.amazon-filter-sidebar');
+    const resultsContainer = document.querySelector('.amazon-results-container');
+    if (!sidebar || !resultsContainer) return;
+
+    // Inject mobile filter trigger bar before results bar
+    if (!document.querySelector('.mobile-dept-filter-bar')) {
+      const filterBar = document.createElement('div');
+      filterBar.className = 'mobile-dept-filter-bar';
+      filterBar.innerHTML = `
+        <button class="mobile-filter-toggle-btn" id="mobileFilterToggleBtn">
+          <span>⚡</span>
+          <span>Filters &amp; Sort</span>
+        </button>
+        <span style="font-size:0.8rem; color:#565959;">Refine luxury catalog</span>
+      `;
+      resultsContainer.insertBefore(filterBar, resultsContainer.firstChild);
+
+      filterBar.querySelector('#mobileFilterToggleBtn')?.addEventListener('click', () => {
+        sidebar.classList.add('mobile-open');
+      });
+    }
+
+    // Add mobile close header inside sidebar if missing
+    if (!sidebar.querySelector('.amazon-filter-mobile-header')) {
+      const mobileHeader = document.createElement('div');
+      mobileHeader.className = 'amazon-filter-mobile-header';
+      mobileHeader.innerHTML = `
+        <span class="amazon-filter-mobile-title">Filters &amp; Refinements</span>
+        <button class="amazon-filter-mobile-close" id="mobileFilterCloseBtn">✕</button>
+      `;
+      sidebar.insertBefore(mobileHeader, sidebar.firstChild);
+
+      const applyFooter = document.createElement('div');
+      applyFooter.className = 'amazon-filter-mobile-apply';
+      applyFooter.innerHTML = `
+        <button class="btn-royal-primary" style="flex:1; padding:0.75rem;" id="mobileFilterApplyBtn">Apply Filters</button>
+      `;
+      sidebar.appendChild(applyFooter);
+
+      sidebar.querySelector('#mobileFilterCloseBtn')?.addEventListener('click', () => {
+        sidebar.classList.remove('mobile-open');
+      });
+      sidebar.querySelector('#mobileFilterApplyBtn')?.addEventListener('click', () => {
+        sidebar.classList.remove('mobile-open');
+      });
+    }
+  }
+
+  setupDesktopMobileConnect() {
+    if (document.getElementById('desktopMobileTriggerPill')) return;
+
+    // Detect host or fallback
+    const host = window.location.hostname || '192.168.1.39';
+    const port = window.location.port || '8080';
+    const phoneUrl = `http://${host}:${port}/index.html`;
+
+    const pill = document.createElement('button');
+    pill.className = 'desktop-mobile-trigger-pill';
+    pill.id = 'desktopMobileTriggerPill';
+    pill.title = 'Open on Mobile Phone';
+    pill.innerHTML = `<span>📱</span><span>View on Phone</span>`;
+
+    const modal = document.createElement('div');
+    modal.className = 'mobile-qr-modal-overlay';
+    modal.id = 'desktopMobileQrModal';
+    modal.innerHTML = `
+      <div class="mobile-qr-modal-card">
+        <button class="mobile-qr-close-btn" id="closeMobileQrModalBtn">✕</button>
+        <div style="font-family:'Cinzel',serif; font-size:1.4rem; color:#D4AF37; margin-bottom:0.25rem;">RIWAAYAT ROYALE</div>
+        <div style="font-size:0.9rem; color:#F3EBE1; margin-bottom:1.2rem;">📱 Instant Mobile Phone Access</div>
+        <div style="background:#FFF; padding:1rem; border-radius:16px; display:inline-block; margin-bottom:1.2rem;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(phoneUrl)}" alt="Mobile QR Code" style="width:200px; height:200px; display:block;" />
+        </div>
+        <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(212,175,55,0.4); padding:0.6rem 1rem; border-radius:20px; font-family:monospace; font-size:0.95rem; color:#FEB800; margin-bottom:1.2rem; word-break:break-all;">
+          ${phoneUrl}
+        </div>
+        <div style="font-size:0.82rem; color:#EAEAEA; line-height:1.5; text-align:left; background:rgba(255,255,255,0.06); padding:0.8rem 1rem; border-radius:10px; margin-bottom:1.2rem;">
+          1. Ensure your phone is connected to the <strong>same Wi-Fi</strong>.<br/>
+          2. Open your phone's <strong>Camera app</strong> and scan the QR code above!
+        </div>
+        <button class="btn-royal-primary" style="width:100%;" id="copyPhoneLinkBtn">Copy Phone Link</button>
+      </div>
+    `;
+
+    document.body.appendChild(pill);
+    document.body.appendChild(modal);
+
+    pill.addEventListener('click', () => modal.classList.add('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+    document.getElementById('closeMobileQrModalBtn')?.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+    document.getElementById('copyPhoneLinkBtn')?.addEventListener('click', function() {
+      navigator.clipboard.writeText(phoneUrl).then(() => {
+        this.textContent = 'Link Copied!';
+        setTimeout(() => { this.textContent = 'Copy Phone Link'; }, 2000);
+      });
+    });
   }
 }
 

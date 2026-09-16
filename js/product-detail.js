@@ -1214,6 +1214,47 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetSec) targetSec.scrollIntoView({ behavior: 'smooth' });
     });
   }
+
+  // 13. Mobile Sticky PDP Bottom Action Bar
+  function initMobileStickyBar() {
+    if (document.getElementById('mobilePdpStickyBar') || !product) return;
+
+    const stickyBar = document.createElement('div');
+    stickyBar.className = 'mobile-pdp-sticky-bar';
+    stickyBar.id = 'mobilePdpStickyBar';
+
+    stickyBar.innerHTML = `
+      <div class="mobile-pdp-price-wrap">
+        <span class="mobile-pdp-label">Exclusive Price</span>
+        <span class="mobile-pdp-price">₹${product.price.toLocaleString('en-IN')}</span>
+      </div>
+      <div class="mobile-pdp-actions">
+        <button class="mobile-pdp-btn-cart" id="mobileStickyCartBtn">🛒 Add to Cart</button>
+        <button class="mobile-pdp-btn-buy" id="mobileStickyBuyBtn">⚡ Buy Now</button>
+      </div>
+    `;
+
+    document.body.appendChild(stickyBar);
+
+    document.getElementById('mobileStickyCartBtn')?.addEventListener('click', () => {
+      const selectedSize = window.SELECTED_SIZE || 'M';
+      if (window.royalApp) {
+        window.royalApp.addToCart(product.id, selectedSize, '', 1);
+        window.royalApp.openCart();
+      }
+    });
+
+    document.getElementById('mobileStickyBuyBtn')?.addEventListener('click', () => {
+      const buyNowBtn = document.getElementById('pdpBuyNowBtn');
+      if (buyNowBtn) {
+        buyNowBtn.click();
+      } else if (typeof openBuyNowModal === 'function') {
+        openBuyNowModal(product);
+      }
+    });
+  }
+
+  initMobileStickyBar();
 });
 
 
